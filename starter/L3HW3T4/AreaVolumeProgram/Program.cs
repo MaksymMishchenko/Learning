@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace AreaVolumeProgram
 {
     class Program
@@ -10,9 +9,16 @@ namespace AreaVolumeProgram
             var V = pi * Math.Pow(R, 2) * h;
             
             Console.WriteLine("Объем цилиндра равен: {0}", V);
-            Console.ReadKey();
-            
 
+            {
+                double Pi = 3.141, r = 5, H = 4; //Площадь S поверхности цилиндра вычисляется по формуле: S = 2πR2 + 2πR 2 = 2πR(R+h)
+                double a = Pi * Math.Pow(r, 2) * 4;
+                double b = r + H;
+                var S = a = b;
+
+                Console.WriteLine("Площадь поверхности цилиндра: {0} ", S);
+            }
+                Console.ReadKey();
         }
     }
 }
