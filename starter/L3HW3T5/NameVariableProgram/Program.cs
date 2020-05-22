@@ -1,0 +1,10 @@
+﻿namespace NameVariableProgram
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+        }
+    }
+}
