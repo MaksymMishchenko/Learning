@@ -1,72 +1,75 @@
 ﻿using System;
+
 namespace TranslateProgram
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("Введите фрукт на русском языке:");
 
             string word = Console.ReadLine();
+            string result = null;
 
             switch (word)
             {
                 case "яблоко":
                 {
-                        Console.WriteLine("Ответ перевода: Apple");
+                    result = "apple";
                     break;
                 }
                 case "вишня":
                 {
-                        Console.WriteLine("Ответ: Cherry");
-                        break;
+                    result = "cherry";
+                    break;
                 }
                 case "апельсин":
                 {
-                    Console.WriteLine("Ответ: Orange");
+                    result = "orange";
                     break;
                 }
                 case "банан":
                 {
-                    Console.WriteLine("Ответ: Bananas");
+                    result = "bananas";
                     break;
                 }
                 case "черешня":
                 {
-                    Console.WriteLine("Ответ: Cherries");
+                    result = "cherries";
                     break;
                 }
                 case "арбуз":
                 {
-                    Console.WriteLine("Ответ: Watermelon");
+                    result = "watermalon";
                     break;
                 }
                 case "груша":
                 {
-                    Console.WriteLine("Ответ: Pear");
+                    result = "pear";
                     break;
                 }
                 case "слива":
                 {
-                    Console.WriteLine("Ответ: Plum");
+                    result = "plum";
                     break;
                 }
                 case "клубника":
                 {
-                    Console.WriteLine("Ответ: Strawberry");
+                    result = "strawberry";
                     break;
                 }
                 case "грейпфрут":
                 {
-                    Console.WriteLine("Ответ: Grapefruit");
+                    result = "grapefruit";
                     break;
                 }
                 default:
                 {
-                    Console.WriteLine("В переводчике нету слова для перевода. Попробуйте ввести другое слово!");
+                    Console.WriteLine("В переводчике нету слова для перевода. Попробуйте ввести другое слово!" );
                     break;
                 }
             }
+            Console.WriteLine("Translate: " + result);
             Console.ReadKey();
         }
     }
