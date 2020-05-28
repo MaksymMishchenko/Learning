@@ -13,21 +13,17 @@ namespace NumberParityProgram
             {
                 Console.WriteLine("You entered {0}, it's even number", value);
             }
-
             else
-
             {
                 Console.WriteLine("You entered {0}, it's not even number", value);
             }
             //second option
             
-            if ((value % 1) == 0)
+            if ((value & 1) == 0)
             {
                 Console.WriteLine("You entered {0}, it's even number", value);
             }
-
             else
-
             {
                 Console.WriteLine("You entered {0}, it's not even number", value);
             }
