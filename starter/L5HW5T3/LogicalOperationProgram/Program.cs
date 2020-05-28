@@ -27,7 +27,7 @@ namespace LogicalOperationProgram
             }
             {
                 //10 << 64 = 
-                var result = (x = y) << (x++ ^ z);
+                var result = x = y << x++ ^ z;
 
                 Console.WriteLine("Result of the x mathematical expression {0}", result);
             }
