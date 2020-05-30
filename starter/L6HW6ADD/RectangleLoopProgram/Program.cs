@@ -6,9 +6,9 @@ namespace RectangleLoopProgram
     {
         static void Main()
         {// create loop for
-            for (int vertical = 0; vertical < 9; vertical++)
+            for (int i = 0; i < 10; i++)
             {//create nested loop for on body first loop for 
-                for (int horizont = 0; horizont < 25; horizont++)
+                for (int r = 0; r < 20; r++)
                 {
                     //display on screen
                     Console.Write("*");
