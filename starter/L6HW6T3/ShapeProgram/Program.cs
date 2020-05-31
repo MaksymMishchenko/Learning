@@ -6,11 +6,10 @@ namespace ShapeProgram
     {
         static void Main()
         {
-            //create rectangle
-            for (int col = 0; col < 10; col++)
+            //right triangle
+            for (int col = 0; col < 15; col++)
             {
-
-                for (int r = 0; r < 30; r++)
+                for (int r = 0; r < col; r++)
                 {
                     //display on screen
                     Console.Write("*");

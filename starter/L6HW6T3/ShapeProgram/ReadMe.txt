@@ -11,3 +11,4 @@ Rhombus
 
 Solution:
 + Rectangle
++ · right triangle
