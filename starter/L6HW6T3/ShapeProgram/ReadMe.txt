@@ -12,3 +12,4 @@ Rhombus
 Solution:
 + Rectangle
 + · right triangle
++ · equilateral triangle

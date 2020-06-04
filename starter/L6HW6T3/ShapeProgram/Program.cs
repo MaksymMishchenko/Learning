@@ -5,16 +5,28 @@ namespace ShapeProgram
     class Program
     {
         static void Main()
-        {
-            //right triangle
-            for (int col = 0; col < 15; col++)
+
+        {   //start printing characters in a string
+            int g = 24;
+
+            //Characters
+            int z = 2;
+            //8 lines
+            for (int i = 0; i < 8; i++)
             {
-                for (int r = 0; r < col; r++)
+                //print in line
+                for (int j = 0; j < 52; j++)
                 {
-                    //display on screen
-                    Console.Write("*");
+                    Console.Write(" ");
+                    if (j == g)
+                    {
+                        for (int s = 0; s < z; s++)
+                            Console.Write("*");
+                    }
                 }
-                Console.WriteLine();
+                g -= 1;
+                z += 2;
+                Console.Write("\n");
             }
 
             Console.ReadKey();
