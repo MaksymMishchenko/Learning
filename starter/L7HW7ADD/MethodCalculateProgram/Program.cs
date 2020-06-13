@@ -17,7 +17,7 @@ namespace MethodCalculateProgram
             int first = 2, second = 3, third = 5;
             int result = Calculate(first, second, third);
             Console.WriteLine("Arithmetic mean of argument values: {0}", result);
-           Console.Write("Press any key to close console window"); 
+            Console.Write("Press any key to close console window");
             Console.ReadKey();
 
         }
