@@ -9,6 +9,7 @@ Organize the output of the currency conversion operation on the screen.
 
 Solution:
 
- - Create three currency conversation methods USD, EUR & PLN. In each method, we return the value of the current exchange rate multiplied by the value that the user enters.
+ + Create one currency conversation methods Division. In this method, we return the value of the current exchange rate division by the value that the user enters. Round the value that the method returns up to two decimal places for convenience.
 
- - Create method Main in which we ask the investment value and currency. After entering the currency using the conditional SwitchCase construct, we display the result to the user.
+ + Create method Main in which we ask the investment value and currency. After entering the currency using the conditional SwitchCase construct, we display the result to the user. If the user enters an invalid value, we will display warnings that there is no such currency.
+
