@@ -1,0 +1,6 @@
+﻿namespace CubikFootApp
+{
+    class Program
+    {
+    }
+}
