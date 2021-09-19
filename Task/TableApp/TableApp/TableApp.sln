@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableApp", "TableApp\TableApp.csproj", "{9E73F17F-3C85-4B5A-A439-660B3548CCBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableAppTests", "TableAppTests\TableAppTests.csproj", "{FEB3E47C-152C-4D83-99EC-BB98370BCE80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TableAppTests", "TableAppTests\TableAppTests.csproj", "{FEB3E47C-152C-4D83-99EC-BB98370BCE80}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4F86EB66-EFD6-43C7-955A-6688453526D2}"
+	ProjectSection(SolutionItems) = preProject
+		readme.txt = readme.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

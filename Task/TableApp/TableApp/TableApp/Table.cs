@@ -1,33 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TableApp
+﻿namespace TableApp
 {
-    class Table
+    public class Table
     {
-        private int _year1990, _year1991, _year1992, _year1993;
-        private int _number1, _number2, _number3, _number4;
+        private readonly IFile _file;
+        private readonly int[] _array = {1990, 1991, 1992, 1993, 135, 7290, 11300, 16200};
 
-        public Table(int value1, int value2, int value3, int value4, int value5, int value6, int value7, int value8)
+        public Table(IFile file)
         {
-            _year1990 = value1;
-            _year1991 = value2;
-            _year1992 = value3;
-            _year1993 = value4;
-            _number1 = value5;
-            _number2 = value6;
-            _number3 = value7;
-            _number4 = value8;
+            _file = file;
         }
+
         //15 минут
-        public void PrintOnScreen()
+        public string PrintOnScreen()
         {
-            Console.WriteLine($"{_year1990} \t{_number1} \n{_year1991} \t{_number2}" +
-                              $" \n{_year1992} \t{_number3} \n{_year1993} \t{_number4} ");
+            return string.Join(", ", _array);
         }
 
+        public void Save(string path)
+        {
+            _file.AppendAllText(path, PrintOnScreen());
+        }
     }
 }
