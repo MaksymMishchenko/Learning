@@ -3,7 +3,8 @@
 namespace CheckLetterApp
 {
     public class CheckLetter
-    {
+    { 
+        // 20 минут
         public int IsLower(char _letter)
             {
                 if (Char.IsUpper(_letter))
