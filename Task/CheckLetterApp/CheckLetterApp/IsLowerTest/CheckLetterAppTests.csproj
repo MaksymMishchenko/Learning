@@ -19,4 +19,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CheckLetterApp\CheckLetterApp.csproj" />
+  </ItemGroup>
+
 </Project>
