@@ -15,8 +15,8 @@ namespace CheckLetterAppTests
         public void IsLowerTests()
         {
             // arrange
-            int isLower = 1;
-            int isUpper = 0;
+            bool isLower = true;
+            bool isUpper = false;
             var expected = isLower;
 
             //action
