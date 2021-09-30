@@ -30,12 +30,12 @@ namespace CurrencyConvertorAppTests
         public void Convert_5DollarsToFrancTest()
         {
             //arrange
-            float dollar1 = 5.0F;
-            float franc1 = 0.172F;
+            float dollar = 5.0F;
+            float franc = 0.172F;
             float expected = 29.069767F;
 
             //actual
-            var actual = _target.ConvertDollarToFranc(dollar1, franc1);
+            var actual = _target.ConvertDollarToFranc(dollar, franc);
 
             //assert
             Assert.Equal(expected, actual);

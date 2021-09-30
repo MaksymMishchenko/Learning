@@ -1,37 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CurrencyConverterApp
+﻿namespace CurrencyConverterApp
 {
-    public class CurrencyConvertor
+    public class CurrencyConvertor : ICurrencyConverter
     {
-        private float _dollar = 10.0F;
-        private float _pound = 1.487F;
-        private float _franc = 0.172F;
-        private float _mark = 0.584F;
-        private float _yen = 0.00955F;
-
-        public float ConvertDollarToPound(float dollar, float pound)
+        private readonly float _dollar;
+         
+        //15 минут
+        public float ConvertDollarToPound(float dollar)
         {
-            return dollar / pound;
+            
+            return dollar / ExchangeRate.pound;
         }
 
-        public float ConvertDollarToFranc(float dollar, float franc)
+        //15 минут
+        public float ConvertDollarToFranc(float dollar)
         {
-            return dollar / franc;
+            return dollar / ExchangeRate.franc;
         }
 
-        public float ConvertDollarToMark(float dollar, float mark)
+        //15 минут
+        public float ConvertDollarToMark(float dollar)
         {
-            return dollar / mark;
+            return dollar / ExchangeRate.mark;
         }
 
-        public float ConvertDollarToYen(float dollar, float yen)
+        //15 минут
+        public float ConvertDollarToYen(float dollar)
         {
-            return dollar / yen;
+            return dollar / ExchangeRate.yen;
         }
     }
 }
