@@ -1,4 +1,5 @@
 ﻿using System;
+using CalcFractionApp.Model;
 
 namespace CalcFractionApp
 {
@@ -8,7 +9,7 @@ namespace CalcFractionApp
 
         public DisplayResult()
         {
-            _result = new Calculator(new Fraction() { Denominator = 2, Numerator = 1 }, new Fraction() { Denominator = 5, Numerator = 2 });
+            _result = new Calculator();
             
         }
 

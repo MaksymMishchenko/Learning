@@ -1,4 +1,5 @@
 ﻿using System;
+using CalcFractionApp.Model;
 
 namespace CalcFractionApp
 {
@@ -7,11 +8,18 @@ namespace CalcFractionApp
         private Fraction _fraction1;
         private Fraction _fraction2;
 
-        public Calculator(Fraction fraction1, Fraction fraction2)
+
+        public Calculator()
         {
-            _fraction1 = fraction1;
-            _fraction2 = fraction2;
+            InitialFraction();
         }
+
+        void InitialFraction()
+        {
+            _fraction1 = new Fraction{ Denominator = 2, Numerator = 1 };
+            _fraction2 = new Fraction { Denominator = 5, Numerator = 2 };
+        }
+
 
         public int CommonDenominator()
         {
@@ -22,24 +30,26 @@ namespace CalcFractionApp
                 if (i % _fraction1.Denominator == 0 && i % _fraction2.Denominator == 0)
                 {
                     common = i;
-                    return common;
+                    
                 }
-               
             }
-            return 1;
+            return common;
         }
 
-        public string SumFraction()
+        public double SumFraction()
         {
-            var fraction1Numerator = CommonDenominator() / _fraction1.Denominator *
-                            _fraction1.Numerator;
-            var fraction2Numerator = CommonDenominator() / _fraction2.Denominator *
-                                     _fraction2.Numerator;
-            var result = fraction1Numerator + fraction2Numerator;
+            //var fraction1Numerator = CommonDenominator() / _fraction1.Denominator *
+            //                _fraction1.Numerator;
+            //var fraction2Numerator = CommonDenominator() / _fraction2.Denominator *
+            //                         _fraction2.Numerator;
+            //var result = fraction1Numerator + fraction2Numerator;
+            //
+            //var stroka = result + "/" + CommonDenominator(); ;
 
-            var stroka = result + "/" + CommonDenominator(); ;
 
-            return stroka;
+            var result = (_fraction1.Numerator * _fraction2.Denominator +
+                             _fraction2.Numerator * _fraction1.Denominator)/CommonDenominator();
+            return result;
         }
     }
 }

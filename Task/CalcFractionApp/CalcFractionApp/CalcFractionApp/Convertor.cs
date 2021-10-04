@@ -1,4 +1,6 @@
-﻿namespace CalcFractionApp
+﻿using CalcFractionApp.Model;
+
+namespace CalcFractionApp
 {
     public class Convertor
     {
