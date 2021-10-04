@@ -1,10 +1,16 @@
-﻿namespace CalcFractionApp
+﻿using System;
+
+namespace CalcFractionApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
+
         {
-            
+            var disp = new DisplayResult();
+            disp.Show();
+
+
         }
     }
 }
