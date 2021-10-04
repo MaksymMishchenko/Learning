@@ -16,8 +16,8 @@ namespace CalcFractionApp
 
         void InitialFraction()
         {
-            _fraction1 = new Fraction{ Denominator = 2, Numerator = 1 };
-            _fraction2 = new Fraction { Denominator = 5, Numerator = 2 };
+            _fraction1 = new Fraction( 1,2);
+            _fraction2 = new Fraction(2,5);
         }
 
 

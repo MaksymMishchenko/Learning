@@ -5,8 +5,14 @@ namespace CalcFractionApp.Model
 {
     public class Fraction
     {
-        public double Numerator { get; set; }
-        public double Denominator { get; set; }
+        public Fraction(double numerator, double denominator)
+        {
+            Numerator = numerator;
+            Denominator = denominator;
+        }
+
+        public double Numerator { get; }
+        public double Denominator { get; }
 
     }
 }

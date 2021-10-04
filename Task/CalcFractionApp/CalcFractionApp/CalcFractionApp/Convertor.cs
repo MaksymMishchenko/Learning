@@ -8,7 +8,7 @@ namespace CalcFractionApp
 
         public Convertor(string concatenation)
         {
-            _fraction = new Fraction {Denominator = concatenation[0], Numerator = concatenation[2]};
+            _fraction = new Fraction (StringToChar(concatenation)[0], StringToChar(concatenation)[2]);
             
         }
 
@@ -18,7 +18,5 @@ namespace CalcFractionApp
             
             return arr;
         }
-
-
     }
 }
