@@ -3,53 +3,28 @@ using CalcFractionApp.Model;
 
 namespace CalcFractionApp
 {
-    class Calculator
+    public class Calculator
     {
-        private Fraction _fraction1;
-        private Fraction _fraction2;
+        private int _returnDenominator;
 
-
-        public Calculator()
+        public int ReturnDenominator(Fraction a, Fraction b)
         {
-            InitialFraction();
-        }
-
-        void InitialFraction()
-        {
-            _fraction1 = new Fraction( 1,2);
-            _fraction2 = new Fraction(2,5);
-        }
-
-
-        public int CommonDenominator()
-        {
-            int common=0;
-
-            for (int i = 1; i <= _fraction1.Denominator * _fraction2.Denominator; i++)
+            for (int i = 1; i <= a.Denominator * b.Denominator; i++)
             {
-                if (i % _fraction1.Denominator == 0 && i % _fraction2.Denominator == 0)
+                if (i % a.Denominator == 0 && i % a.Denominator == 0)
                 {
-                    common = i;
-                    
+                    _returnDenominator = i;
                 }
             }
-            return common;
+            return _returnDenominator;
         }
 
-        public double SumFraction()
+        public Fraction Sum(Fraction first, Fraction second)
         {
-            //var fraction1Numerator = CommonDenominator() / _fraction1.Denominator *
-            //                _fraction1.Numerator;
-            //var fraction2Numerator = CommonDenominator() / _fraction2.Denominator *
-            //                         _fraction2.Numerator;
-            //var result = fraction1Numerator + fraction2Numerator;
-            //
-            //var stroka = result + "/" + CommonDenominator(); ;
-
-
-            var result = (_fraction1.Numerator * _fraction2.Denominator +
-                             _fraction2.Numerator * _fraction1.Denominator)/CommonDenominator();
-            return result;
+            ReturnDenominator(first,second);
+            var result = (first.Numerator * second.Denominator +
+                          second.Numerator * first.Denominator);
+            return new Fraction(result,_returnDenominator);
         }
     }
 }

@@ -1,18 +1,14 @@
-﻿using System;
-using System.Dynamic;
-
-namespace CalcFractionApp.Model
+﻿namespace CalcFractionApp.Model
 {
     public class Fraction
     {
-        public Fraction(double numerator, double denominator)
+        public decimal Numerator { get; }
+        public decimal Denominator { get; }
+
+        public Fraction(decimal numerator, decimal denominator)
         {
             Numerator = numerator;
             Denominator = denominator;
         }
-
-        public double Numerator { get; }
-        public double Denominator { get; }
-
     }
 }
