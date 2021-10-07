@@ -17,7 +17,22 @@ namespace CalcFractionAppTest
             _string = new SplitStrings();
         }
         [Fact]
-        
+
+        public void ReturnDenominatorTest()
+        {
+
+            //arrange
+            Fraction fr1 = _string.SplitToChar("1/2");
+            Fraction fr2 = _string.SplitToChar("2/5");
+            var expected = 10;
+
+            //actual
+            var actual = _target.ReturnDenominator(fr1, fr2);
+
+            //assert
+            Assert.Equal(expected, actual);
+        }
+
 
         public void Sum_Return_9_10()
         {
