@@ -8,10 +8,10 @@ namespace CalcFractionApp
         static void Main()
 
         {
-            SplitStrings stroka = new SplitStrings();
+            Convertor stroka = new Convertor();
 
-            Fraction a = stroka.SplitToChar("1/2");
-            Fraction b = stroka.SplitToChar("2/5");
+            Fraction a = stroka.CreateFraction("1/2");
+            Fraction b = stroka.CreateFraction("2/5");
 
             Calculator calc = new Calculator();
             var result = calc.Sum(a, b);

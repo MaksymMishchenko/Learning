@@ -5,26 +5,25 @@ namespace CalcFractionApp
 {
     public class Calculator
     {
-        private int _returnDenominator;
-
-        public int ReturnDenominator(Fraction a, Fraction b)
+        private int ReturnDenominator(Fraction a, Fraction b)
         {
+            var den = 0;
             for (int i = 1; i <= a.Denominator * b.Denominator; i++)
             {
                 if (i % a.Denominator == 0 && i % a.Denominator == 0)
                 {
-                    _returnDenominator = i;
+                    den = i;
                 }
             }
-            return _returnDenominator;
+            return den;
         }
 
         public Fraction Sum(Fraction first, Fraction second)
         {
-            ReturnDenominator(first,second);
+            var den = ReturnDenominator(first,second);
             var result = (first.Numerator * second.Denominator +
                           second.Numerator * first.Denominator);
-            return new Fraction(result,_returnDenominator);
+            return new Fraction(result,den);
         }
     }
 }
