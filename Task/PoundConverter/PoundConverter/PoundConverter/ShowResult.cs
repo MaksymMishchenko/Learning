@@ -2,18 +2,11 @@
 
 namespace PoundConverter
 {
-    class ShowResult
+    class ShowResult: IShowResult
     {
-        private PoundConverter _result;
-
-        public ShowResult(PoundConverter result)
-        {
-            _result = result;
-        }
-
         public void Show(object obj)
         {
-            Console.WriteLine(_result.ToString());
+            Console.WriteLine(obj);
         }
     }
 }
