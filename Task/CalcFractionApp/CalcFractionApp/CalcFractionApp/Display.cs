@@ -5,9 +5,9 @@ namespace CalcFractionApp
 {
     class Display : IDisplay
     {
-        public void Show(Fraction obj)
+        public void Show(object obj)
         {
-            Console.WriteLine(obj.Numerator+"/"+obj.Denominator);
+            Console.WriteLine(obj);
         }
     }
 }
