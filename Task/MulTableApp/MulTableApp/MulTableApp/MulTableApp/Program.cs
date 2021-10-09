@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Channels;
 
 namespace MulTableApp
 {
@@ -7,14 +8,11 @@ namespace MulTableApp
         static void Main(string[] args)
         {
             // вызываем метод и в качестве параметра передаем 2
-            BuildTable("2");
+            BuildTable("2 * 2 = 4");
         }
         public static void BuildTable(string str)
         {
-            var number = int.Parse(str);
-            if (number <= 10)
-            {
-                // выводим левый верхний угол таблицы
+            // выводим левый верхний угол таблицы
                 Console.Write($"{(char)9556}");
 
                 // выводим верхнюю горизонталь таблицы
@@ -32,18 +30,9 @@ namespace MulTableApp
                     Console.Write($"{(char)9553}");
                 }
 
-                // преобразуем string в int
-
-                // результат вычисления помещенный в таблицу
-                for (int i = 2; i <= number; i++)
-                {
-                    for (int j = 2; j <= i; j++)
-                    {
-                        var result = i * j;
-                        Console.Write($"{i} * {j} = {result}");
-                    }
-                }
-
+                // строка помещенная в таблицу
+                Console.Write(str);
+               
                 // выводим правую вертикаль таблицы
                 Console.Write($"{(char)9553}");
 
@@ -59,11 +48,6 @@ namespace MulTableApp
                     Console.Write($"{(char)9552}");
                 }
                 Console.Write($"{(char)9565}");
-            }
-            else
-            {
-                Console.WriteLine("Введите число от 2 до 10");
-            }
         }
     }
 }
