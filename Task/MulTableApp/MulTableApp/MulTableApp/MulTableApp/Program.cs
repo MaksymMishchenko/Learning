@@ -6,6 +6,12 @@ namespace MulTableApp
     {
         static void Main(string[] args)
         {
+            // вызываем метод и в качестве параметра передаем 2
+            BuildTable("2");
+        }
+
+        public static void BuildTable(string str)
+        {
             // выводим левый верхний угол таблицы
             Console.Write($"{(char)9556}");
 
@@ -24,10 +30,12 @@ namespace MulTableApp
                 Console.Write($"{(char)9553}");
             }
 
+            // преобразуем string в int
+            var number = int.Parse(str);
             // результат вычисления помещенный в таблицу
-            for (int i = 2; i <= 2; i++)
+            for (int i = 2; i <= number; i++) 
             {
-                for (int j = 2; j <= 2; j++)
+                for (int j = 2; j <= i; j++)
                 {
                     var result = i * j;
                     Console.Write($"{i} * {j} = {result}");
