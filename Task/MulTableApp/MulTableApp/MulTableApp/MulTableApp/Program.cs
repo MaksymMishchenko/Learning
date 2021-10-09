@@ -9,53 +9,61 @@ namespace MulTableApp
             // вызываем метод и в качестве параметра передаем 2
             BuildTable("2");
         }
-
         public static void BuildTable(string str)
         {
-            // выводим левый верхний угол таблицы
-            Console.Write($"{(char)9556}");
-
-            // выводим верхнюю горизонталь таблицы
-            for (int j = 0; j < 9; j++)
-            {
-                Console.Write($"{(char)9552}");
-            }
-
-            // выводим правый верхний угол таблицы
-            Console.WriteLine($"{(char)9559}");
-
-            // выводим левую вертикаль таблицы
-            for (int j = 0; j < 1; j++)
-            {
-                Console.Write($"{(char)9553}");
-            }
-
-            // преобразуем string в int
             var number = int.Parse(str);
-            // результат вычисления помещенный в таблицу
-            for (int i = 2; i <= number; i++) 
+            if (number <= 10)
             {
-                for (int j = 2; j <= i; j++)
+                // выводим левый верхний угол таблицы
+                Console.Write($"{(char)9556}");
+
+                // выводим верхнюю горизонталь таблицы
+                for (int j = 0; j < 9; j++)
                 {
-                    var result = i * j;
-                    Console.Write($"{i} * {j} = {result}");
+                    Console.Write($"{(char)9552}");
                 }
+
+                // выводим правый верхний угол таблицы
+                Console.WriteLine($"{(char)9559}");
+
+                // выводим левую вертикаль таблицы
+                for (int j = 0; j < 1; j++)
+                {
+                    Console.Write($"{(char)9553}");
+                }
+
+                // преобразуем string в int
+
+                // результат вычисления помещенный в таблицу
+                for (int i = 2; i <= number; i++)
+                {
+                    for (int j = 2; j <= i; j++)
+                    {
+                        var result = i * j;
+                        Console.Write($"{i} * {j} = {result}");
+                    }
+                }
+
+                // выводим правую вертикаль таблицы
+                Console.Write($"{(char)9553}");
+
+                // переводим курсор на новую строку
+                Console.WriteLine();
+
+                // выводим левый нижний угол таблицы
+                Console.Write($"{(char)9562}");
+
+                // выводим нижнюю горизонталь таблицы
+                for (int j = 0; j < 9; j++)
+                {
+                    Console.Write($"{(char)9552}");
+                }
+                Console.Write($"{(char)9565}");
             }
-            // выводим правую вертикаль таблицы
-            Console.Write($"{(char)9553}");
-
-            // переводим курсор на новую строку
-            Console.WriteLine();
-
-            // выводим левый нижний угол таблицы
-            Console.Write($"{(char)9562}");
-
-            // выводим нижнюю горизонталь таблицы
-            for (int j = 0; j < 9; j++)
+            else
             {
-                Console.Write($"{(char)9552}");
+                Console.WriteLine("Введите число от 2 до 10");
             }
-            Console.Write($"{(char)9565}");
         }
     }
 }
