@@ -2,7 +2,7 @@
 
 namespace CalcFractionApp
 {
-    interface IDisplay
+    interface IConsoleWrapper
     {
         void Show(object obj);
     }

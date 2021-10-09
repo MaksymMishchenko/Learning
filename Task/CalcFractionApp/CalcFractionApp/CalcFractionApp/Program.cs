@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Channels;
 using CalcFractionApp.Model;
 
 namespace CalcFractionApp
@@ -17,7 +16,7 @@ namespace CalcFractionApp
             Calculator calc = new Calculator();
             var result = calc.Sum(a, b);
 
-            Display show = new Display();
+            ConsoleWrapper show = new ConsoleWrapper();
             Console.WriteLine($"{result.Numerator}/{result.Denominator}");
 
             Console.ReadKey();

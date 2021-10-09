@@ -1,9 +1,8 @@
 ﻿using System;
-using CalcFractionApp.Model;
 
 namespace CalcFractionApp
 {
-    class Display : IDisplay
+    class ConsoleWrapper : IConsoleWrapper
     {
         public void Show(object obj)
         {
