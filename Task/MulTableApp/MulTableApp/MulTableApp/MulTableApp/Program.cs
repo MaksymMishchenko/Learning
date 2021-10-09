@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Channels;
 
 namespace MulTableApp
 {
@@ -6,27 +7,35 @@ namespace MulTableApp
     {
         static void Main(string[] args)
         {
-           // for (int i = 0x2500; i <= 0x2570; i += 0x10)
-           // {
-           //     for (int c = 0; c <= 0xF; ++c)
-           //     {
-           //         Console.WriteLine($"{(char) (i + c)} - i = {i}, c = {c}");
-           //     }
-           //
-           //     Console.WriteLine();
-           // }
+            Console.Clear();
+            // левый верхний
+            Console.Write($"{(char)9556}");
 
-           int result = 0;
-           for (int i = 2; i <=10; i++)
-           {
-               for (int j = 2; j <= 10; j++)
-               {
-                   result = i * j;
-                   Console.WriteLine($"{i} * {j} = {result}");
-               }
+            // горизонтальная
+            Console.Write($"{(char)9552}");
+            Console.Write($"{(char)9552}");
+            Console.Write($"{(char)9552}");
+            Console.Write($"{(char)9552}");
 
-               Console.WriteLine();
-           }
+            // правый верхний
+            Console.Write($"{(char)9559}");
+            Console.WriteLine();
+
+            // вторая строка
+            // вертикальная линия
+            Console.Write($"{(char)9553}");
+            Console.Write("....");
+            Console.Write($"{(char)9553}");
+            Console.WriteLine();
+
+            // третья строка
+            // левый нижний
+            Console.Write($"{(char)9562}");
+            Console.Write($"{(char)9552}");
+            Console.Write($"{(char)9552}");
+            Console.Write($"{(char)9552}");
+            Console.Write($"{(char)9552}");
+            Console.Write($"{(char)9565}");
 
         }
     }
