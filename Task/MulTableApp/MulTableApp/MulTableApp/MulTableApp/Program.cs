@@ -49,7 +49,6 @@ namespace MulTableApp
             Console.WriteLine($"{(char) 9559}");
 
             // данные помещенная в таблицу
-
             for (int i = 1; i < arr1.Length; i++)
             {
                 Console.Write($"{(char)9553}");
