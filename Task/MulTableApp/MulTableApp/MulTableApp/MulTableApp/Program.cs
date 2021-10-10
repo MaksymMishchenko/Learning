@@ -1,53 +1,58 @@
 ﻿using System;
-using System.Threading.Channels;
 
 namespace MulTableApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            // вызываем метод и в качестве параметра передаем 2
-            BuildTable("2 * 2 = 4");
+            string[] str = {
+                "2 *  1 =  2", 
+                "2 *  2 =  4", 
+                "2 *  3 =  6", 
+                "2 *  4 =  8", 
+                "2 *  5 = 10", 
+                "2 *  6 = 12", 
+                "2 *  7 = 14", 
+                "2 *  8 = 16", 
+                "2 *  9 = 18", 
+                "2 * 10 = 20"
+            };
+
+            BuildTable(str);
         }
-        public static void BuildTable(string str)
+        public static void BuildTable(string[] str)
         {
-            // выводим левый верхний угол таблицы
-                Console.Write($"{(char)9556}");
+            // левый верхний
+            Console.Write($"{(char)9556}");
 
-                // выводим верхнюю горизонталь таблицы
-                for (int j = 0; j < 9; j++)
-                {
-                    Console.Write($"{(char)9552}");
-                }
+            // выводим верхнюю горизонталь таблицы
+            for (int j = 0; j < str.Length+1; j++)
+            {
+                Console.Write($"{(char) 9552}");
+            }
 
-                // выводим правый верхний угол таблицы
-                Console.WriteLine($"{(char)9559}");
+            // выводим правый верхний угол таблицы
+            Console.WriteLine($"{(char) 9559}");
 
-                // выводим левую вертикаль таблицы
-                for (int j = 0; j < 1; j++)
-                {
-                    Console.Write($"{(char)9553}");
-                }
-
-                // строка помещенная в таблицу
-                Console.Write(str);
-               
-                // выводим правую вертикаль таблицы
+            // строка помещенная в таблицу
+            foreach (var elem in str)
+            {
                 Console.Write($"{(char)9553}");
+                Console.Write(elem);
+                Console.WriteLine($"{(char)9553}");
+                //Console.Write(" ");
+            }
 
-                // переводим курсор на новую строку
-                Console.WriteLine();
+            // выводим левый нижний угол таблицы
+            Console.Write($"{(char)9562}");
 
-                // выводим левый нижний угол таблицы
-                Console.Write($"{(char)9562}");
-
-                // выводим нижнюю горизонталь таблицы
-                for (int j = 0; j < 9; j++)
-                {
-                    Console.Write($"{(char)9552}");
-                }
-                Console.Write($"{(char)9565}");
+            // выводим нижнюю горизонталь таблицы
+            for (int j = 0; j < str.Length + 1; j++)
+            {
+                Console.Write($"{(char)9552}");
+            }
+            Console.Write($"{(char)9565}");
         }
     }
 }
