@@ -40,7 +40,7 @@ namespace MulTableApp
             Console.Write($"{(char)9556}");
 
             // выводим верхнюю горизонталь таблицы
-            for (int j = 1; j < arr1.Length+arr2.Length+8; j++)
+            for (int j = 1; j < arr1.Length+arr2.Length+6; j++)
             {
                 Console.Write($"{(char) 9552}");
             }
@@ -52,15 +52,17 @@ namespace MulTableApp
             for (int i = 1; i < arr1.Length; i++)
             {
                 Console.Write($"{(char)9553}");
-                Console.Write($"{arr1[i]}\t{arr2[i]}");
-                Console.WriteLine($" {(char)9553}");
+                Console.Write($"{arr1[i]} {(char)9474} {arr2[i]}");
+                Console.WriteLine($"{(char)9553}");
+
+                //Console.WriteLine($" {(char)9474}");
             }
 
             // выводим левый нижний угол таблицы
             Console.Write($"{(char)9562}");
 
             // выводим нижнюю горизонталь таблицы
-            for (int j = 0; j < arr1.Length+arr2.Length+7; j++)
+            for (int j = 0; j < arr1.Length+arr2.Length+5; j++)
             {
                 Console.Write($"{(char)9552}");
             }
