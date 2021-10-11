@@ -8,7 +8,16 @@ namespace MulTableApp
     {
         static void Main()
         {
-            string[] firstColumn = {
+            string[] firstColumn = ReturnFirstColumn();
+            string[] secondColumn = ReturnSecondColumn();
+            string[] thirdColumn = ReturnThirdColumn();
+
+            BuildTable(firstColumn,secondColumn,thirdColumn);
+        }
+        public static string[] ReturnFirstColumn()
+        {
+            string[] secondColumn = {
+
                 "2 *  1 =  2",
                 "2 *  2 =  4",
                 "2 *  3 =  6",
@@ -20,6 +29,10 @@ namespace MulTableApp
                 "2 *  9 = 18",
                 "2 * 10 = 20"
             };
+            return secondColumn;
+        }
+        public static string[] ReturnSecondColumn()
+        {
             string[] secondColumn = {
 
                 "3 *  1 =  3",
@@ -33,7 +46,10 @@ namespace MulTableApp
                 "3 *  9 = 27",
                 "3 * 10 = 30"
             };
-
+            return secondColumn;
+        }
+        public static string[] ReturnThirdColumn()
+        {
             string[] thirdColumn = {
 
                 "4 *  1 =  4",
@@ -47,10 +63,8 @@ namespace MulTableApp
                 "4 *  9 = 36",
                 "4 * 10 = 40"
             };
-
-            BuildTable(firstColumn,secondColumn,thirdColumn);
+            return thirdColumn;
         }
-
         public static void BuildTable(string[] arr1, string[] arr2, string[]arr3)
         {
             // левый верхний
@@ -98,17 +112,6 @@ namespace MulTableApp
                 {
                     Console.Write($"{(char)9575}");
                 }
-
-
-
-                //if (j != arr1.Length+2)
-                //{
-                //    Console.Write($"{(char)9552}");
-                //}
-                //else
-                //{
-                //    Console.Write($"{(char)9575}");
-                //}
             }
             Console.Write($"{(char)9565}");
         }
