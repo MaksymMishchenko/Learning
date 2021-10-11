@@ -57,13 +57,15 @@ namespace MulTableApp
             Console.Write($"{(char)9556}");
 
             // выводим верхнюю горизонталь таблицы
-            for (int j = 1; j < arr1.Length+arr2.Length+arr3.Length+10; j++)
+            for (int j = 0; j < arr1.Length+arr2.Length+arr3.Length+7; j++)
             {
-                if (j != 13)
+                Console.Write($"{(char) 9552}");
+                if (j == arr1.Length+1)
                 {
-                    Console.Write($"{(char)9552}");
+                    Console.Write($"{(char)9572}");
                 }
-                else
+
+                if (j == arr1.Length + arr2.Length+4)
                 {
                     Console.Write($"{(char)9572}");
                 }
@@ -84,16 +86,29 @@ namespace MulTableApp
             Console.Write($"{(char)9562}");
 
             // выводим нижнюю горизонталь таблицы
-            for (int j = 0; j < arr1.Length+arr2.Length+arr3.Length+9; j++)
+            for (int j = 0; j < arr1.Length+arr2.Length+arr3.Length+7; j++)
             {
-                if (j != 12)
-                {
-                    Console.Write($"{(char)9552}");
-                }
-                else
+                Console.Write($"{(char)9552}");
+                if (j == arr1.Length + 1)
                 {
                     Console.Write($"{(char)9575}");
                 }
+
+                if (j == arr1.Length + arr2.Length + 4)
+                {
+                    Console.Write($"{(char)9575}");
+                }
+
+
+
+                //if (j != arr1.Length+2)
+                //{
+                //    Console.Write($"{(char)9552}");
+                //}
+                //else
+                //{
+                //    Console.Write($"{(char)9575}");
+                //}
             }
             Console.Write($"{(char)9565}");
         }
