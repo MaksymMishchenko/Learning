@@ -13,7 +13,7 @@ namespace MulTableApp
                 var mulTab = generator.Create(2, 9);
                 var tabParams = manager.Analyzation(mulTab);
                 var builder = new TableBuilder(tabParams, mulTab);
-                builder.Build(tabParams);
+                builder.Build(tabParams, mulTab);
 
                 Console.WriteLine("Q");
             } while (!(Console.ReadKey().Key == ConsoleKey.Q));

@@ -13,8 +13,7 @@ namespace MulTableApp
             _tabParams = tabParams;
             _content = content;
         }
-
-        public void Build(TableParams param)
+        public void Build(TableParams param, string[][] content)
         {
             // ╔
             Console.Write($"{(char)9556}");
@@ -31,7 +30,11 @@ namespace MulTableApp
             {
                 // ║
                 Console.Write($"{(char)9553}");
+
+                // content
                 Console.Write("           ");
+
+                // ║
                 Console.Write($"{(char)9553}");
                 Console.WriteLine();
             }
@@ -47,6 +50,7 @@ namespace MulTableApp
 
             // ╝
             Console.Write($"{(char)9565}");
+            Console.WriteLine();
         }
     }
 }
