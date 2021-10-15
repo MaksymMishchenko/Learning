@@ -26,17 +26,22 @@ namespace MulTableApp
             // ╗
             Console.WriteLine($"{(char)9559}");
 
+            // content
             for (int i = 0; i < param.High; i++)
             {
                 // ║
                 Console.Write($"{(char)9553}");
+                for (int j = 0; j < 1; j++)
+                {
+                    for (int k = 0; k < 1; k++)
+                    {
+                        Console.Write($"{content[j][k]}  ");
+                    }
 
-                // content
-                Console.Write("           ");
-
+                }
                 // ║
-                Console.Write($"{(char)9553}");
-                Console.WriteLine();
+                Console.WriteLine($"{(char)9553}");
+
             }
 
             // ╚

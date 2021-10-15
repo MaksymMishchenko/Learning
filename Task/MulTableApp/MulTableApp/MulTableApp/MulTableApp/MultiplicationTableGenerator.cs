@@ -20,14 +20,13 @@ namespace MulTableApp
 
             for (int i = 0, d = from ; i < till-1; i++, d++)
             {
-                for (int j = 0, a=d, b=1, n=0; j < array[i].Length; j++, b++)
+                for (int j = 0, a = d, b = 1, n = 0; j < array[i].Length; j++, b++)
                 {
                     var c = a * b;
-                    array[i][j] = n.ToString($"{a}*{b}={c}");
-                    
+                    array[i][j] = n.ToString($"{a} * {b} = {c}");
                 }
             }
-            return new string[8][];
+            return array;
         }
     }
 }
