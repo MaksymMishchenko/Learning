@@ -24,25 +24,11 @@ namespace MulTableApp
                 Console.Write($"{(char)9552}");
             }
             // ╗
-            Console.WriteLine($"{(char)9559}");
+            Console.Write($"{(char)9559}");
+            Console.WriteLine();
 
             // content
-            for (int i = 0; i < param.High; i++)
-            {
-                // ║
-                Console.Write($"{(char)9553}");
-                for (int j = 0; j < 1; j++)
-                {
-                    for (int k = 0; k < 1; k++)
-                    {
-                        Console.Write($"{content[j][k]}  ");
-                    }
-
-                }
-                // ║
-                Console.WriteLine($"{(char)9553}");
-
-            }
+            Show(content);
 
             // ╚
             Console.Write($"{(char)9562}");
@@ -56,6 +42,21 @@ namespace MulTableApp
             // ╝
             Console.Write($"{(char)9565}");
             Console.WriteLine();
+        }
+
+        public void Show(string[][] content)
+        {
+            for (int n = 0, m = 9; n < content.Length; n++, m--)
+            {
+                for (int i = 0; i < content.Length; i++)
+                {
+                    for (int j = n; j < content[i].Length - m; j++)
+                    {
+                        Console.Write($"{content[i][j]}  ");
+                    }
+                }
+                Console.WriteLine();
+            }
         }
     }
 }

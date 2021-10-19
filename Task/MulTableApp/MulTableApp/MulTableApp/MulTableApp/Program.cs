@@ -10,7 +10,7 @@ namespace MulTableApp
             var manager = new TableManager();
             do
             {
-                var mulTab = generator.Create(2, 2);
+                var mulTab = generator.Create(2, 9);
                 var tabParams = manager.Analyzation(mulTab);
                 var builder = new TableBuilder(tabParams, mulTab);
                 builder.Build(tabParams, mulTab);
