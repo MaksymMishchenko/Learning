@@ -16,10 +16,10 @@ namespace ArrayPractice
         }
 
         /// <summary>
-        /// Fills the array with random values
+        /// Fills the array positive numbers with random values
         /// </summary>
         /// <param name="arr"></param>
-        private static void FillArray(int[] arr)
+        private static void FillArrayPositiveNumbers(int[] arr)
         {
             var rand = new Random();
             for (int i = 0; i < arr.Length; i++)
@@ -27,6 +27,20 @@ namespace ArrayPractice
                 arr[i] = rand.Next(1, 100);
             }
         }
+
+        /// <summary>
+        /// Fills the array positive and negative numbers with random values
+        /// </summary>
+        /// <param name="arr"></param>
+        private static void FillArrayPosNegNumbers(int[] arr)
+        {
+            var rand = new Random();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = rand.Next(-50, 50);
+            }
+        }
+
         /// <summary>
         /// Sorts items from smallest to largest
         /// </summary>
@@ -65,14 +79,16 @@ namespace ArrayPractice
         static void Main(string[] args)
         {
             var arr = CreateArray(10);
-            FillArray(arr);
+            FillArrayPositiveNumbers(arr);
+
             Console.WriteLine("Random elements of array:");
             ShowArray(arr);
             Console.WriteLine(new string('-', 75));
 
-            Console.WriteLine("Sorted array:");
             SortArray(arr);
+            Console.WriteLine("Sorted array:");
             ShowArray(arr);
+            Console.WriteLine(new string('-', 75));
         }
     }
 }
