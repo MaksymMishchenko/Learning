@@ -62,6 +62,17 @@ namespace ArrayPractice
             }
         }
 
+        private static void ChangeNegativeToPositiveNumbers(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] < 0)
+                {
+                    arr[i] = -arr[i];
+                }
+            }
+        }
+
         /// <summary>
         /// Displays array elements to the screen
         /// </summary>
@@ -81,7 +92,7 @@ namespace ArrayPractice
             var arr = CreateArray(10);
             FillArrayPositiveNumbers(arr);
 
-            Console.WriteLine("Random elements of array:");
+            Console.WriteLine(" Random Fill array positive numbers:");
             ShowArray(arr);
             Console.WriteLine(new string('-', 75));
 
@@ -89,6 +100,14 @@ namespace ArrayPractice
             Console.WriteLine("Sorted array:");
             ShowArray(arr);
             Console.WriteLine(new string('-', 75));
+
+            FillArrayPosNegNumbers(arr);
+            SortArray(arr);
+            Console.WriteLine("Sorted array:");
+            ShowArray(arr);
+            ChangeNegativeToPositiveNumbers(arr);
+            Console.WriteLine("Fills array positive and negative numbers:");
+            ShowArray(arr);
         }
     }
 }
