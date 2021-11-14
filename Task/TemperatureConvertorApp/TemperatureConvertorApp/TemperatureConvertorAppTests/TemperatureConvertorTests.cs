@@ -12,7 +12,7 @@ namespace TemperatureConvertorAppTests
             _target = new TemperatureConvertor();
         }
         [Fact]
-        public void Celsius_25C_ToFahrenheit_77F()
+        public void Celsius_CelsiusToFahrenheit_Return77F()
         {
             //arrange
             int celsius = 25;

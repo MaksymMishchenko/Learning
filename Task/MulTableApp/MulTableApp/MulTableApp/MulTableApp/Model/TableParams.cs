@@ -2,14 +2,8 @@
 {
     internal class TableParams
     {
-        public int High
-        {
-            get { return 10; }
-        }
+        public int Height { get; set; }
 
-        public int Width
-        {
-            get { return 11; }
-        }
+        public int Width { get; set; }
     }
 }

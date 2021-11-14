@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using MulTableApp.Model;
 
 namespace MulTableApp
@@ -18,8 +19,14 @@ namespace MulTableApp
             // ╔
             Console.Write($"{(char)9556}");
 
-            for (int i = 0; i < param.Width; i++)
+            for (int i = 0; i < param.Width * content.Length; i++)
             {
+                if (i % param.Width == 0 && i != 0)
+                {
+                    // ╤
+                    Console.Write($"{(char)9572}");
+                }
+
                 // ═
                 Console.Write($"{(char)9552}");
             }
@@ -27,36 +34,49 @@ namespace MulTableApp
             Console.Write($"{(char)9559}");
             Console.WriteLine();
 
-            // content
-            Show(content);
+            for (int n = 0, m = 8; n < content.Length + 1; n++, m--)
+            {
+                // ║
+                Console.Write($"{(char)9553}");
+                for (int i = 0; i < content.Length; i++)
+                {
+                    for (int j = n; j < content[i].Length - m; j++)
+                    {
+                        Console.Write($"{content[i][j]}");
 
+                        
+                            if (i == 3)
+                            {
+                                // ║
+                                Console.Write($"{(char)9553}");
+                            }
+                            else
+                            {
+                                // │
+                                Console.Write($"{(char)9474}");
+                            }
+                            
+                        
+                    }
+                }
+                Console.WriteLine();
+            }
             // ╚
             Console.Write($"{(char)9562}");
 
-            for (int i = 0; i < param.Width; i++)
+            for (int i = 0; i < param.Width * content.Length; i++)
             {
+                if (i % param.Width == 0 && i != 0)
+                {
+                    // ╧
+                    Console.Write($"{(char)9575}");
+                }
                 // ═
                 Console.Write($"{(char)9552}");
             }
 
             // ╝
             Console.Write($"{(char)9565}");
-            Console.WriteLine();
-        }
-
-        public void Show(string[][] content)
-        {
-            for (int n = 0, m = 9; n < content.Length; n++, m--)
-            {
-                for (int i = 0; i < content.Length; i++)
-                {
-                    for (int j = n; j < content[i].Length - m; j++)
-                    {
-                        Console.Write($"{content[i][j]}  ");
-                    }
-                }
-                Console.WriteLine();
-            }
         }
     }
 }

@@ -1,7 +1,12 @@
-﻿namespace ArithmeticCalculatorApp
+﻿using ArithmeticCalculatorApp.Model;
+
+namespace ArithmeticCalculatorApp
 {
     public class Calculator
     {
+        private readonly Data _operandA;
+        private readonly Data _operandB;
+
         public double Adds(double a, double b)
         {
             return a + b;
