@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ArrayPracticeApp
 {
@@ -37,53 +38,60 @@ namespace ArrayPracticeApp
         /// Outputs even elements of an array.
         /// </summary>
         /// <param name="arr"></param>
-        private static void GetEvenNumbers(int[] arr)
+        private static List<int> GetEvenNumbers(int[] arr)
         {
+            List<int> numbers = new List<int>();
+
             for (int i = 0; i < arr.Length; i++)
             {
                 if (arr[i] % 2 == 0)
                 {
-                    Console.Write($"{arr[i]} \t");
+                    numbers.Add(arr[i]);
                 }
             }
-            Console.WriteLine();
+
+            return numbers;
         }
 
         /// <summary>
         /// Displays all elements of the array after 1.
         /// </summary>
         /// <param name="arr"></param>
-        private static void GetOddIndexOfArray(int[] arr)
+        private static List<int> GetOddIndexOfArray(int[] arr)
         {
+            List<int> numbers = new List<int>();
+
             for (int i = 0; i < arr.Length; i++)
             {
                 if (i % 2 == 0)
                 {
-                    Console.Write($"{arr[i]} \t");
+                    numbers.Add(arr[i]);
                 }
             }
 
-            Console.WriteLine();
+            return numbers;
         }
 
         /// <summary>
         /// Outputs all elements of an array until element -1 is encountered.
         /// </summary>
         /// <param name="arr"></param>
-        private static void GetElementsOfArrayIfNotMinusOne(int[] arr)
+        private static List<int> GetElementsOfArrayIfNotMinusOne(int[] arr)
         {
+            List<int> numbers = new List<int>();
+
             for (int i = 0; i < arr.Length; i++)
             {
                 if (arr[i] != -1)
                 {
-                    Console.Write($"{arr[i]} \t");
+                    numbers.Add(arr[i]);
                 }
                 else
                 {
                     break;
                 }
             }
-            Console.WriteLine();
+            return numbers;
         }
 
         /// <summary>
@@ -100,6 +108,17 @@ namespace ArrayPracticeApp
             Console.WriteLine();
         }
 
+        private static void ShowCollection(List<int> numList)
+        {
+            foreach (var el in numList)
+            {
+                Console.Write($"{el} \t");
+                
+            }
+
+            Console.WriteLine();
+        }
+
         static void Main(string[] args)
         {
             var arr = CreateArray();
@@ -111,14 +130,16 @@ namespace ArrayPracticeApp
             Show(arr);
 
             Console.WriteLine("Even numbers of array: ");
-            GetEvenNumbers(arr);
-
+            var evenNumbers = GetEvenNumbers(arr);
+            ShowCollection(evenNumbers);
+            
             Console.WriteLine("Print an array through 1 element: ");
-            GetOddIndexOfArray(arr);
-
+            var elemOfArray = GetOddIndexOfArray(arr);
+            ShowCollection(elemOfArray);
+            
             Console.WriteLine("Print elements of array if element not -1: ");
-            GetElementsOfArrayIfNotMinusOne(arr);
-
+            var printIfNotNegativeOne = GetElementsOfArrayIfNotMinusOne(arr);
+            ShowCollection(printIfNotNegativeOne);
         }
     }
 }
