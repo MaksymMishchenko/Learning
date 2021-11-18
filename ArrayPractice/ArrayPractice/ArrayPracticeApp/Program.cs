@@ -38,7 +38,7 @@ namespace ArrayPracticeApp
         /// Outputs even elements of an array.
         /// </summary>
         /// <param name="arr"></param>
-        private static List<int> GetEvenNumbers(int[] arr)
+        private static int[] GetEvenNumbers(int[] arr)
         {
             List<int> numbers = new List<int>();
 
@@ -50,14 +50,14 @@ namespace ArrayPracticeApp
                 }
             }
 
-            return numbers;
+            return numbers.ToArray();
         }
 
         /// <summary>
         /// Displays all elements of the array after 1.
         /// </summary>
         /// <param name="arr"></param>
-        private static List<int> GetOddIndexOfArray(int[] arr)
+        private static int[] GetOddIndexOfArray(int[] arr)
         {
             List<int> numbers = new List<int>();
 
@@ -69,14 +69,14 @@ namespace ArrayPracticeApp
                 }
             }
 
-            return numbers;
+            return numbers.ToArray();
         }
 
         /// <summary>
         /// Outputs all elements of an array until element -1 is encountered.
         /// </summary>
         /// <param name="arr"></param>
-        private static List<int> GetElementsOfArrayIfNotMinusOne(int[] arr)
+        private static int[] GetElementsOfArrayIfNotMinusOne(int[] arr)
         {
             List<int> numbers = new List<int>();
 
@@ -91,7 +91,7 @@ namespace ArrayPracticeApp
                     break;
                 }
             }
-            return numbers;
+            return numbers.ToArray();
         }
 
         /// <summary>
@@ -131,15 +131,15 @@ namespace ArrayPracticeApp
 
             Console.WriteLine("Even numbers of array: ");
             var evenNumbers = GetEvenNumbers(arr);
-            ShowCollection(evenNumbers);
+            Show(evenNumbers);
             
             Console.WriteLine("Print an array through 1 element: ");
             var elemOfArray = GetOddIndexOfArray(arr);
-            ShowCollection(elemOfArray);
+            Show(elemOfArray);
             
             Console.WriteLine("Print elements of array if element not -1: ");
             var printIfNotNegativeOne = GetElementsOfArrayIfNotMinusOne(arr);
-            ShowCollection(printIfNotNegativeOne);
+            Show(printIfNotNegativeOne);
         }
     }
 }

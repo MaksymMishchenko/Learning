@@ -4,6 +4,31 @@ namespace ArrayPractice
 {
     class Program
     {
+        
+
+        static void Main(string[] args)
+        {
+            var arr = CreateArray(10);
+            FillArrayPositiveNumbers(arr);
+
+            Console.WriteLine(" Random Fill array positive numbers:");
+            ShowArray(arr);
+            Console.WriteLine(new string('-', 75));
+
+            SortArray(arr);
+            Console.WriteLine("Sorted array:");
+            ShowArray(arr);
+            Console.WriteLine(new string('-', 75));
+
+            FillArrayPosNegNumbers(arr);
+            SortArray(arr);
+            Console.WriteLine("Sorted array:");
+            ShowArray(arr);
+            ChangeNegativeToPositiveNumbers(arr);
+            Console.WriteLine("Fills array positive and negative numbers:");
+            ShowArray(arr);
+        }
+
         /// <summary>
         /// Сreates a one-dimensional array
         /// </summary>
@@ -85,29 +110,6 @@ namespace ArrayPractice
             }
 
             Console.WriteLine();
-        }
-
-        static void Main(string[] args)
-        {
-            var arr = CreateArray(10);
-            FillArrayPositiveNumbers(arr);
-
-            Console.WriteLine(" Random Fill array positive numbers:");
-            ShowArray(arr);
-            Console.WriteLine(new string('-', 75));
-
-            SortArray(arr);
-            Console.WriteLine("Sorted array:");
-            ShowArray(arr);
-            Console.WriteLine(new string('-', 75));
-
-            FillArrayPosNegNumbers(arr);
-            SortArray(arr);
-            Console.WriteLine("Sorted array:");
-            ShowArray(arr);
-            ChangeNegativeToPositiveNumbers(arr);
-            Console.WriteLine("Fills array positive and negative numbers:");
-            ShowArray(arr);
         }
     }
 }
