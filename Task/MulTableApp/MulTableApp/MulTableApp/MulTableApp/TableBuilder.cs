@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using MulTableApp.Model;
 
 namespace MulTableApp
@@ -19,8 +18,11 @@ namespace MulTableApp
             // ╔
             Console.Write($"{(char)9556}");
 
+            // todo: replace constant to content.Length
             for (int i = 0; i < 47; i++)
             {
+
+                // todo: replace constant to content.Length
                 if (i == 11 || i == 23 || i == 35)
                 {
                     // ╤
@@ -31,9 +33,8 @@ namespace MulTableApp
                     // ═
                     Console.Write($"{(char)9552}");
                 }
-
-
             }
+
             // ╗
             Console.Write($"{(char)9559}");
             Console.WriteLine();
@@ -66,8 +67,10 @@ namespace MulTableApp
             // ╠
             Console.Write($"{(char)9568}");
 
+            // todo: replace constant to content.Length
             for (int i = 0; i < 47; i++)
             {
+                // todo: replace constants to content.Length
                 if (i == 11 || i == 23 || i == 35)
                 {
                     // ╡
@@ -84,6 +87,7 @@ namespace MulTableApp
             Console.Write($"{(char)9571}");
             Console.WriteLine();
 
+            // todo: delete the second loop for in class TableBuilder
             for (int n = 0, m = 8; n < content.Length + 1; n++, m--)
             {
                 // ║
@@ -112,8 +116,10 @@ namespace MulTableApp
             // ╚
             Console.Write($"{(char)9562}");
 
+            // todo: replace constants to content.Length
             for (int i = 0; i < 47; i++)
             {
+                // todo: replace constants to content.Length
                 if (i == 11 || i == 23 || i == 35)
                 {
                     // ╧
