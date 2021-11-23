@@ -6,7 +6,7 @@ namespace AddsFeetApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
         }
     }
 }
