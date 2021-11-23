@@ -2,10 +2,11 @@
 
 namespace AddsFeetApp
 {
+    
     public struct Distance
     {
-        private int _feet;
-        private float _inches;
+        private readonly int _feet;
+        private readonly float _inches;
         private const int _oneFeet = 12;
 
         public Distance(int feet, float inches)
