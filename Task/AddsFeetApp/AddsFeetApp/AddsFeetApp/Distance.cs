@@ -2,7 +2,6 @@
 
 namespace AddsFeetApp
 {
-    
     public struct Distance
     {
         private readonly int _feet;
