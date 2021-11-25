@@ -1,21 +1,22 @@
 ﻿using System;
 
-namespace Triangle3App
+namespace Triangle4App
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите высоту треугольника: ");
-            int height = int.Parse(Console.ReadLine());
+
+            int height = 5;
 
             for (int i = 0; i < height; i++)
             {
-                for (int j = height - 1; j > i; j--)
+                for (int j = 0; j <= i; j++)
                 {
                     Console.Write(" ");
                 }
-                for (int j = 0; j <= i; j++)
+
+                for (int k = height; k > i; k--)
                 {
                     Console.Write("*");
                 }
