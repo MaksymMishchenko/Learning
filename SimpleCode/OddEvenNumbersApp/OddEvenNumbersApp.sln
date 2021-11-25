@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OddEvenNumbersApp", "OddEve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OddEvenNumbersAppTests", "OddEvenNumbersAppTests\OddEvenNumbersAppTests.csproj", "{76F320DA-943C-47B9-BFDE-D2F20A51EF90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OddEvenNumbers2App", "OddEvenNumbers2App\OddEvenNumbers2App.csproj", "{D507A3E4-E864-4D20-AAB3-26F2789724DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OddEvenNumbers2AppTests", "OddEvenNumbers2AppTests\OddEvenNumbers2AppTests.csproj", "{BEB93800-4569-4239-AC6F-0338B989F505}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{76F320DA-943C-47B9-BFDE-D2F20A51EF90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76F320DA-943C-47B9-BFDE-D2F20A51EF90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76F320DA-943C-47B9-BFDE-D2F20A51EF90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D507A3E4-E864-4D20-AAB3-26F2789724DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D507A3E4-E864-4D20-AAB3-26F2789724DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D507A3E4-E864-4D20-AAB3-26F2789724DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D507A3E4-E864-4D20-AAB3-26F2789724DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEB93800-4569-4239-AC6F-0338B989F505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEB93800-4569-4239-AC6F-0338B989F505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEB93800-4569-4239-AC6F-0338B989F505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEB93800-4569-4239-AC6F-0338B989F505}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
