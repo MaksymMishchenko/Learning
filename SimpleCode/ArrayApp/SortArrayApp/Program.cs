@@ -1,4 +1,5 @@
 ﻿using System;
+using ArrayInversionApp;
 
 namespace SortArrayApp
 {
@@ -6,7 +7,7 @@ namespace SortArrayApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
         }
     }
 }
