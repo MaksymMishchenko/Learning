@@ -4,6 +4,22 @@ namespace ArrayInversionApp
 {
     public class MyArray
     {
+
+        public int[] Create(int elem)
+        {
+            return new int[elem];
+        }
+
+        public int[] FillArray(int[] arr, int currentElement)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = currentElement--;
+            }
+
+            return arr;
+        }
+
         public int[] InversionArray(int[] arr)
         {
             int temp = 0;
@@ -30,8 +46,10 @@ namespace ArrayInversionApp
         {
             for (int i = 0; i < arr.Length; i++)
             {
-                Console.WriteLine(arr[i]);
+                Console.Write($"{arr[i]} ");
             }
+
+            Console.WriteLine();
         }
     }
 }
