@@ -20,16 +20,16 @@ namespace ArrayApp
             for (int i = 0; i < arr.Length; i++)
             {
                 Console.WriteLine();
-                Console.Write($"Введите элемент массива под индексом {i}:\t ");
+                Console.Write($"Введите элемент массива под индексом {i}:\t");
                 arr[i] = Int32.Parse(Console.ReadLine());
             }
 
             return arr;
         }
 
-        public void Show(int[] arr)
+        public void Show(int num)
         {
-            _console.Print(arr);
+            _console.Write(num);
         }
     }
 }

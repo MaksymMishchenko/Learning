@@ -17,7 +17,9 @@ namespace ArrayApp
             var arr = myArray.CreateUserArray(arrayLenght);
 
             myArray.FillsUserData(arr);
-            myArray.Show(arr);
+            Console.WriteLine(new string ('-', 50));
+            Console.WriteLine("Значения введенные пользователем: ");
+            myArray.Show(7);
         }
     }
 }
