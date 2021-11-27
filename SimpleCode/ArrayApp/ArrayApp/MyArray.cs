@@ -15,12 +15,13 @@ namespace ArrayApp
             return new int[elements];
         }
 
-        public int[] FillsUserData(int[] arr, int currentUserData)
+        public int[] FillsUserData(int[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {
-                arr[i] = currentUserData;
-                currentUserData++;
+                Console.WriteLine();
+                Console.Write($"Введите элемент массива под индексом {i}:\t ");
+                arr[i] = Int32.Parse(Console.ReadLine());
             }
 
             return arr;

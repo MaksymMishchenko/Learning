@@ -10,7 +10,9 @@ namespace ArrayApp
     {
         public void Print(in int[] arr)
         {
+            Console.WriteLine();
             Console.WriteLine($"Массив состоит из: {arr.Length} элементов.");
+            Console.WriteLine(new string('-', 50));
            
            for (int i = 0; i < arr.Length; i++)
            {
