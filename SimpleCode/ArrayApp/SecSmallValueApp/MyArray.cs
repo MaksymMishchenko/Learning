@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Channels;
 
 namespace SecSmallValueApp
 {
@@ -9,7 +10,7 @@ namespace SecSmallValueApp
             return new int[elemOfNumbers];
         }
 
-        public void FilsArray(int[] arr)
+        public void FillsArray(int[] arr)
         {
             Random rand = new Random();
 
@@ -34,6 +35,30 @@ namespace SecSmallValueApp
                     }
                 }
             }
+        }
+
+        public int GetSecondSmallestNumber(int[] arr)
+        {
+            int secondSmallestNumber = 0;
+            for (int i = 0, j = 1; i < arr.Length; i++)
+            {
+                if (arr[i] < arr[j])
+                {
+                    secondSmallestNumber = arr[j];
+                }
+            }
+
+            return secondSmallestNumber;
+        }
+
+        public void Show(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write($"{arr[i]}\t");
+            }
+
+            Console.WriteLine();
         }
     }
 }

@@ -26,6 +26,5 @@ namespace ArrayAppTests
             // assert
             Assert.Equal(expected, newArray);
         }
-
     }
 }
