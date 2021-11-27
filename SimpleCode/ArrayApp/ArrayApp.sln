@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayApp", "ArrayApp\ArrayApp.csproj", "{9AA94F69-43B0-4F11-9505-D19532368113}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayApp", "ArrayApp\ArrayApp.csproj", "{9AA94F69-43B0-4F11-9505-D19532368113}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayAppTests", "ArrayAppTests\ArrayAppTests.csproj", "{D9246C9F-3736-41EE-8426-F9197BF8EB9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayAppTests", "ArrayAppTests\ArrayAppTests.csproj", "{D9246C9F-3736-41EE-8426-F9197BF8EB9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayInversionApp", "SortArrayApp\ArrayInversionApp.csproj", "{61559EDF-42D1-4E9C-AF7D-36B28A758237}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayInversionApp", "SortArrayApp\ArrayInversionApp.csproj", "{61559EDF-42D1-4E9C-AF7D-36B28A758237}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayInversionAppTests", "ArrayInversionAppTests\ArrayInversionAppTests.csproj", "{4912D0C2-6931-4852-83F6-D56E0D0C35E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayInversionAppTests", "ArrayInversionAppTests\ArrayInversionAppTests.csproj", "{4912D0C2-6931-4852-83F6-D56E0D0C35E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumEvenNumbersArrayApp", "SumEvenNumbersArrayApp\SumEvenNumbersArrayApp.csproj", "{B2129EDD-FF7B-4E07-8F3B-2DF46D959E73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumEvenNumbersArrayAppTests", "SumEvenNumbersArrayAppTests\SumEvenNumbersArrayAppTests.csproj", "{212FE8BC-4010-47BE-8745-1FEEF2F7BAA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{4912D0C2-6931-4852-83F6-D56E0D0C35E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4912D0C2-6931-4852-83F6-D56E0D0C35E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4912D0C2-6931-4852-83F6-D56E0D0C35E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2129EDD-FF7B-4E07-8F3B-2DF46D959E73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2129EDD-FF7B-4E07-8F3B-2DF46D959E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2129EDD-FF7B-4E07-8F3B-2DF46D959E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2129EDD-FF7B-4E07-8F3B-2DF46D959E73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{212FE8BC-4010-47BE-8745-1FEEF2F7BAA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{212FE8BC-4010-47BE-8745-1FEEF2F7BAA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{212FE8BC-4010-47BE-8745-1FEEF2F7BAA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{212FE8BC-4010-47BE-8745-1FEEF2F7BAA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
