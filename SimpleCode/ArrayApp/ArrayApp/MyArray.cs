@@ -27,9 +27,12 @@ namespace ArrayApp
             return arr;
         }
 
-        public void Show(int num)
+        public void Show(int[] arr)
         {
-            _console.Write(num);
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write($"{arr[i]}\t");
+            }
         }
     }
 }

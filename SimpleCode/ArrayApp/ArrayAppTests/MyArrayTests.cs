@@ -49,6 +49,7 @@ namespace ArrayAppTests
         public void PrintTests()
         {
             // arrange
+            int[] arr = { 1, 2, 3 };
             int num = 7;
             bool IsCalled = false;
 
@@ -56,7 +57,7 @@ namespace ArrayAppTests
                     .When(x => x.Write(70))
                     .Do(x => IsCalled = true);
             // actual
-            _target.Show(num);
+            _target.Show(arr);
 
             // assert
             Assert.True(IsCalled);

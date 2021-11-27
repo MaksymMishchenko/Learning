@@ -19,7 +19,7 @@ namespace ArrayApp
             myArray.FillsUserData(arr);
             Console.WriteLine(new string ('-', 50));
             Console.WriteLine("Значения введенные пользователем: ");
-            myArray.Show(7);
+            myArray.Show(arr);
         }
     }
 }
