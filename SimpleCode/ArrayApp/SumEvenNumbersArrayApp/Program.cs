@@ -18,9 +18,6 @@ namespace SumEvenNumbersArrayApp
 
             var sumEvenNumbers = arr.SumEvenNumbers(newArray);
             Console.WriteLine($"Сумма четных чисел массива: {sumEvenNumbers}");
-            
-
-
         }
     }
 }

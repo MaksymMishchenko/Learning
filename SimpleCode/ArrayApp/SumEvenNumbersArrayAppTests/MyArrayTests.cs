@@ -12,6 +12,7 @@ namespace SumEvenNumbersArrayAppTests
         {
             _target = new MyArray();
         }
+
         [Fact]
         public void CreateArray_13elem_expected_NewArray_13_elem()
         {
@@ -24,6 +25,22 @@ namespace SumEvenNumbersArrayAppTests
 
             // assert
             Assert.Equal(expected, actual);
+
+        }
+
+        [Fact]
+        public void SumEvenNumbers_ReturnSumNumbers()
+        {
+            // arrange
+            int[] arr = { 2, 6, 10, 16, 24 };
+            var expected = 58;
+
+            // actual
+            var actual = _target.SumEvenNumbers(arr);
+
+            // assert
+            Assert.Equal(expected, actual);
+            //SumEvenNumbers
         }
     }
 }
