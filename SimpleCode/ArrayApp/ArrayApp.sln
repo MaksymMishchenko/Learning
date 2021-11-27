@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayApp", "ArrayApp\ArrayApp.csproj", "{9AA94F69-43B0-4F11-9505-D19532368113}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayAppTests", "ArrayAppTests\ArrayAppTests.csproj", "{D9246C9F-3736-41EE-8426-F9197BF8EB9A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayInversionApp", "SortArrayApp\ArrayInversionApp.csproj", "{61559EDF-42D1-4E9C-AF7D-36B28A758237}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayInversionAppTests", "ArrayInversionAppTests\ArrayInversionAppTests.csproj", "{4912D0C2-6931-4852-83F6-D56E0D0C35E1}"
@@ -15,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SumEvenNumbersArrayApp", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SumEvenNumbersArrayAppTests", "SumEvenNumbersArrayAppTests\SumEvenNumbersArrayAppTests.csproj", "{212FE8BC-4010-47BE-8745-1FEEF2F7BAA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecSmallValueApp", "SecSmallValueApp\SecSmallValueApp.csproj", "{678621A9-98BE-4D26-B89C-DBD78048FF61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecSmallValueApp", "SecSmallValueApp\SecSmallValueApp.csproj", "{678621A9-98BE-4D26-B89C-DBD78048FF61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecSmallValueAppTests", "SecSmallValueAppTests\SecSmallValueAppTests.csproj", "{ABE6CD0A-CCF2-4494-AE70-1A86D6660832}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecSmallValueAppTests", "SecSmallValueAppTests\SecSmallValueAppTests.csproj", "{ABE6CD0A-CCF2-4494-AE70-1A86D6660832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayAppTests", "ArrayAppTests\ArrayAppTests.csproj", "{BB36511E-E5B6-4DA1-A9DF-E8F00F34AE96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,6 @@ Global
 		{9AA94F69-43B0-4F11-9505-D19532368113}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AA94F69-43B0-4F11-9505-D19532368113}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AA94F69-43B0-4F11-9505-D19532368113}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D9246C9F-3736-41EE-8426-F9197BF8EB9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D9246C9F-3736-41EE-8426-F9197BF8EB9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D9246C9F-3736-41EE-8426-F9197BF8EB9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D9246C9F-3736-41EE-8426-F9197BF8EB9A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{61559EDF-42D1-4E9C-AF7D-36B28A758237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{61559EDF-42D1-4E9C-AF7D-36B28A758237}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61559EDF-42D1-4E9C-AF7D-36B28A758237}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,6 +53,10 @@ Global
 		{ABE6CD0A-CCF2-4494-AE70-1A86D6660832}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABE6CD0A-CCF2-4494-AE70-1A86D6660832}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABE6CD0A-CCF2-4494-AE70-1A86D6660832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB36511E-E5B6-4DA1-A9DF-E8F00F34AE96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB36511E-E5B6-4DA1-A9DF-E8F00F34AE96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB36511E-E5B6-4DA1-A9DF-E8F00F34AE96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB36511E-E5B6-4DA1-A9DF-E8F00F34AE96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

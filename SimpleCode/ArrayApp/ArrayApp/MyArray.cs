@@ -4,34 +4,26 @@ namespace ArrayApp
 {
     public class MyArray
     {
-        private readonly IConsole _console;
-        public MyArray(IConsole console)
-        {
-            _console = console;
-        }
-
-        public int[] CreateUserArray(int elements)
+       public int[] CreateUserArray(int elements)
         {
             return new int[elements];
         }
 
-        public int[] FillsUserData(int[] arr)
+        public void FillsUserData(int[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {
                 Console.WriteLine();
-                Console.Write($"Введите элемент массива под индексом {i}:\t");
+                Console.Write($"Введите значение под индексом - {i}: ");
                 arr[i] = Int32.Parse(Console.ReadLine());
             }
-
-            return arr;
         }
 
         public void Show(int[] arr)
         {
-            for (int i = 0; i < arr.Length; i++)
+            foreach (var el in arr)
             {
-                Console.Write($"{arr[i]}\t");
+                Console.Write($"{el}\t");
             }
         }
     }
