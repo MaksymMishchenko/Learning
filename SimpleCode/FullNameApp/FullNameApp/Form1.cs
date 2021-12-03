@@ -19,6 +19,7 @@ namespace FullNameApp
                 new Person(){FirstName = "Максим", MiddleName = "Владимирович", SecondName = "Сергейчук"},
                 new Person(){FirstName = "Steve", SecondName = "Martin"},
                 new Person(){FirstName = "Jeffrey", SecondName = "Richter"},
+                new Person(){FirstName = "Nikolaj", SecondName = "Tuchak", Contacts = new Contacts(){PhoneNumber = "123456789"}}
             };
         }
 
@@ -29,7 +30,7 @@ namespace FullNameApp
 
             foreach (var person in persons)
             {
-                listBox1.Items.Add(person.GetFulName());
+                listBox1.Items.Add($"{person.GetFullName()} | {person.GetPhoneNumber()}");
             }
         }
     }
