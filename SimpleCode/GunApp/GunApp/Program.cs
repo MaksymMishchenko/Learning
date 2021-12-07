@@ -6,7 +6,7 @@ namespace GunApp
     {
         static void Main(string[] args)
         {
-            var gun = new Gun(true);
+            var gun = new Gun(isLoaded:true);
             gun.Shoot();
         }
     }
