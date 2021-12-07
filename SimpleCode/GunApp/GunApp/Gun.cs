@@ -4,26 +4,30 @@ namespace GunApp
 {
     class Gun
     {
-        private bool IsLoaded;
+        private bool _isLoaded;
 
+        public Gun(bool isLoaded)
+        {
+            _isLoaded = isLoaded;    
+        }
 
         private void Reload()
         {
             Console.WriteLine("Заряжаю");
-            IsLoaded = true;
+            _isLoaded = true;
             Console.WriteLine("Заряжено!");
         }
 
         public void Shoot()
         {
-            if (!IsLoaded)
+            if (!_isLoaded)
             {
                 Console.WriteLine("Оружие не заряжено!");
                 Reload();
             }
 
             Console.WriteLine("Пыщ... Пыщ...");
-            IsLoaded = false;
+            _isLoaded = false;
         }
     }
 }
