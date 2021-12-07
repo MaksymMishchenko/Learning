@@ -11,27 +11,19 @@ namespace StudentApp
         public int Age { get; set; }
         public string Group { get; set; }
 
-        public Student GetStudent()
+        public void PrintStudent()
         {
-            var student = new Student();
-
-            student.Id = Guid.NewGuid();
-            student.FirstName = "Boris";
-            student.MiddleName = "Semenovuch";
-            student.LastName = "Prihodko";
-            student.Age = 23;
-            student.Group = "P-312";
-
-            return student;
+            Console.WriteLine($"Id: {Id}");
+            Console.WriteLine($"Имя: {FirstName}");
+            Console.WriteLine($"Отчество: {MiddleName}");
+            Console.WriteLine($"Фамилия: {LastName}");
+            Console.WriteLine($"Возраст: {Age}");
+            Console.WriteLine($"Группа: {Group}");
         }
-        public void PrintStudent(Student person)
+
+        public string GetFullName()
         {
-            Console.WriteLine($"Id: {person.Id}");
-            Console.WriteLine($"Имя: {person.FirstName}");
-            Console.WriteLine($"Отчество: {person.MiddleName}");
-            Console.WriteLine($"Фамилия: {person.LastName}");
-            Console.WriteLine($"Возраст: {person.Age}");
-            Console.WriteLine($"Группа: {person.Group}");
+            return $"{FirstName} {MiddleName} {LastName}";
         }
     }
 }
