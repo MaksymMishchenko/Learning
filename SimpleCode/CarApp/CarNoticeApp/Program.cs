@@ -6,7 +6,12 @@ namespace CarNoticeApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            CarLogger carLog = new CarLogger();
+            CarNotice carNotice = new CarNotice(carLog);
+            carNotice.Drive();
+            carNotice.StartEngine();
+            carNotice.StartEngine();
+            carNotice.Drive();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace CarNoticeApp
 
         public void Warning(string message)
         {
-            Console.WriteLine($"{DateTime.Now} |ERROR| {message}");
+            Console.WriteLine($"{DateTime.Now} |WARNING| {message}");
         }
     }
 }
