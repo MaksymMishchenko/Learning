@@ -8,12 +8,12 @@ namespace PlayerApp
 
         public override void Fire()
         {
-            Console.WriteLine("Бьем ножом");
+            System.Console.WriteLine("Бьем ножом");
         }
 
         public void Throw()
         {
-            Console.WriteLine("Метаем нож");
+            System.Console.WriteLine("Метаем нож");
         }
     }
 }

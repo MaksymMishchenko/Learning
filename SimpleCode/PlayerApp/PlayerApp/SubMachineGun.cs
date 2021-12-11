@@ -8,7 +8,7 @@ namespace PlayerApp
 
         public override void Fire()
         {
-            Console.WriteLine("Стреляем из автомата");
+            System.Console.WriteLine("Стреляем из автомата");
         }
     }
 }
