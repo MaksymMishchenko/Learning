@@ -2,7 +2,7 @@
 
 namespace PlayerApp
 {
-    class SubMachineGum : Weapon
+    class SubMachineGun : Weapon
     {
         public override int Damage => 10;
 

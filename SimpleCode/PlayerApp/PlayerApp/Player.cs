@@ -6,5 +6,15 @@
         {
             weapon.Fire();
         }
+
+        public void Throw(IThrowingWeapon throwingWeapon)
+        {
+            throwingWeapon.Throw();
+        }
+
+        public void ShowInfo(IHasInfo hasInfo)
+        {
+            hasInfo.ShowInfo();
+        }
     }
 }

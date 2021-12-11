@@ -1,6 +1,6 @@
 ﻿namespace PlayerApp
 {
-    interface IWeapon
+    interface IWeapon: IHasInfo
     {
         int Damage { get; }
         void Fire();
