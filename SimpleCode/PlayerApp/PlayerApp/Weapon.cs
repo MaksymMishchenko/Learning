@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace PlayerApp
 {
     abstract class Weapon : IHasInfo, IWeapon

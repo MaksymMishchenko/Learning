@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace PlayerApp
+﻿namespace PlayerApp
 {
     class Gun : Weapon
     {
