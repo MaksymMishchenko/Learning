@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Channels;
 
 namespace StringApp
 {
@@ -6,26 +7,28 @@ namespace StringApp
     {
         static void Main(string[] args)
         {
-            int[] numbers = new int[10];
-            string[] arrString = { "Нуль", "Один", "Два", "Три", "Четыре", "Пять", "Шесть", "Семь", "Восемь", "Девять" };
-            int nextDigit;
-            int index = 0;
-
-            int userNumber = 5485;
-
-            do
+            Console.WriteLine("Please, input integer number: ");
+            try
             {
-                nextDigit = userNumber % 10;
-                numbers[index] = nextDigit;
-                index++;
-                userNumber = userNumber / 10;
-            } while (userNumber > 0);
+                int userNumber = int.Parse(Console.ReadLine());
+                int index = 0;
 
-            index--;
+                IData data = new Data();
+                string[] strArr = data.GetStringArray();
+                int[] numberArray = data.GetNumbersArray(userNumber, ref index);
 
-            for (; index >= 0; index--)
+                Console.WriteLine(new string ('-', 50));
+
+                Console.Write($"You input: {userNumber} \t");
+
+                Console.Write("Result: ");
+
+                IPrintToConsole print = new PrintToConsole();
+                print.Print(strArr, numberArray, index);
+            }
+            catch (Exception)
             {
-                Console.Write(arrString[numbers[index]] + " ");
+                Console.WriteLine("This number isn't integer. Please, try again");
             }
         }
     }
