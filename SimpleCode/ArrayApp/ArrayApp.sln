@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayAppTests", "ArrayAppTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallestNumApp", "SmallestNumApp\SmallestNumApp.csproj", "{232339EE-F6AA-4549-AA5B-2F9011FE3D1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallestNumAppTests", "SmallestNumAppTests\SmallestNumAppTests.csproj", "{C7A3541C-AC9F-4397-93D3-3BA60ABFD299}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{232339EE-F6AA-4549-AA5B-2F9011FE3D1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{232339EE-F6AA-4549-AA5B-2F9011FE3D1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{232339EE-F6AA-4549-AA5B-2F9011FE3D1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7A3541C-AC9F-4397-93D3-3BA60ABFD299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7A3541C-AC9F-4397-93D3-3BA60ABFD299}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7A3541C-AC9F-4397-93D3-3BA60ABFD299}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7A3541C-AC9F-4397-93D3-3BA60ABFD299}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
