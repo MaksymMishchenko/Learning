@@ -6,7 +6,13 @@ namespace FactoryMethApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var rect = new Rectangle();
+
+            for (int i = 0, j = 10; i < 10; i++, j--)
+            {
+                Rectangle nextRectangle = rect.Factory(i, j);
+                nextRectangle.Show();
+            }
         }
     }
 }
