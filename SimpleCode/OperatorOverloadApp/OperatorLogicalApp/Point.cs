@@ -26,10 +26,8 @@ namespace OperatorLogicalApp
         {
             if (a._x != 0 && a._y != 0 & b._x != 0 && b._y != 0)
                 return true;
-            else
-            {
-                return false;
-            }
+            else return false;
+            
         }
 
         public static bool operator !(Point a)
