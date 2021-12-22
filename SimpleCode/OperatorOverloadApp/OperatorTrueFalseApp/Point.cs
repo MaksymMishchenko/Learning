@@ -1,4 +1,7 @@
-﻿namespace OperatorTrueFalseApp
+﻿using System;
+using System.Threading;
+
+namespace OperatorTrueFalseApp
 {
     class Point
     {
@@ -28,6 +31,16 @@
             {
                 return false;
             }
+        }
+
+        public static Point operator --(Point a)
+        {
+            return new Point(a._x-1, a._y-1);
+        }
+
+        public void Show()
+        {
+            Console.WriteLine($"X: {_x}, Y: {_y}");
         }
     }
 }
