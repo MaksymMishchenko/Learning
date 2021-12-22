@@ -4,24 +4,24 @@ namespace OperatorExplicitApp
 {
     struct Digit
     {
-        private byte _value;
+        private int _x, _y;
 
-        public Digit(byte value )
+        public Digit(int x, int y)
         {
-            _value = value;
+            _x = x;
+            _y = y;
         }
 
         // пример перегрузки оператора явного преобразования типа byte-to-Digit
 
-        public static explicit operator Digit(byte argument)
+        public static explicit operator int(Digit o)
         {
-            Digit digit = new Digit(argument);
-            return digit;
+            return o._x * o._y;
         }
 
         public override string ToString()
         {
-            return _value.ToString();
+            return string.Format("{0}", _x + _y);
         }
     }
 }

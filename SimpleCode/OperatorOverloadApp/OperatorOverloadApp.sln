@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperatorLogicalApp", "Opera
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperatorLogicalEx2App", "OperatorLogicalEx2App\OperatorLogicalEx2App.csproj", "{DA4B0E03-4E66-49AC-8241-2667B80FC9F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperatorExplicitToIntApp", "OperatorExplicitToIntApp\OperatorExplicitToIntApp.csproj", "{C3738F7C-384A-4381-91A9-AE892F5E95DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OperatorImplicitToIntApp", "OperatorImplicitToIntApp\OperatorImplicitToIntApp.csproj", "{78524837-1136-490A-9F71-CB94612E5960}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{DA4B0E03-4E66-49AC-8241-2667B80FC9F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA4B0E03-4E66-49AC-8241-2667B80FC9F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA4B0E03-4E66-49AC-8241-2667B80FC9F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3738F7C-384A-4381-91A9-AE892F5E95DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3738F7C-384A-4381-91A9-AE892F5E95DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3738F7C-384A-4381-91A9-AE892F5E95DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3738F7C-384A-4381-91A9-AE892F5E95DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78524837-1136-490A-9F71-CB94612E5960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78524837-1136-490A-9F71-CB94612E5960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78524837-1136-490A-9F71-CB94612E5960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78524837-1136-490A-9F71-CB94612E5960}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
