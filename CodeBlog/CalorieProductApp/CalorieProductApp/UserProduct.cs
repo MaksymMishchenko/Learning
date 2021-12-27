@@ -8,7 +8,7 @@ namespace CalorieProductApp
     {
         public void Add(string product, double kСal, double weight)
         {
-            using (var sw = new StreamWriter("ProductLog", true, Encoding.UTF8))
+            using (var sw = new StreamWriter("ProductLog.txt", true, Encoding.UTF8))
             {
                 sw.Write("Дата и время введенной записи: ");
                 sw.Write(DateTime.Now);
@@ -35,7 +35,7 @@ namespace CalorieProductApp
 
         public void PrintFile()
         {
-            using (var sr = new StreamReader("ProductLog"))
+            using (var sr = new StreamReader("ProductLog.txt"))
             {
                 var data = sr.ReadToEnd();
                 Console.WriteLine("Информация о добавленном продукте:");
