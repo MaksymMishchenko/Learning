@@ -6,9 +6,20 @@ namespace CalorieProductApp
 {
     class UserProduct : IUserProduct, IDisposable
     {
+       public bool CreatesCatalog(string path)
+        {
+            DirectoryInfo dir = new DirectoryInfo(path);
+            if (!dir.Exists)
+            {
+                dir.Create();
+            }
+
+            return true;
+        }
+
         public void Add(string product, double kСal, double weight)
         {
-            using (var sw = new StreamWriter("ProductLog.txt", true, Encoding.UTF8))
+            using (var sw = new StreamWriter(@"G:\CalorieProductApp\User\ProductLogs\ProductLog.txt", true, Encoding.UTF8))
             {
                 sw.Write("Дата и время введенной записи: ");
                 sw.Write(DateTime.Now);
@@ -35,7 +46,7 @@ namespace CalorieProductApp
 
         public void PrintFile()
         {
-            using (var sr = new StreamReader("ProductLog.txt"))
+            using (var sr = new StreamReader(@"G:\CalorieProductApp\User\ProductLogs\ProductLog.txt"))
             {
                 var data = sr.ReadToEnd();
                 Console.WriteLine("Информация о добавленном продукте:");
@@ -50,7 +61,8 @@ namespace CalorieProductApp
 
         public void Dispose()
         {
-            Environment.Exit(0);
+            Console.WriteLine("Вы вышли из приложения!");
+            Environment.Exit(-1);
         }
     }
 }

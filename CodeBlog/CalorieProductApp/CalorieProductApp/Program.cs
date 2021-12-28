@@ -6,19 +6,26 @@ namespace CalorieProductApp
     {
         static void Main(string[] args)
         {
+            // Создание каталога для размещения документов пользователя
+            string path = @"G:\CalorieProductApp\User\ProductLogs\";
+
+            IUserProduct product = new UserProduct();
+            //product.CreatesCatalog(path);
+            if(product.CreatesCatalog(path))
+                Console.WriteLine("Каталог успешно создан!");
+            
             do
             {
                 Console.WriteLine("Программа подсчета калорийности продуктов");
                 Console.WriteLine("Команды: 'a' - новый продукт, 'r' - прочитать файл, 'q' - выход");
                 string str = Console.ReadLine();
 
-                IUserProduct product = new UserProduct();
-                CPanel(product, str);
+                CPanel(product, path, str);
 
             } while (true);
         }
 
-        static void CPanel(IUserProduct prod, string command)
+        static void CPanel(IUserProduct prod, string path, string command)
         {
             switch (command)
             {
