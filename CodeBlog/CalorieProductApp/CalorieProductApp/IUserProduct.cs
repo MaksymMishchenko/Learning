@@ -7,7 +7,8 @@ namespace CalorieProductApp
         bool CreatesCatalog(string path);
         Task<bool> AddAsync(string product, double kСal, double weight);
         bool Add(string product, double kСal, double weight);
-        void PrintFile();
+        Task<bool> PrintFileAsync();
+        bool PrintFile();
         void Quit();
         
     }

@@ -45,7 +45,7 @@ namespace CalorieProductApp
                     }
                 case "r":
                     {
-                        prod.PrintFile();
+                        prod.PrintFileAsync();
                         break;
                     }
                 case "q":
