@@ -40,7 +40,7 @@ namespace CalorieProductApp
                         Console.WriteLine("Введите употребленное количество в граммах: ");
                         double weight = double.Parse(Console.ReadLine());
 
-                        prod.Add(product, kCal, weight);
+                        prod.AddAsync(product, kCal, weight);
                         break;
                     }
                 case "r":

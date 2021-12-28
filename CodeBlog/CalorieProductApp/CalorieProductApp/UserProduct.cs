@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CalorieProductApp
 {
@@ -17,7 +18,20 @@ namespace CalorieProductApp
             return true;
         }
 
-        public void Add(string product, double kСal, double weight)
+        /// <summary>
+        /// AddAsync() method which runs method Add()
+        /// </summary>
+        /// <param name="product"></param>
+        /// <param name="kСal"></param>
+        /// <param name="weight"></param>
+        /// <returns></returns>
+        public async Task<bool> AddAsync(string product, double kСal, double weight)
+       {
+           var result = await Task.Run(() => Add(product,  kСal, weight));
+           return result;
+       }
+
+       public bool Add(string product, double kСal, double weight)
         {
             using (var sw = new StreamWriter(@"G:\CalorieProductApp\User\ProductLogs\ProductLog.txt", true, Encoding.UTF8))
             {
@@ -42,6 +56,7 @@ namespace CalorieProductApp
                 sw.Write("\n");
             }
             Console.WriteLine("Продукт добавлен в файл!");
+            return true;
         }
 
         public void PrintFile()
