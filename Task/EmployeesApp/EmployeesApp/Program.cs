@@ -24,7 +24,6 @@ namespace EmployeesApp
             foreach (var employee in query)
             {
                 Console.WriteLine($"LastName: {employee.LastName} | FirstName: {employee.FirstName}");
-                
             }
         }
     }
