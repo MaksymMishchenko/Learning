@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EmployeesApp
 {
@@ -15,6 +16,10 @@ namespace EmployeesApp
 
                 new Employee{FirstName = "Artur", LastName = "Petrov", Salary = 30000, StartWork = DateTime.Parse("01/01/2020")}
             };
+
+            var query = employees.Where(x => x.Salary > 30000)
+                .OrderBy(x => x.LastName)
+                .OrderBy(x => x.FirstName);
         }
     }
 }
