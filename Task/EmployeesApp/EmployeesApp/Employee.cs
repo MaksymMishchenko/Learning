@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EmployeesApp
 {
@@ -30,6 +31,14 @@ namespace EmployeesApp
             };
 
             return employees;
+        }
+
+        public List<Employee> SelectEmployees<T>(List<Employee> employees)
+        {
+            var query = employees.Where(x => x.Salary > 30000)
+                .OrderBy(x => x.LastName)
+                .OrderBy(x => x.FirstName);
+            return new List<Employee>(query);
         }
     }
 }

@@ -16,7 +16,7 @@
 +4. Циклом foreach вывести сотрудников.
 -5. Создать три метода в классе Employee:
     + AddEmployee()
-    - SelectEmployee()
+    + SelectEmployee()
     - PrintEmployee()
 
 

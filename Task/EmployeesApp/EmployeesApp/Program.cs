@@ -10,6 +10,7 @@ namespace EmployeesApp
         {
             var employees = new Employee();
             var employeesList = employees.AddEmployee<Employee>();
+            employees.SelectEmployees<Employee>(employeesList);
         }
     }
 }
