@@ -20,6 +20,12 @@ namespace EmployeesApp
             var query = employees.Where(x => x.Salary > 30000)
                 .OrderBy(x => x.LastName)
                 .OrderBy(x => x.FirstName);
+
+            foreach (var employee in query)
+            {
+                Console.WriteLine($"LastName: {employee.LastName} | FirstName: {employee.FirstName}");
+                
+            }
         }
     }
 }
