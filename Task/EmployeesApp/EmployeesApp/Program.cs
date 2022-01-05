@@ -9,8 +9,10 @@ namespace EmployeesApp
         static void Main(string[] args)
         {
             var employees = new Employee();
+
             var employeesList = employees.AddEmployee<Employee>();
-            employees.SelectEmployees<Employee>(employeesList);
+            var queryEmployess = employees.SelectEmployees<Employee>(employeesList);
+            employees.PrintEmployees(queryEmployess);
         }
     }
 }

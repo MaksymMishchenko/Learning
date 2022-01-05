@@ -17,6 +17,6 @@
 -5. Создать три метода в классе Employee:
     + AddEmployee()
     + SelectEmployee()
-    - PrintEmployee()
+    + PrintEmployee()
 
 
