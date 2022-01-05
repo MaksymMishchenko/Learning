@@ -15,7 +15,7 @@
     + отсортировать сотрудников по фамилии и имени;
 +4. Циклом foreach вывести сотрудников.
 -5. Создать три метода в классе Employee:
-    - AddEmployee()
+    + AddEmployee()
     - SelectEmployee()
     - PrintEmployee()
 
