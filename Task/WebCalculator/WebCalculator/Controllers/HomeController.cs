@@ -34,5 +34,47 @@ namespace WebCalculator.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public string SumAB(Calculate calculate)
+        {
+            return calculate.Sum().ToString();
+        }
+
+        [HttpPost]
+        public int Function(string operations, int numberA, int numberB)
+        {
+            int res = 0;
+            switch (operations)
+            {
+                case "+":
+                    res = Sum(numberA, numberB);
+                    break;
+                case "-":
+                    res = Substract(numberA, numberB);
+                    break;
+            }
+
+            return res;
+        }
+
+        public int Sum(int numberA, int numberB)
+        {
+            return numberA + numberB;
+        }
+        public int Substract(int numberA, int numberB)
+        {
+            return numberA - numberB;
+        }
+    }
+
+    public class Calculate
+    {
+        public int A { get; set; }
+        public int B { get; set; }
+
+        public int Sum()
+        {
+            return A + B;
+        }
     }
 }

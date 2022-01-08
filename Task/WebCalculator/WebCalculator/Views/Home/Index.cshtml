@@ -3,6 +3,22 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Calculate</h1>
+
+    <form method="post" action="~/Home/Function">
+        <label>Первое число: </label><br />
+        <input type="number" name="numberA" /><br />
+        <label>Операция: </label><br />
+        <select name="operations">
+            <option>+</option>
+            <option>-</option>
+        </select>
+        <br />
+        <label>Второе число: </label><br />
+        <input type="number" name="numberB" /><br />
+        <input type="submit" value="Подсчитать">
+    </form>
+
 </div>
+
+
