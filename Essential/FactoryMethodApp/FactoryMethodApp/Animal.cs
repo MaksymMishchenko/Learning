@@ -1,0 +1,6 @@
+﻿namespace FactoryMethodApp
+{
+    class Animal
+    {
+    }
+}

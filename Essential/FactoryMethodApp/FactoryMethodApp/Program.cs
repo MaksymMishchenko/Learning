@@ -6,7 +6,11 @@ namespace FactoryMethodApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Animal animal = MyClass<Animal>.FactoryMethod();
+            Console.WriteLine(animal.GetType().Name);
+
+            Program p = MyClass<Program>.FactoryMethod();
+            Console.WriteLine(p.GetType().Name);
         }
     }
 }
