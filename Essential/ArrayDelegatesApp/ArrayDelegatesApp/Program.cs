@@ -2,38 +2,41 @@
 
 namespace ArrayDelegatesApp
 {
-    public delegate int Delegate1(Delegate2[] arr);
+    public delegate int Delegate1();
 
-    public delegate int Delegate2();
+    public delegate double Delegate2(Delegate1[] arr);
     class Program
     {
-        private static Random rnd = new Random();
-        public static int Method1()
+        public static int GetRandom()
         {
-            return rnd.Next(1, 15);
-        }
-
-        public static int Method2()
-        {
-            return rnd.Next(5,30);
-        }
-        public static int Method3()
-        {
-            return rnd.Next(10, 20);
+            return new Random().Next(1, 125);
         }
 
         static void Main(string[] args)
         {
-            Delegate2 method1 = Method1;
-            Delegate2 method2 = Method2;
-            Delegate2 method3 = Method3;
+            var arr = new Delegate1[10];
 
-            int meth1 = method1.Invoke();
-            int meth2 = method2.Invoke();
-            int meth3 = method3.Invoke();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = () => new Delegate1(GetRandom).Invoke();
+            }
 
-            var result = (meth1 + meth2 + meth3) / 3;
-            Console.WriteLine(result);
+            Delegate2 del = delegate(Delegate1[] arr)
+            {
+                double result =0;
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    result += arr[i].Invoke();
+                }
+
+                return result / arr.Length;
+            };
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i].Invoke() + " ");
+            }
+            Console.WriteLine("\nСреднее арифметическое элементов {0:##.###}", del(arr));
         }
     }
 }
