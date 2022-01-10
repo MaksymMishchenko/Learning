@@ -2,13 +2,13 @@
 
 namespace MyListApp
 {
-    class MyList
+    class MyList<T>
     {
-        public int[] newList = new int[0];
+        public T[] newList = new T[0];
 
-        public void Add(int number)
+        public void Add(T number)
         {
-            int[] newArray = new int[newList.Length + 1];
+            T[] newArray = new T[newList.Length + 1];
 
             for (int i = 0; i < newArray.Length; i++)
             {
@@ -23,9 +23,9 @@ namespace MyListApp
             }
             newList = newArray;
         }
-        public void Insert(int index, int number)
+        public void Insert(int index, T number)
         {
-            int[] newArray = new int[newList.Length + 1];
+            T[] newArray = new T[newList.Length + 1];
 
             for (int i = 0, j = 0; i < newArray.Length; i++)
             {
