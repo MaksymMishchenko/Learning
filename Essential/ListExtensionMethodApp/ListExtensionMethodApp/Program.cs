@@ -6,7 +6,16 @@ namespace ListExtensionMethodApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var myList = new MyList<string>();
+            myList.Add("Veronika");
+            myList.Add("Vadim");
+            myList.Add("Petr");
+            myList.Add("Maks");
+            myList.Add("Artur");
+            myList.Add("Mihail");
+            myList.Add("Anton");
+
+            myList.Show();
         }
     }
 }
