@@ -30,6 +30,7 @@ namespace WeatherApp
             Console.WriteLine($"Температура: {value.Temperature}");
             Console.WriteLine($"Осадки: {value.Precipitation}");
             Console.WriteLine($"Влажность: {value.Humidity}");
+            Console.WriteLine($"Дата и время: {value.DateTime}");
             Console.WriteLine(new string('-', 15));
             Console.WriteLine();
         }

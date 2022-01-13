@@ -1,4 +1,6 @@
-﻿namespace WeatherApp
+﻿using System;
+
+namespace WeatherApp
 {
     class Weather
     {
@@ -6,6 +8,8 @@
         public string Temperature { get; }
         public string Precipitation { get; }
         public string Humidity { get; }
+
+        public DateTime DateTime = DateTime.Now;
 
         public Weather(string town, string temperature, string precipitation, string humidity)
         {
