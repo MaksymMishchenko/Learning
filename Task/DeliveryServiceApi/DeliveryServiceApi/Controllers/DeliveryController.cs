@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using DeliveryServiceApi.Interfaces;
 
 namespace DeliveryServiceApi.Controllers
 {
@@ -10,10 +7,31 @@ namespace DeliveryServiceApi.Controllers
     [ApiController]
     public class DeliveryController : Controller
     {
+        private readonly IOrderService _orderService;
+
+        public DeliveryController(IOrderService orderService)
+        {
+            _orderService = orderService;
+        }
         [HttpGet("check-status")]
         public IActionResult CheckStatus()
         {
             return Ok("Active");
+        }
+
+        [HttpPost("send-order")]
+        public IActionResult SendOrder()
+        {
+            try
+            {
+                if (_orderService.IsFreeCourierAvailable())
+                    return Ok("Order has been sent");
+                return NotFound("Available courier not found");
+            }
+            catch
+            {
+                return BadRequest("Order rejected");
+            }
         }
     }
 }
