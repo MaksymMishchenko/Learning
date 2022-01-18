@@ -6,7 +6,8 @@ namespace WaterFactoriesApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var clientCocaCola = new Client(new CocaColaFactory());
+            var clientPepsiCola = new Client(new PepsiColaFactory());
         }
     }
 }
