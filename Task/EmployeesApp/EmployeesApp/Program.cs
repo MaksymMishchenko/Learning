@@ -11,7 +11,7 @@ namespace EmployeesApp
             var employees = new Employee();
 
             var employeesList = employees.AddEmployee<Employee>();
-            var queryEmployess = employees.SelectEmployees<Employee>(employeesList);
+            var queryEmployess = employees.SelectEmployees<Employee>(employeesList, 30000);
             employees.PrintEmployees(queryEmployess);
         }
     }
