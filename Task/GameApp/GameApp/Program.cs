@@ -1,4 +1,5 @@
 ﻿using System;
+using GameApp.Weapons;
 
 namespace GameApp
 {
@@ -6,7 +7,12 @@ namespace GameApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var hero = new Hero("Squidvard");
+            hero.SetWeapon(new Broom());
+            hero.Attack();
+
+            hero.SetWeapon(new WaterGun());
+            hero.Attack();
         }
     }
 }
