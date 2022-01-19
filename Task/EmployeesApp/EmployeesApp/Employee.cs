@@ -6,6 +6,7 @@ namespace EmployeesApp
 {
     class Employee
     {
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Salary { get; set; }
@@ -18,7 +19,7 @@ namespace EmployeesApp
         /// <returns>Employees Collection</returns>
         public List<Employee> AddEmployee<T>()
         {
-            var employees = new List<Employee>()
+            var employees = new List<Employee>
             {
                 new Employee
                 {
@@ -44,13 +45,13 @@ namespace EmployeesApp
 
                 new Employee
                 {
-                FirstName = "Alex",
-                LastName = "Litvinkov",
-                Salary = 120000,
-                StartWork = DateTime.Parse("01/01/2011")
+                    FirstName = "Alex",
+                    LastName = "Litvinkov",
+                    Salary = 120000,
+                    StartWork = DateTime.Parse("01/01/2011")
                 }
             };
-
+            
             return employees;
         }
 
