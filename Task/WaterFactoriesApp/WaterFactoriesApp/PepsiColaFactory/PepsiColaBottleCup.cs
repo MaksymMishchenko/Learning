@@ -5,9 +5,9 @@ namespace WaterFactoriesApp
 {
     class PepsiColaBottleCup : AbstractBottleCap
     {
-        public override void Spin(AbstractBottleSticker sticker)
+        public override void Spin()
         {
-            Console.WriteLine("Screw on the cap");
+            
         }
     }
 }

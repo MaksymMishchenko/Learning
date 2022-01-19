@@ -1,7 +1,7 @@
-﻿namespace WaterFactoriesApp.AbstractEntities
+﻿namespace WaterFactoriesApp
 {
     abstract class AbstractBottleCap
     {
-        public abstract void Spin(AbstractBottleSticker sticker);
+        public abstract void Spin();
     }
 }

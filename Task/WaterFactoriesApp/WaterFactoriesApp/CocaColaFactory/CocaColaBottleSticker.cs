@@ -7,7 +7,7 @@ namespace WaterFactoriesApp
     {
         public override void SticksSticker()
         {
-            Console.WriteLine("Stick a sticker");
+            Console.WriteLine("Processing: \tStick a sticker");
         }
     }
 }

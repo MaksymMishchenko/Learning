@@ -15,10 +15,12 @@ namespace WaterFactoriesApp
             _bottle = abstractFactory.CreateBottle();
             _bottleCap = abstractFactory.CreateBottleCup();
             _bottleSticker = abstractFactory.CreateBottleSticker();
+
         }
 
         public void Run()
         {
+            _water.Mix();
             _bottle.Pour(_water);
             _bottle.Spin(_bottleCap);
             _bottle.SticksSticker(_bottleSticker);

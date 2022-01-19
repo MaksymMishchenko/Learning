@@ -6,7 +6,6 @@ namespace WaterFactoriesApp
     {
         public abstract AbstractWater CreateWater();
         public abstract AbstractBottle CreateBottle();
-
         public abstract AbstractBottleCap CreateBottleCup();
         public abstract AbstractBottleSticker CreateBottleSticker();
     }

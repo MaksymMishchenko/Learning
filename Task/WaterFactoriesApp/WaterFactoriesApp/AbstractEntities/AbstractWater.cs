@@ -2,5 +2,6 @@
 {
     abstract class AbstractWater
     {
+        public abstract void Mix();
     }
 }

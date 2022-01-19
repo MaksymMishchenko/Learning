@@ -17,7 +17,7 @@ namespace WaterFactoriesApp
 
         public override AbstractBottleCap CreateBottleCup()
         {
-            return new CocaColaBottleCup();
+            return new CocaColaBottleCap();
         }
 
 

@@ -3,11 +3,11 @@ using WaterFactoriesApp.AbstractEntities;
 
 namespace WaterFactoriesApp
 {
-    class CocaColaBottleCup : AbstractBottleCap
+    class CocaColaBottleCap : AbstractBottleCap
     {
-        public override void Spin(AbstractBottleSticker sticker)
+        public override void Spin()
         {
-            Console.WriteLine("Spin the cap");
+            Console.WriteLine("Processing: \tSpin the cap");
         }
     }
 }

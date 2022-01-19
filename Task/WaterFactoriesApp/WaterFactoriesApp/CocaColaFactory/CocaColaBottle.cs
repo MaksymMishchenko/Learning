@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using WaterFactoriesApp.AbstractEntities;
 
 namespace WaterFactoriesApp
@@ -7,17 +8,20 @@ namespace WaterFactoriesApp
     {
         public override void Pour(AbstractWater abstractWater)
         {
-            Console.WriteLine("\tPouring water into a bottle CocaCola");
+            Thread.Sleep(500);
+            Console.WriteLine("Processing: Pouring water into a bottle CocaCola");
         }
 
         public override void Spin(AbstractBottleCap cap)
         {
-            Console.WriteLine("\tScrew on the cap");
+            Thread.Sleep(500);
+            Console.WriteLine("Processing: Screw on the cap");
         }
 
         public override void SticksSticker(AbstractBottleSticker sticker)
         {
-            Console.WriteLine("\tStick a sticker");
+            Thread.Sleep(500);
+            Console.Write("Processing: Stick a sticker");
         }
     }
 }
