@@ -7,7 +7,10 @@ namespace WaterFactoriesApp
         static void Main(string[] args)
         {
             var clientCocaCola = new Client(new CocaColaFactory());
-            var clientPepsiCola = new Client(new PepsiColaFactory());
+            clientCocaCola.Run();
+
+            //var clientPepsiCola = new Client(new PepsiColaFactory());
+            //clientPepsiCola.Run();
         }
     }
 }
