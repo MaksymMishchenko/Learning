@@ -7,17 +7,17 @@ namespace WaterFactoriesApp
     {
         public override void Pour(AbstractWater abstractWater)
         {
-            Console.WriteLine("Pouring water into a bottle");
+            Console.WriteLine("\tPouring water into a bottle PepsiCola");
         }
 
         public override void Spin(AbstractBottleCap cap)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("\tScrew on the cap");
         }
 
-        public override void SticksSticker(AbstractBottleSticker cap)
+        public override void SticksSticker(AbstractBottleSticker sticker)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("\tStick a sticker");
         }
     }
 }

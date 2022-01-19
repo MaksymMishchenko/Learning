@@ -16,12 +16,12 @@ namespace WaterFactoriesApp
 
         public override AbstractBottleCap CreateBottleCup()
         {
-            throw new System.NotImplementedException();
+            return new PepsiColaBottleCup();
         }
 
         public override AbstractBottleSticker CreateBottleSticker()
         {
-            throw new System.NotImplementedException();
+            return new PepsiColaBottleSticker();
         }
     }
 }
