@@ -6,7 +6,7 @@ namespace ProxyChiefApp
     {
         public Guid Type { get; set; } = Guid.NewGuid();
 
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public int StatusId { get; set; } = 0;
     }

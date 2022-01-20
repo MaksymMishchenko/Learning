@@ -4,9 +4,9 @@ using System.Threading;
 
 namespace ProxyChiefApp
 {
-    internal class Chief
+    internal class Chief //: IChief
     {
-        public Dictionary<int, string> GetStatuses()
+        public IDictionary<int, string> GetStatuses()
         {
             Dictionary<int, string> statuses = new Dictionary<int, string>();
             statuses.Add(1, "ready");
@@ -18,7 +18,7 @@ namespace ProxyChiefApp
             return statuses;
         }
 
-        public List<Order> GetOrders()
+        public IEnumerable<Order> GetOrders()
         {
             List<Order> orders = new List<Order>
             {

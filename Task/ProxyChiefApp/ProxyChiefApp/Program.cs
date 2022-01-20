@@ -5,11 +5,11 @@ using System.Threading;
 
 namespace ProxyChiefApp
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
-            Chief chief = new Chief();
+            IChief chief = new ProxyChief(new Chief());
             while (true)
             {
                 Thread.Sleep(2000);
@@ -18,7 +18,7 @@ namespace ProxyChiefApp
                 Console.WriteLine("Welcome to Chief\n");
                 Console.WriteLine("========Orders========");
 
-                List<Order> orders = chief.GetOrders();
+                IEnumerable<Order> orders = chief.GetOrders();
 
                 foreach (Order order in orders)
                 {
