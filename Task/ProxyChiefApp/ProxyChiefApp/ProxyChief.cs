@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 namespace ProxyChiefApp
 {
@@ -13,6 +16,11 @@ namespace ProxyChiefApp
         }
         public IDictionary<int, string> GetStatuses()
         {
+            // logging
+            using (StreamWriter writeLog = new StreamWriter("StatusLog.txt", true, Encoding.UTF8))
+            {
+                writeLog.WriteLine(DateTime.Now);
+            }
             if (_statuses is null)
             {
                 _statuses = _chief.GetStatuses();
