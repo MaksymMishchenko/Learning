@@ -16,8 +16,11 @@ namespace WebShopApp.Controllers
 
         public ViewResult GetCars()
         {
-            var cars = _allCars.Cars;
-            return View(cars);
+            ViewBag.Title = "Main page. Cars";
+            CarsListViewModel obj = new CarsListViewModel();
+            obj.AllCars = _allCars.Cars;
+            obj.CurrentCategory = "Electrocar";
+            return View(obj);
         }
     }
 }

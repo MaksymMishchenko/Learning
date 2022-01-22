@@ -1,28 +1,12 @@
-﻿@using WebShopApp.Controllers
-@using WebShopApp.Data.Models
-@model IEnumerable<Car>
+﻿
+<h1>All Cars</h1>
+<h3>@Model.CurrentCategory</h3>
 @{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>GetCars</title>
-</head>
-<body>
-    <h2>Все автомобили</h2>
-@{
-    foreach ( var car in Model)
+    foreach (var car in Model.AllCars)
     {
         <div>
             <h2>Model: @car.Name</h2>
             <p>Price: @car.Price.ToString("C")</p>
         </div>
     }
-
-    }
-</body>
-</html>
+}
