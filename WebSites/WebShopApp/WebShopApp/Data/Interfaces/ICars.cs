@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using WebShopApp.Data.Models;
 
 namespace WebShopApp.Data.Interfaces
@@ -9,7 +6,7 @@ namespace WebShopApp.Data.Interfaces
     public interface ICars
     {
         IEnumerable<Car> Cars { get; }
-        IEnumerable<Car> GetFavouriteCars { get; set; }
+        IEnumerable<Car> GetFavouriteCars { get; }
         Car GetCar(int carId);
     }
 }
