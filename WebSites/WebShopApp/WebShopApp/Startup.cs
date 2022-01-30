@@ -40,6 +40,12 @@ namespace WebShopApp
             // show static files in our project
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
+
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+               AppDbContent content = scope.ServiceProvider.GetRequiredService<AppDbContent>();
+               DbObjects.Initial(content);
+            }
         }
     }
 }

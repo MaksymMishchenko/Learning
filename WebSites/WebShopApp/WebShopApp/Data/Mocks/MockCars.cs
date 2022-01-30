@@ -38,7 +38,7 @@ namespace WebShopApp.Data.Mocks
                         IsFavourite = true,
                         Available = true,
                         Category =_category.AllCategories.First()
-                }, 
+                    }, 
                     new Car()
                     {
                         Name = "Toyota",
