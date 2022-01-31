@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WebShopApp.Data;
 using WebShopApp.Data.Interfaces;
 using WebShopApp.Data.Mocks;
 using Microsoft.EntityFrameworkCore;
+using WebShopApp.Data.Models;
 using WebShopApp.Data.Repository;
 
 namespace WebShopApp
@@ -14,7 +16,7 @@ namespace WebShopApp
     {
         private IConfigurationRoot _confString;
         
-        public Startup(IHostingEnvironment hostEnv)
+        public Startup(IWebHostEnvironment hostEnv)
         {
             _confString = new ConfigurationBuilder().SetBasePath(hostEnv.ContentRootPath)
                 .AddJsonFile("dbsettings.json").Build();
@@ -28,8 +30,12 @@ namespace WebShopApp
                 options.UseSqlServer(_confString.GetConnectionString("DefaultConnection")));
             services.AddTransient<ICars, CarRepository>();
             services.AddTransient<ICategory, CategoryRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => ShopCart.GetCart(sp));
             // Add MVC services
             services.AddMvc(options => options.EnableEndpointRouting = false);
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +45,7 @@ namespace WebShopApp
             app.UseStatusCodePages();
             // show static files in our project
             app.UseStaticFiles();
+            app.UseSession();
             app.UseMvcWithDefaultRoute();
 
             using (var scope = app.ApplicationServices.CreateScope())

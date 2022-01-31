@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using WebShopApp.Data.Models;
 
-namespace WebShopApp
+namespace WebShopApp.ViewModels
 {
     public class CarsListViewModel
     {

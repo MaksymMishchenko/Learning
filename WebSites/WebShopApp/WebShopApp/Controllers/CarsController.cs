@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebShopApp.Data.Interfaces;
+using WebShopApp.ViewModels;
 
 namespace WebShopApp.Controllers
 {
