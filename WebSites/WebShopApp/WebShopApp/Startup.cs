@@ -47,12 +47,12 @@ namespace WebShopApp
             // show static files in our project
             app.UseStaticFiles();
             app.UseSession();
-            //app.UseMvcWithDefaultRoute();
+            app.UseMvcWithDefaultRoute();
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
-                routes.MapRoute(name: "categoryFilter", template: "Car/{action}/{category?}", defaults: new
+                routes.MapRoute(name: "categoryFilter", template: "Cars/{action}/{category?}", defaults: new
                     { Controller = "Cars", action = "GetCars" });
             });
 
