@@ -52,7 +52,7 @@ namespace WebShopApp.Data
                      LongDescription = "Powerful petrol car with engine capacity 3.0",
                      Image = "/image/toyota.jpg",
                      Price = 22000,
-                     IsFavourite = false,
+                     IsFavourite = true,
                      Available = false,
                      Category = Categories["Petrol Cars"]
                  },

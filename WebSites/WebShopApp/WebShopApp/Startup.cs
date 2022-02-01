@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WebShopApp.Data;
@@ -46,7 +47,14 @@ namespace WebShopApp
             // show static files in our project
             app.UseStaticFiles();
             app.UseSession();
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(name: "categoryFilter", template: "Car/{action}/{category?}", defaults: new
+                    { Controller = "Cars", action = "GetCars" });
+            });
 
             using (var scope = app.ApplicationServices.CreateScope())
             {

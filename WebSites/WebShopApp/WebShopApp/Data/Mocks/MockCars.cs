@@ -46,8 +46,8 @@ namespace WebShopApp.Data.Mocks
                         LongDescription = "Powerful petrol car with engine capacity 3.0",
                         Image = "/image/toyota.jpg",
                         Price = 22000,
-                        IsFavourite = false,
-                        Available = false,
+                        IsFavourite = true,
+                        Available = true,
                         Category =_category.AllCategories.Last()
                     },
 
