@@ -13,12 +13,10 @@ namespace WebShopApp.Controllers
     {
         private readonly ICars _allCars;
         //private readonly ICategory _allCategory;
-
         public CarsController(ICars allCars)
         {
             _allCars = allCars;
         }
-
         public CarsListViewModel GetModel(IEnumerable<Car> car, string category = "null")
         {
             var model = new CarsListViewModel
