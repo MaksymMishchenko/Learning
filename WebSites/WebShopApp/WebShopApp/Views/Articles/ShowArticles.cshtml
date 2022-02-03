@@ -1,0 +1,10 @@
+﻿<h1>All Articles</h1>
+<h3>Articles</h3>
+<div class="row mt-5 mb-2">
+    @{
+        foreach (Article art in Model.Articles)
+        {
+            @Html.Partial("AllArticles", art)
+        }
+    }
+</div>
