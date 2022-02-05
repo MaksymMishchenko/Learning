@@ -1,4 +1,5 @@
-﻿using UserApp.Entities;
+﻿using System;
+using UserApp.Entities;
 
 namespace UserApp
 {
@@ -6,15 +7,25 @@ namespace UserApp
     {
         static void Main(string[] args)
         {
-            using (var db = new DbContent())
-            {
-                var userData = new UserData(db);
-                userData.AddsUsers();
-                var getUsers = userData.GetUsers();
 
-                var print = new PrintConsole();
-                print.PrintUsers(getUsers);
-            }
+            var userData = new UserData(new DbContent());
+            userData.AddsUsers();
+            var getUsers = userData.GetUsers();
+
+            var printAdd = new PrintConsole();
+           printAdd.PrintUsers(getUsers);
+
+            Console.WriteLine(new string('-', 20));
+            
+            userData.UpdateUsers();
+            Console.WriteLine("Users after update: ");
+            printAdd.PrintUsers(getUsers);
+            
+            Console.WriteLine(new string('-', 20));
+            
+            userData.DeleteUsers();
+            Console.WriteLine("Users after deletion: ");
+            printAdd.PrintUsers(getUsers);
         }
     }
 }

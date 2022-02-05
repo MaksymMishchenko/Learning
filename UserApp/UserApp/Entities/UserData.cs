@@ -7,19 +7,20 @@ namespace UserApp.Entities
 {
     class UserData : IUserData
     {
-        private DbContent _dBContent;
-        private IEnumerable<User> _users;
+        private DbContent _dbContent;
+        private IEnumerable<User> _user;
 
-        public UserData(DbContent dBContent)
+        public UserData(DbContent dbContent)
         {
-            _dBContent = dBContent;
+            _dbContent = dbContent;
+            _user = new List<User>();
         }
 
         public void AddsUsers()
         {
             using (var db = new DbContent())
             {
-                if (!_dBContent.Users.Any())
+                if (!db.Users.Any())
                 {
                     User maks = new User { Name = "Nadin", Age = 32 };
 
@@ -29,14 +30,48 @@ namespace UserApp.Entities
 
                     db.Users.AddRange(maks, artur, sveta);
                 }
-               
+
                 db.SaveChanges();
                 Console.WriteLine("Data added successfully!");
             }
         }
 
+        public void UpdateUsers()
+        {
+            using (var db = new DbContent())
+            {
+                User user = _dbContent.Users.FirstOrDefault();
 
+                user.Name = "Fetil";
+                user.Age = 25;
 
-        public IEnumerable<User> GetUsers() => _dBContent.Users.ToList();
+                db.Users.Update(user);
+                db.SaveChanges();
+            }
+        }
+
+        public void DeleteUsers()
+        {
+            using (var db = new DbContent())
+            {
+                User user = _dbContent.Users.FirstOrDefault();
+
+                if (user != null)
+                {
+                    db.Users.Remove(user);
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        public IEnumerable<User> GetUsers()
+        {
+            if (!_user.Any())
+            {
+                _user = _dbContent.Users;
+            }
+
+            return _user.ToList();
+        }
     }
 }
