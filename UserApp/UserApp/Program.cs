@@ -1,4 +1,4 @@
-﻿using System;
+﻿using UserApp.Entities;
 
 namespace UserApp
 {
@@ -6,17 +6,14 @@ namespace UserApp
     {
         static void Main(string[] args)
         {
-            using (DbContent db = new DbContent())
+            using (var db = new DbContent())
             {
-                User maks = new User { Name = "Maks", Age = 32 };
-            
-                User artur = new User { Name = "Artur", Age = 21 };
-            
-                User sveta = new User { Name = "Sveta", Age = 25 };
-            
-                db.Users.AddRange(maks, artur, sveta);
-                db.SaveChanges();
-                Console.WriteLine("Data added successfully!");
+                var userData = new UserData(db);
+                userData.AddsUsers();
+                var getUsers = userData.GetUsers();
+
+                var print = new PrintConsole();
+                print.PrintUsers(getUsers);
             }
         }
     }
