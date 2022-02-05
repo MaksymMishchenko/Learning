@@ -6,23 +6,23 @@ namespace WebShopApp.Controllers
 {
     public class ArticlesController : Controller
     {
-        private readonly IArticle _articles;
-        private readonly IArticleCategories _artCategories;
+        private readonly IArticle _article;
+        private readonly IArticleCategories _artCategory;
 
-        public ArticlesController(IArticle articles, IArticleCategories artCategories)
+        public ArticlesController(IArticle article, IArticleCategories artCategory)
         {
-            _articles = articles;
-            _artCategories = artCategories;
+            _article = article;
+            _artCategory = artCategory;
         }
 
-        public ViewResult ShowArticles()
+        public ViewResult GetArticles()
         {
-            var obj = new ArticleListViewModel()
+            ArticleListViewModel article = new ArticleListViewModel
             {
-                Articles = _articles.Articles,
-                ArtCategories = _artCategories.Categories
+                Article = _article.Articles,
+                Category = "All Articles"
             };
-            return View(obj);
+            return View(article);
         }
     }
 }

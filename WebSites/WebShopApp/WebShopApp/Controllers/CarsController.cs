@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
@@ -29,15 +28,14 @@ namespace WebShopApp.Controllers
         }
 
         [Route("Cars/GetCars")]
-        public ViewResult GetCars(string category)
+        public ViewResult GetCars()
         {
             //string currentCategory = "";
             IEnumerable<Car> Cars = null;
 
-            if (string.IsNullOrEmpty(category))
-            {
+           
                 Cars = _allCars.Cars.OrderBy(i => i.Id);
-            }
+            
 
             ViewBag.Title = "Main page. Cars";
             return View(GetModel(Cars));

@@ -5,7 +5,7 @@ namespace WebShopApp.ViewModels
 {
     public class ArticleListViewModel
     {
-        public IEnumerable<Article> Articles { get; set; }
-        public IEnumerable<ArticleCategory> ArtCategories { get; set; }
+        public IEnumerable<Article> Article { get; set; }
+        public string Category { get; set; }
     }
 }

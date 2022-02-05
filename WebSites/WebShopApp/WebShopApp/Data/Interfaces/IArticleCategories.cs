@@ -5,6 +5,6 @@ namespace WebShopApp.Data.Interfaces
 {
     public interface IArticleCategories
     {
-        IEnumerable<ArticleCategory> Categories { get; }
+        IEnumerable<ArticleCategory> AllCategories { get; }
     }
 }

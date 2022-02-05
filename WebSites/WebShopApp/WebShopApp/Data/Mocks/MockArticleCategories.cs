@@ -9,7 +9,7 @@ namespace WebShopApp.Data.Mocks
 {
     public class MockArticleCategories : IArticleCategories
     {
-        public IEnumerable<ArticleCategory> Categories
+        public IEnumerable<ArticleCategory> AllCategories
         {
             get
             {
@@ -19,7 +19,6 @@ namespace WebShopApp.Data.Mocks
                     {
                         Name = "Sport Car",
                         Description = "This is sport car"
-
                     },
 
                     new ArticleCategory

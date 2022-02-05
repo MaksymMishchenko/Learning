@@ -32,8 +32,8 @@ namespace WebShopApp
             services.AddTransient<ICars, CarRepository>();
             services.AddTransient<ICategory, CategoryRepository>();
             services.AddTransient<IOrders, OrdersRepository>();
-            services.AddTransient<IArticle, MockArticle>();
-            services.AddTransient<IArticleCategories, MockArticleCategories>();
+            services.AddTransient<IArticle, ArticlesRepository>();
+            services.AddTransient<IArticleCategories, ArtCategoryRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => ShopCart.GetCart(sp));
             // Add MVC services
