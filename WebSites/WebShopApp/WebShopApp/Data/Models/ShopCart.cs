@@ -43,7 +43,10 @@ namespace WebShopApp.Data.Models
 
         public List<ShopCartItem> GetShopItems()
         {
-            return _appDbContent.ShopCartItem.Where(c => c.ShopCartId == ShopCartId).Include(s => s.Car).ToList();
+            return _appDbContent.ShopCartItem
+                .Where(c => c.ShopCartId == ShopCartId)
+                .Include(s => s.Car)
+                .ToList();
         }
     }
 }

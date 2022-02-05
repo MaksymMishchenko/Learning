@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 using WebShopApp.Data.Interfaces;
+using WebShopApp.Data.Models;
 using WebShopApp.ViewModels;
 
 namespace WebShopApp.Controllers
@@ -15,14 +18,25 @@ namespace WebShopApp.Controllers
             _artCategory = artCategory;
         }
 
-        public ViewResult GetArticles()
+        public ArticleListViewModel GetModel(IEnumerable<Article> articles)
         {
             ArticleListViewModel article = new ArticleListViewModel
             {
-                Article = _article.Articles,
+                Article = articles,
                 Category = "All Articles"
             };
-            return View(article);
+
+            return article;
+        }
+
+        [Route("Articles/GetArticles")]
+        public ViewResult GetArticles()
+        {
+            IEnumerable<Article> Articles = null;
+
+            Articles = _article.Articles.OrderBy(a => a.Id);
+
+            return View(GetModel(Articles));
         }
     }
 }

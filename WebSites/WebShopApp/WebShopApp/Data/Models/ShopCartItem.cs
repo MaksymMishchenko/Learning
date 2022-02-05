@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace WebShopApp.Data.Models
+﻿namespace WebShopApp.Data.Models
 {
     public class ShopCartItem
     {
