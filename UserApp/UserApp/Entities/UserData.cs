@@ -35,6 +35,8 @@ namespace UserApp.Entities
             }
         }
 
+
+
         public IEnumerable<User> GetUsers() => _dBContent.Users.ToList();
     }
 }
