@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using BooksApp.Interfaces;
 using BooksApp.Models;
 
@@ -16,9 +14,5 @@ namespace BooksApp.Repository
         }
 
         public IEnumerable<Author> GetAllAuthors => _dbContent.Authors;
-        public IEnumerable<Author> GetBooksByAuthor()
-        {
-            return Enumerable.Empty<Author>();
-        }
     }
 }

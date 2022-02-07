@@ -17,9 +17,9 @@ namespace BooksApp.Repository
 
         public IEnumerable<Book> GetAllBooks => _dbContent.Books.Include(b => b.Author);
 
-        public IEnumerable<Book> GetBookByAuthors(string name)
+        public IEnumerable<Book> GetBookByAuthors(int id)
         {
-            return _dbContent.Books.Where(a => a.Name == name);
+            return _dbContent.Books.Where(a => a.Author.Id == id);
         }
     }
 }

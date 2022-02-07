@@ -10,7 +10,6 @@ namespace BooksApp
         public DbContent()
         {
         }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Books;Trusted_Connection=True;");

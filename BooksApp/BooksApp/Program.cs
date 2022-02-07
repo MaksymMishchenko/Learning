@@ -29,6 +29,14 @@ namespace BooksApp
             {
                 Console.WriteLine($"{books.Name}");
             }
+
+            var getBooksByAuthor = book.GetBookByAuthors(1);
+            Console.WriteLine("Contains the following list of books: ");
+
+            foreach (var books in getBooksByAuthor)
+            {
+                Console.WriteLine($"{books.Name}, {books.Author.Name}");
+            }
         }
     }
 }

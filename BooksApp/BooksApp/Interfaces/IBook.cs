@@ -6,6 +6,6 @@ namespace BooksApp.Interfaces
     internal interface IBook
     {
          IEnumerable<Book> GetAllBooks { get; }
-         IEnumerable<Book> GetBookByAuthors(string name);
+         IEnumerable<Book> GetBookByAuthors(int id);
     }
 }
