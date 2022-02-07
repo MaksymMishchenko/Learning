@@ -47,8 +47,7 @@ namespace BooksApp
                     {
                         Name = "Programming Applications",
                         Author = Authors["Jefrey Rihter"]
-                    }
-                );
+                    });
             }
 
             dbContent.SaveChanges();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using BooksApp.Interfaces;
 using BooksApp.Models;
@@ -22,13 +23,13 @@ namespace BooksApp
                 Console.WriteLine($"Author: {author.Name}");
             }
         }
-
+       
         public void PrintBooksByAuthor(IEnumerable<Book> coll)
         {
             foreach (var books in coll)
             {
-                Console.WriteLine($"Book: {books.Name} | Author{books.Author.Name}");
+                Console.WriteLine($"Book: {books.Name} | Author: {books.Author.Name}");
             }
         }
-    }
-}
+    }  
+}      

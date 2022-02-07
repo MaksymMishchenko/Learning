@@ -8,5 +8,5 @@ namespace BooksApp.Interfaces
         void PrintBooks(IEnumerable<Book> coll);
         void PrintAuthors(IEnumerable<Author> coll);
         void PrintBooksByAuthor(IEnumerable<Book> coll);
-    }
+    }  
 }

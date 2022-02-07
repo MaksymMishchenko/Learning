@@ -30,7 +30,7 @@ namespace BooksApp
             Console.WriteLine(new string('-', 50));
 
             var getBooksByAuthor = book.GetBookByAuthors(1);
-            Console.WriteLine("Contains the following list of books: ");
+            Console.WriteLine("Contains the following books by Authors: ");
             Console.WriteLine(new string('-', 50));
 
             print.PrintBooksByAuthor(getBooksByAuthor);
