@@ -1,4 +1,5 @@
 ﻿using System;
+using BooksApp.Interfaces;
 using BooksApp.Repository;
 
 namespace BooksApp
@@ -12,31 +13,27 @@ namespace BooksApp
 
             AuthorsRepository author = new AuthorsRepository(db);
             BooksRepository book = new BooksRepository(db);
+            IPrint print = new Print();
 
             var getAllAuthors = author.GetAllAuthors;
-
             Console.WriteLine("Contains the following list of authors: ");
+            Console.WriteLine(new string('-', 50));
 
-            foreach (var authors in getAllAuthors)
-            {
-                Console.WriteLine($"{authors.Name}");
-            }
+            print.PrintAuthors(getAllAuthors);
+            Console.WriteLine(new string('-', 50));
 
             var getAllBooks = book.GetAllBooks;
             Console.WriteLine("Contains the following list of books: ");
+            Console.WriteLine(new string('-', 50));
 
-            foreach (var books in getAllBooks)
-            {
-                Console.WriteLine($"{books.Name}");
-            }
+            print.PrintBooks(getAllBooks);
+            Console.WriteLine(new string('-', 50));
 
             var getBooksByAuthor = book.GetBookByAuthors(1);
             Console.WriteLine("Contains the following list of books: ");
+            Console.WriteLine(new string('-', 50));
 
-            foreach (var books in getBooksByAuthor)
-            {
-                Console.WriteLine($"{books.Name}, {books.Author.Name}");
-            }
+            print.PrintBooksByAuthor(getBooksByAuthor);
         }
     }
 }

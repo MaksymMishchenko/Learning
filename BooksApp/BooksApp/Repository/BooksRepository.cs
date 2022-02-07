@@ -19,7 +19,7 @@ namespace BooksApp.Repository
 
         public IEnumerable<Book> GetBookByAuthors(int id)
         {
-            return _dbContent.Books.Where(a => a.Author.Id == id);
+           return _dbContent.Books.Where(a => a.Author.Id == id);
         }
     }
 }
