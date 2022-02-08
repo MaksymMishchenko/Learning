@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using BooksApp.Interfaces;
+﻿using BooksApp.Interfaces;
 using BooksApp.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BooksApp.Repository
 {
@@ -19,7 +19,11 @@ namespace BooksApp.Repository
 
         public IEnumerable<Book> GetBookByAuthors(int id)
         {
-           return _dbContent.Books.Where(a => a.Author.Id == id);
+            return _dbContent.Books.Where(a => a.Author.Id == id);
         }
+
+        public IEnumerable<Book> GetBookByAuthorsByCountries => _dbContent.Books
+            .Include(b => b.Author)
+            .ThenInclude(c => c.Country).ToList();
     }
 }

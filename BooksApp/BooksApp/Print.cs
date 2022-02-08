@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using BooksApp.Interfaces;
+﻿using BooksApp.Interfaces;
 using BooksApp.Models;
+using System;
+using System.Collections.Generic;
 
 namespace BooksApp
 {
@@ -23,7 +22,7 @@ namespace BooksApp
                 Console.WriteLine($"Author: {author.Name}");
             }
         }
-       
+
         public void PrintBooksByAuthor(IEnumerable<Book> coll)
         {
             foreach (var books in coll)
@@ -31,5 +30,13 @@ namespace BooksApp
                 Console.WriteLine($"Book: {books.Name} | Author: {books.Author.Name}");
             }
         }
-    }  
-}      
+
+        public void PrintBooksByAuthorByCountries(IEnumerable<Book> coll)
+        {
+            foreach (var item in coll)
+            {
+                Console.WriteLine($"{item.Name} - {item.Author?.Name} - {item.Author?.Country?.Name}");
+            }
+        }
+    }
+}
