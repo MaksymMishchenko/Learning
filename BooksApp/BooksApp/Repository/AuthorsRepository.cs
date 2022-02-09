@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using BooksApp.Interfaces;
+﻿using BooksApp.Interfaces;
 using BooksApp.Models;
+using System.Collections.Generic;
 
 namespace BooksApp.Repository
 {

@@ -51,7 +51,7 @@ namespace BooksApp
         {
             foreach (var item in coll)
             {
-                Console.WriteLine($"{item.Name} - {item.Author?.Name} - {item.Author?.Country?.Capital?.Name}");
+                Console.WriteLine($"{item.Name} - {item.Author?.Name} - {item.Author?.Country?.Name} - {item.Author?.Country?.Capital?.Name}");
             }
         }
     }

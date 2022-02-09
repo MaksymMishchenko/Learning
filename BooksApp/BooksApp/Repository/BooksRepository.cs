@@ -29,7 +29,6 @@ namespace BooksApp.Repository
         public IEnumerable<Book> GetBookByPublishHouse => _dbContent.Books
             .Include(ph => ph.PublishHouse)
             .ToList();
-
         public IEnumerable<Book> GetBookByAuthorsByCountriesCapitals => _dbContent.Books
             .Include(a => a.Author)
             .ThenInclude(c => c.Country)
