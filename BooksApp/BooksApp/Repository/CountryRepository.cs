@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BooksApp.Repository
 {
-    class CountryRepository : ICountry
+    class CountryRepository : ICountryRepository
     {
         private readonly DbContent _dbContent;
 

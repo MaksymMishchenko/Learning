@@ -4,14 +4,16 @@ using BooksApp;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BooksApp.Migrations
 {
     [DbContext(typeof(DbContent))]
-    partial class DbContentModelSnapshot : ModelSnapshot
+    [Migration("20220209123818_AddCapitalAndPublishHouse")]
+    partial class AddCapitalAndPublishHouse
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,14 +54,15 @@ namespace BooksApp.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PublishHouse")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("PublishHouseId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
-
-                    b.HasIndex("PublishHouseId");
 
                     b.ToTable("Books");
                 });
@@ -134,13 +137,7 @@ namespace BooksApp.Migrations
                         .WithMany()
                         .HasForeignKey("AuthorId");
 
-                    b.HasOne("BooksApp.Models.PublishHouse", "PublishHouse")
-                        .WithMany()
-                        .HasForeignKey("PublishHouseId");
-
                     b.Navigation("Author");
-
-                    b.Navigation("PublishHouse");
                 });
 
             modelBuilder.Entity("BooksApp.Models.Capital", b =>

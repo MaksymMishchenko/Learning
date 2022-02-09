@@ -38,5 +38,21 @@ namespace BooksApp
                 Console.WriteLine($"{item.Name} - {item.Author?.Name} - {item.Author?.Country?.Name}");
             }
         }
+
+        public void PrintBooksByPublishHouse(IEnumerable<Book> coll)
+        {
+            foreach (var item in coll)
+            {
+                Console.WriteLine($"{item.Name} - {item.PublishHouse?.Name}");
+            }
+        }
+
+        public void PrintBooksByAuthorCountryCapital(IEnumerable<Book> coll)
+        {
+            foreach (var item in coll)
+            {
+                Console.WriteLine($"{item.Name} - {item.Author?.Name} - {item.Author?.Country?.Capital?.Name}");
+            }
+        }
     }
 }

@@ -3,8 +3,8 @@ using BooksApp.Models;
 
 namespace BooksApp.Interfaces
 {
-    internal interface ICountry
+    internal interface IAuthorsRepository
     {
-        IEnumerable<Country> GetAllCountries { get; }
+        IEnumerable<Author> GetAllAuthors { get; }
     }
 }

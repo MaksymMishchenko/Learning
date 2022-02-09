@@ -4,7 +4,7 @@ using BooksApp.Models;
 
 namespace BooksApp.Repository
 {
-    internal class AuthorsRepository : IAuthor
+    internal class AuthorsRepository : IAuthorsRepository
     {
         private readonly DbContent _dbContent;
 
