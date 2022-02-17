@@ -1,4 +1,6 @@
-﻿namespace MobilePhoneApp.Models
+﻿using System.Collections.Generic;
+
+namespace MobilePhoneApp.Models
 {
     class Manufacturer
     {
@@ -6,5 +8,6 @@
         public string Name { get; set; }
         public int? HeadquartersId { get; set; }
         public Headquarters Headquarters { get; set; }
+        public List<MobilePhone> MobilePhones { get; set; } = new List<MobilePhone>();
     }
 }

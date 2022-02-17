@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using MobilePhoneApp.Models;
+using System;
+using System.Linq;
 
 namespace MobilePhoneApp
 {
@@ -45,6 +43,37 @@ namespace MobilePhoneApp
                 foreach (var item in mobileList)
                 {
                     Console.WriteLine($"Phone: {item.Name} | Price: {item.Cost}, Manufacturer: {item.Manufacturer?.Name} | Headquarters: {item.Manufacturer?.Headquarters?.Name} | Country: {item.Manufacturer?.Headquarters?.Country?.Name}");
+                }
+
+                Console.WriteLine(new string('-', 100));
+
+                var manufacturer = db.Manufacturers.FirstOrDefault();
+                db.MobilePhones.Where(p => p.ManufacturerId == manufacturer.Id).Load();
+
+                Console.WriteLine($"Manufacturer: {manufacturer.Name}");
+
+                foreach (var item in manufacturer.MobilePhones)
+                {
+                    Console.WriteLine($"Mobile phone: {item.Name} | Price: {item.Cost}");
+                }
+
+                Console.WriteLine(new string('-', 100));
+
+                var phone = db.MobilePhones.FirstOrDefault();
+                db.Entry(phone).Reference(x => x.Manufacturer).Load();
+
+                Console.WriteLine($"Mobile phone: {phone.Name} | Manufacturer: {phone.Manufacturer?.Name}");
+
+                Console.WriteLine(new string('-', 100));
+
+                var manufac = db.Manufacturers.OrderBy(o => o.Id).LastOrDefault();
+                db.Entry(manufac).Collection(p => p.MobilePhones).Load();
+
+                Console.WriteLine($"Manufacturer: {manufac.Name}");
+
+                foreach (var item in manufac.MobilePhones)
+                {
+                    Console.WriteLine($"Mobile phone: {item.Name}");
                 }
             }
         }
