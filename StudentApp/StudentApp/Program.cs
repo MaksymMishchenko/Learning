@@ -3,6 +3,7 @@ using StudentApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Channels;
 
 namespace StudentApp
 {
@@ -55,6 +56,51 @@ namespace StudentApp
                 Console.WriteLine(new string('-', 50));
 
                 // print course by student
+                foreach (var c in db.Students.Include(s => s.Courses))
+                {
+                    Console.WriteLine($"Name: {c.Name}");
+
+                    foreach (var student in c.Courses)
+                    {
+                        Console.WriteLine($"\tCourse: {student.Name}");
+                    }
+                }
+
+                var studentAlex = db.Students.FirstOrDefault(s => s.Name == "alex");
+                var courseJavaScript = db.Courses.FirstOrDefault(j => j.Name == "javascript");
+                var courseCSharp = db.Courses.FirstOrDefault(c => c.Name == "C#");
+
+                if (studentAlex != null && courseJavaScript != null && courseCSharp != null)
+                {
+                    studentAlex.Courses.Remove(courseJavaScript);
+                    studentAlex.Courses.Add(courseCSharp);
+                    db.SaveChanges();
+                }
+
+                Console.WriteLine(new string('-', 50));
+                Console.WriteLine("Result after change course at Alex");
+
+                foreach (var c in db.Students.Include(s => s.Courses))
+                {
+                    Console.WriteLine($"Name: {c.Name}");
+
+                    foreach (var student in c.Courses)
+                    {
+                        Console.WriteLine($"\tCourse: {student.Name}");
+                    }
+                }
+
+                Console.WriteLine(new string('-', 50));
+                Console.WriteLine("Result after delete student Boris");
+
+                var chooseBoris = db.Students.FirstOrDefault(b => b.Name == "Boris");
+
+                if (chooseBoris != null)
+                {
+                    db.Students.Remove(chooseBoris);
+                    db.SaveChanges();
+                }
+
                 foreach (var c in db.Students.Include(s => s.Courses))
                 {
                     Console.WriteLine($"Name: {c.Name}");
