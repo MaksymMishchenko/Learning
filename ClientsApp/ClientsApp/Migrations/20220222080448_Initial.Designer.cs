@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClientsApp.Migrations
 {
     [DbContext(typeof(DbClients))]
-    [Migration("20220221193629_Initial")]
+    [Migration("20220222080448_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,7 +43,7 @@ namespace ClientsApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CityIdId")
+                    b.Property<int?>("CityId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -51,18 +51,23 @@ namespace ClientsApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityIdId");
+                    b.HasIndex("CityId");
 
                     b.ToTable("Clients");
                 });
 
             modelBuilder.Entity("ClientsApp.Models.Client", b =>
                 {
-                    b.HasOne("ClientsApp.Models.City", "CityId")
-                        .WithMany()
-                        .HasForeignKey("CityIdId");
+                    b.HasOne("ClientsApp.Models.City", "City")
+                        .WithMany("Clients")
+                        .HasForeignKey("CityId");
 
-                    b.Navigation("CityId");
+                    b.Navigation("City");
+                });
+
+            modelBuilder.Entity("ClientsApp.Models.City", b =>
+                {
+                    b.Navigation("Clients");
                 });
 #pragma warning restore 612, 618
         }

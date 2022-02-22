@@ -1,4 +1,6 @@
-﻿namespace ClientsApp.Models
+﻿using System.Collections.Generic;
+
+namespace ClientsApp.Models
 {
     public class City
     {

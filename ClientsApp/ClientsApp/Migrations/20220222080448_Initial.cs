@@ -26,23 +26,23 @@ namespace ClientsApp.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CityIdId = table.Column<int>(type: "int", nullable: true)
+                    CityId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Clients", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Clients_Cities_CityIdId",
-                        column: x => x.CityIdId,
+                        name: "FK_Clients_Cities_CityId",
+                        column: x => x.CityId,
                         principalTable: "Cities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Clients_CityIdId",
+                name: "IX_Clients_CityId",
                 table: "Clients",
-                column: "CityIdId");
+                column: "CityId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

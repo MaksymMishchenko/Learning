@@ -1,9 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using ClientsApp.Interfaces;
-using ClientsApp.Mocks;
 using ClientsApp.Models;
-using Newtonsoft.Json.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClientsApp
 {
@@ -13,52 +12,48 @@ namespace ClientsApp
         {
             using (var db = new DbClients())
             {
-                var chicago = new City { Name = "Chicago" };
-                var washington = new City { Name = "Washington" };
-                var california = new City { Name = "California" };
-                db.Cities.AddRange(chicago, washington, california);
+                var initial = new DbObjects(db);
+                initial.Initial();
 
-                var maks = new Client { Name = "Maks", CityId = chicago };
-                var sam = new Client { Name = "Sam", CityId = washington };
-                var doris = new Client { Name = "Doris", CityId = chicago };
-                var maralin = new Client { Name = "Maralin", CityId = chicago };
-                var jacob = new Client { Name = "Jacob", CityId = california };
-                var william = new Client { Name = "William ", CityId = california };
-                var ethan = new Client { Name = "Ethan ", CityId = washington };
-                var michael = new Client { Name = "Michael ", CityId = chicago };
-                var alexander = new Client { Name = "Alexander ", CityId = chicago };
-                var mason = new Client { Name = "Mason ", CityId = null };
-                var liam = new Client { Name = "Liam ", CityId = chicago };
-                var noah = new Client { Name = "Noah ", CityId = california };
-                db.Clients.AddRange(maks, sam,doris,maralin,jacob, william, ethan,michael,alexander, mason, liam, noah);
-                db.SaveChanges();
+                //getGroupByCity
+                var getGroupByCity = from clients in db.Clients.AsEnumerable()
+                              join city in db.Cities.AsEnumerable() on clients.CityId equals city.Id
+                              group clients by new
+                              {
+                                  clients.CityId,
+                                  city.Name
+                              };
 
-                ICityRepository getCities = new CityRepository(db);
-                var cities = getCities.GetAllCity;
-
-                foreach (var city in cities)
+                foreach (var item in getGroupByCity)
                 {
-                    Console.WriteLine($"Cities: {city.Name}");
+                    Console.WriteLine($"City: {item.Key.Name}, Count of clients: {item.Count()}");
                 }
 
                 Console.WriteLine(new string('-', 30));
 
-                var cityById = getCities.GetCityById;
+                // getClientByCity
+                var getClientByCity = (from client in db.Clients.Include(p => p.City)
+                    where client.CityId == 1 select client).ToList();
 
-                foreach (var city in cityById)
+                foreach (var client in getClientByCity)
                 {
-                    Console.WriteLine($"City by id: {city.Name}");
+                    Console.WriteLine($"{client.City?.Name}, {client.Name}");
                 }
 
                 Console.WriteLine(new string('-', 30));
 
-                IClientRepository getClients = new ClientRepository(db);
-                var clientsByCity = getClients.GetClientsByCity;
+                // getAllClients
+                var getAllClients = from client in db.Clients
+                    join city in db.Cities on client.CityId equals city.Id into clientCityGroup
+                    from subCities in clientCityGroup.DefaultIfEmpty()
+                    select new { clientName = client.Name, clientCity = subCities.Name };
 
-                foreach (var client in clientsByCity)
+                foreach (var item in getAllClients)
                 {
-                    Console.WriteLine($"City: {client.CityId?.Name}, Client: {client.Name}");
+                    Console.WriteLine($"Client: {item.clientName}, City: {item.clientCity}");
                 }
+
+                Console.WriteLine(new string('-', 30));
             }
         }
     }

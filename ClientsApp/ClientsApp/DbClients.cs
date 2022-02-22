@@ -7,6 +7,7 @@ namespace ClientsApp
     {
         public DbSet<Client> Clients { get; set; }
         public DbSet<City> Cities { get; set; }
+
         public DbClients()
         {
             Database.EnsureDeleted();
@@ -15,7 +16,7 @@ namespace ClientsApp
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Clients;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Clients;Trusted_Connection=True;MultipleActiveResultSets=true;");
         }
     }
 }
