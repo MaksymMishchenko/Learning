@@ -8,8 +8,8 @@ namespace WriteCharApp
     {
         static void Main(string[] args)
         {
-            Thread threadWrite = new Thread(new ParameterizedThreadStart(ConsoleWriter));
-            threadWrite.Start('*');
+            char symbol = '*';
+            ThreadPool.QueueUserWorkItem(new WaitCallback(ConsoleWriter), symbol);
 
             for (int i = 0; i < 160; i++)
             {
