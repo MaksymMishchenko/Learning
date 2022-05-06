@@ -18,6 +18,7 @@ namespace PrintSymbolsApp
             }
 
             Console.WriteLine($"Method Main is finished in thread id: {Thread.CurrentThread.ManagedThreadId}");
+            Console.ReadKey();
         }
 
         private static void WriteChar(object symbol)
@@ -32,7 +33,7 @@ namespace PrintSymbolsApp
                 Thread.Sleep(100);
             }
 
-            Console.WriteLine($"Method WriteChar is finished in thread id: {Thread.CurrentThread.ManagedThreadId}.");
+            Console.WriteLine($"\nMethod WriteChar is finished in thread id: {Thread.CurrentThread.ManagedThreadId}.");
         }
     }
 }
