@@ -1,12 +1,30 @@
 ﻿using System;
+using System.Threading;
 
 namespace PrintSymbolsApp
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ThreadPool.QueueUserWorkItem((WriteChar), '*');
+
+            for (int i = 0; i < 160; i++)
+            {
+                Console.Write('#');
+                Thread.Sleep(100);
+            }
+        }
+
+        private static void WriteChar(object symbol)
+        {
+            char value = (char)symbol;
+
+            for (int i = 0; i < 160; i++)
+            {
+                Console.Write(value);
+                Thread.Sleep(100);
+            }
         }
     }
 }
