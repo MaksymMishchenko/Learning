@@ -20,15 +20,15 @@ Func<object, TResult> в контексте вторичного потока.
 Когда результат будет готов - выведите его на экран консоли.
 
 Решение:
-- 1. Создать класс ThreadWorker<TResult> параметризированным указателем места заполенния типом TResult;
-- 2. Создать поля типа делегата Func<object, TResult> _func проинициализировав поле в конструкторе;
-- 3. В теле класса ThreadWorker<TResult> создать 4 свойства:
- - bool IsCompleted;
- - bool IsSuccess;
- - Exception exception;
- - TResult GetResult;
-- 3. Создать метод Start(), который запустит метод сообщенный с делегатом Func<object, TResult> _func в контексте вторичного потока;
-- 4. В свойстве в getter установить проверку в цикле while - если свойство isCompleted = false, то усыплять поток. Если свойство isCompleted = true - вернуть результат, иначе исключение.  
-- 5. В классе Program создаем метод Calculate(int sleepTime). Создаем временную переменную tempSum и присваиваем ей значение от икремента 10 итераций. Возвращаем сумму.
-- 6. Создать экземпляр класса ThreadWorker<TResult> и в конструктор передать метод Calculate, сообщие его с делегатом Func<object, Tresult>
-- 7. Создать в Main() цикл while(IsCompleted = false) и выводить знаки восклицания.
++ 1. Создать класс ThreadWorker<TResult> параметризированным указателем места заполенния типом TResult;
++ 2. Создать поля типа делегата Func<object, TResult> _func проинициализировав поле в конструкторе;
++ 3. В теле класса ThreadWorker<TResult> создать 4 свойства:
+ + bool IsCompleted;
+ + bool IsSuccess;
+ + Exception exception;
+ + TResult GetResult;
++ 3. Создать метод Start(), который запустит метод сообщенный с делегатом Func<object, TResult> _func в контексте вторичного потока;
++ 4. В свойстве в getter установить проверку в цикле while - если свойство isCompleted = false, то усыплять поток. Если свойство isCompleted = true - вернуть результат, иначе исключение.  
++ 5. В классе Program создаем метод Calculate(int sleepTime). Создаем временную переменную tempSum и присваиваем ей значение от икремента 10 итераций. Возвращаем сумму.
++ 6. Создать экземпляр класса ThreadWorker<TResult> и в конструктор передать метод Calculate, сообщие его с делегатом Func<object, Tresult>
++ 7. Создать в Main() цикл while(IsCompleted = false) и выводить знаки восклицания.
