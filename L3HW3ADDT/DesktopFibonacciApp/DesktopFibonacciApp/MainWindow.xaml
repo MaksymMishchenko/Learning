@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopFibonacciApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Shows last Fibonacci number" Height="250" Width="500">
     <Grid>
+        <TextBox Name ="txtLoop"  HorizontalAlignment="Left" Margin="76,99,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name ="txtResult" HorizontalAlignment="Left" Margin="305,99,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Name ="btnStart" Content="Start" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.766,0.671" Height="25" Click="btnStart_Click"/>
+        <Label Content="Input digit here: " HorizontalAlignment="Left" Margin="87,66,0,0" VerticalAlignment="Top"/>
+        <Label Content="Your result: " HorizontalAlignment="Left" Margin="329,68,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
