@@ -35,5 +35,35 @@ namespace MonthsApp
         }
 
         public object Current => months[_position] + "-" + days[_position];
+
+        public string GetDataByMonths(int month)
+        {
+            string tempMonth = String.Empty;
+
+            for (int i = 0; i < month; i++)
+            {
+                if (months[i] == month)
+                {
+                    tempMonth += months[i] + " - " + days[i] + "\n";
+                }
+            }
+
+            return tempMonth;
+        }
+
+        public string GetDataByDays(int day)
+        {
+            string tempDay = String.Empty;
+
+            for (int i = 0; i < days.Length; i++)
+            {
+                if (days[i] == day)
+                {
+                    tempDay += days[i] + " - " + months[i] + "\n";
+                }
+            }
+
+            return tempDay;
+        }
     }
 }

@@ -18,28 +18,45 @@ namespace MonthsApp
             {
                 case 1:
                     {
-                        Console.WriteLine("You choose see data by months");
+                        Console.Write("You choose see data by months.\n Enter month number: ");
+                        int month = int.Parse(Console.ReadLine());
+
+                        foreach (var item in calendar.GetDataByMonths(month))
+                        {
+                            Console.Write(item);
+                        }
+
                         break;
                     }
 
                 case 2:
                     {
-                        Console.WriteLine("You choose see data by days");
+                        Console.Write("You choose see data by days.\n Enter count of days: ");
+                        int days = int.Parse(Console.ReadLine());
+
+                        foreach (var item in calendar.GetDataByDays(days))
+                        {
+                            Console.Write(item);
+                        }
+
                         break;
                     }
 
                 case 3:
                     {
-                        Console.WriteLine("You choose all the information by year");
+                        Console.WriteLine("You choose all the information by year: ");
                         foreach (var item in calendar)
                         {
                             Console.WriteLine(item);
                         }
                         break;
                     }
+                default:
+                {
+                    Console.WriteLine("You made the wrong choice. Please? try again.");
+                    break;
+                }
             }
-
-
         }
     }
 }
