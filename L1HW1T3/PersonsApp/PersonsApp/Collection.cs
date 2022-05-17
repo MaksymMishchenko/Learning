@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata;
-
-namespace PersonsApp
+﻿namespace PersonsApp
 {
     class Collection
     {
@@ -23,6 +21,22 @@ namespace PersonsApp
                 _collection.CopyTo(newCollection, 0);
                 newCollection[newCollection.Length - 1] = citizen;
                 _collection = newCollection;
+            }
+        }
+
+        public void Remove(Citizen citizen)
+        {
+            Citizen[] newCollection = new Citizen[_collection.Length - 1];
+
+            for (int i = 0, j = 0; i < _collection.Length; i++, j++)
+            {
+                if (_collection[i] == citizen)
+                {
+                    j--;
+                    continue;
+                }
+
+                newCollection[j] = _collection[i];
             }
         }
     }

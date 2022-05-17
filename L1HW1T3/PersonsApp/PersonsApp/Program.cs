@@ -19,6 +19,8 @@ namespace PersonsApp
             coll.Add(peter);
             coll.Add(august);
             coll.Add(michael);
+
+            coll.Remove(maks);
         }
     }
 }
