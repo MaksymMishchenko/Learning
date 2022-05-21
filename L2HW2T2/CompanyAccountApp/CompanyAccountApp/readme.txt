@@ -3,5 +3,5 @@
 вещественные значения, по типу «счет предприятия – доступная сумма» соответственно.
 
 Решение:
--1. Создать три словаря используя классы-дженерики Dictionary<int, decimal>, SortedList<int, decimal>, SortedDictionary<int, decimal>;
--2. Добавить значения вызвав на коллекциях метод Add();
++1. Создать три словаря используя классы-дженерики Dictionary<int, decimal>, SortedList<int, decimal>, SortedDictionary<int, decimal>;
++2. Добавить значения вызвав на коллекциях метод Add();
