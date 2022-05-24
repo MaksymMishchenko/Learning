@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.IO.Compression;
+using System.Text;
 using System.Windows.Forms;
 
 namespace FileSeekerApp
@@ -37,7 +39,7 @@ namespace FileSeekerApp
             {
                 files = dir.GetFiles(fileName);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -93,7 +95,6 @@ namespace FileSeekerApp
                     if (SearchFile(checkedListBox.Items[i].ToString(), textBox2.Text))
                     {
                         textBox1.Text = "File" + _file + " found"!;
-                        textBox1.Text = Environment.NewLine;
                     }
                 }
             }
@@ -102,6 +103,39 @@ namespace FileSeekerApp
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (var reader = new StreamReader(_file, Encoding.UTF8))
+            {
+                textBox1.Text = reader.ReadToEnd();
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                FileStream source = File.OpenRead(_file);
+                FileStream destination = File.Create(saveFileDialog1.FileName);
+
+                GZipStream compressor = new GZipStream(destination, CompressionMode.Compress);
+
+                int theByte = source.ReadByte();
+                while (theByte != -1)
+                {
+                    compressor.WriteByte((byte)theByte);
+                    theByte = source.ReadByte();
+                }
+
+                compressor.Close();
+            }
         }
     }
 }

@@ -35,6 +35,7 @@ namespace FileSeekerApp
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // checkedListBox
@@ -53,6 +54,7 @@ namespace FileSeekerApp
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(776, 279);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -72,6 +74,7 @@ namespace FileSeekerApp
             this.button2.TabIndex = 3;
             this.button2.Text = "Review";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -81,6 +84,7 @@ namespace FileSeekerApp
             this.button3.TabIndex = 4;
             this.button3.Text = "Archive";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox2
             // 
@@ -118,6 +122,7 @@ namespace FileSeekerApp
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
