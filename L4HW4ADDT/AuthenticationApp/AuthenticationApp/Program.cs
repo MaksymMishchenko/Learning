@@ -12,10 +12,10 @@ namespace AuthenticationApp
 
             TryAgain:
             Console.WriteLine("Welcome to our community. Please register.");
-            Console.WriteLine("Input your login: [use only a-z A-Z]\n");
+            Console.Write("Input your login [use only a-z A-Z]: ");
             string login = Console.ReadLine();
 
-            Console.WriteLine("Input your password: [use only a-z A-Z 0-9]\n");
+            Console.Write("Input your password [use only a-z A-Z 0-9]: ");
             string password = Console.ReadLine();
 
             string loginPattern = @"^[a-zA-Z]+$";
@@ -36,6 +36,7 @@ namespace AuthenticationApp
                 goto TryAgain;
             }
 
+            Console.WriteLine("Information about users: ");
             foreach (var item in list)
             {
                 Console.WriteLine($"{item.Id}, {item.Login}, {item.Password}");
