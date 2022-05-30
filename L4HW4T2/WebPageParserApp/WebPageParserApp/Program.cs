@@ -1,22 +1,18 @@
-﻿using OpenQA.Selenium;
+﻿using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
+using System.Threading.Tasks;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace WebPageParserApp
 {
     class Program
     {
+        public Dictionary<string, string> _dic;
         static void Main(string[] args)
         {
-            Parse();
-        }
-
-        static async void Parse()
-        {
-            IWebDriver driver = new ChromeDriver();
-            driver.Url = @"https://www.ukrinform.ua/";
-
-            driver.FindElement(By.XPath("//a[contains(text(),'Останні новини')]")).Click();
-            driver.FindElement(By.CssSelector("div[class='rest'] dl dd div a")).Click();
+            var finder = new Finder("https://www.ukrinform.ua/");
+            finder.Parse();
         }
     }
 }
