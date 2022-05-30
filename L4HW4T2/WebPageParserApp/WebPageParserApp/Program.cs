@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
 namespace WebPageParserApp
 {
@@ -6,7 +7,16 @@ namespace WebPageParserApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello world");
+            Parse();
+        }
+
+        static async void Parse()
+        {
+            IWebDriver driver = new ChromeDriver();
+            driver.Url = @"https://www.ukrinform.ua/";
+
+            driver.FindElement(By.XPath("//a[contains(text(),'Останні новини')]")).Click();
+            driver.FindElement(By.CssSelector("div[class='rest'] dl dd div a")).Click();
         }
     }
 }
