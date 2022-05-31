@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml;
 
 namespace XmlContactsApp
 {
@@ -6,7 +7,20 @@ namespace XmlContactsApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var xmlReader = new XmlTextReader("MyDocument.xml");
+
+            while (xmlReader.Read())
+            {
+                if (xmlReader.NodeType == XmlNodeType.Element)
+                {
+                    if (xmlReader.Name.Equals("Contact"))
+                    {
+                        Console.WriteLine($"Telephone numbers: {xmlReader.GetAttribute("TelephoneNumber")}");
+                    }
+                }
+            }
+
+            Console.ReadKey();
         }
     }
 }
