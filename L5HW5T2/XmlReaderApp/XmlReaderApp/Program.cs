@@ -6,7 +6,11 @@ namespace XmlReaderApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var xmlManager = new XmlManager("MyDocument.xml");
+            xmlManager.BuildXmlDocument();
+            xmlManager.ReadXmlDocument();
+
+            Console.ReadKey();
         }
     }
 }
