@@ -5,4 +5,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="ConverterLibrary">
+      <HintPath>..\..\..\L6HW6T2\ConverterLibrary\ConverterLibrary\bin\Debug\ConverterLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
