@@ -6,7 +6,11 @@ namespace EducationApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Education[] educations = { new School(), new University() };
+            foreach (var education in educations)
+                education.Learn();
+
+            Console.ReadKey();
         }
     }
 }

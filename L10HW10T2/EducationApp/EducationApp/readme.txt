@@ -5,29 +5,29 @@
 реализацию данного шаблона.
 
 Решение:
--1. Создать два класса:
- - School:
-  - Enter();
-  - Study();
-  - PassedExams();
-  - GetDocument();
- - University:
-  - Enter();
-  - Study();
-  - PassedExams();
-  - GetDocument();
++1. Создать два класса:
+ + School:
+  + Enter();
+  + Study();
+  + PassedExams();
+  + GetDocument();
+ + University:
+  + Enter();
+  + Study();
+  + PassedExams();
+  + GetDocument();
 
--2. Создать абстрактный класс Education:
- - создать шаблонный метод, который вызвем на экземплярах School и University:
-  - public void Learn()
++2. Создать абстрактный класс Education:
+ + создать шаблонный метод, который вызвем на экземплярах School и University:
+  + public void Learn()
   {
     Enter();
     Study();
     PassedExams();
     GetDocument();
   }
--3. Создадим абстрактные методы в абстрактном классе Education:
- - Enter(), Study(), GetDocument();
- - и виртуальный PassedExams, который переопределим в классе University;
--4. Создаем массив типа Education[] и добавляем в него экземпляры классов Education и Student;
--5. В цикле вызываем метод Learn() для каждого экземпляра.
++3. Создадим абстрактные методы в абстрактном классе Education:
+ + Enter(), Study(), GetDocument();
+ + и виртуальный PassedExams, который переопределим в классе University;
++4. Создаем массив типа Education[] и добавляем в него экземпляры классов Education и Student;
++5. В цикле вызываем метод Learn() для каждого экземпляра.
