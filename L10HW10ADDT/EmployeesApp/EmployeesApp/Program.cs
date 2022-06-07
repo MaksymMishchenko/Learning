@@ -6,7 +6,8 @@ namespace EmployeesApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Employee empl = new Teacher();
+            empl.Work();
         }
     }
 }
