@@ -14,7 +14,7 @@ namespace IncrementApp
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    _counter++;
+                    Interlocked.Increment(ref _counter);
                     Console.WriteLine($"Counter: {_counter}, thread: {Thread.CurrentThread.ManagedThreadId}");
                 }
             }
