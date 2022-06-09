@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace WriterApp
 {
@@ -6,7 +7,16 @@ namespace WriterApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var autoResetEvent = new AutoResetEvent(false);
+            var thread = new Writer("First", autoResetEvent);
+            autoResetEvent.WaitOne();
+
+            Console.WriteLine("Method Main continue working");
+
+            var thread1 = new Writer("Second", autoResetEvent);
+            autoResetEvent.WaitOne();
+
+            Console.WriteLine("Method Main is finished");
         }
     }
 }
