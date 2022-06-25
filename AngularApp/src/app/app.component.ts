@@ -6,17 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title = 'Main page'
   inputValue = ''
+  inputUser = 'Some text'
 
   onInput(event: any) {
-this.inputValue = (<HTMLInputElement>event.target).value
+    this.inputValue = (<HTMLInputElement>event.target).value
   }
 
-  onBlur(str: string){
+  onBlur(str: string) {
     this.inputValue = str
   }
 
-  onClick(){
+  onClick() {
     console.log('Click!')
+  }
+  onTitleInput(event: any) {
+    this.title = event.target.value
   }
 }

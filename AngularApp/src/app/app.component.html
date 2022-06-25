@@ -1,11 +1,10 @@
 <h1>Hello Angular</h1>
 <button (click)="onClick()">Click me!</button>
-<input type="text" (keyup.enter)="onInput($event)"
- (blur)="onBlur(myInput.value)"
- #myInput
- >
-
+<input type="text" (keyup.enter)="onInput($event)" (blur)="onBlur(myInput.value)" #myInput><br />
+<input type="text" [value]="title" (input)="onTitleInput($event)"><br />
+<input type="text" [(ngModel)] = "inputUser">
 <p><strong>{{inputValue}}</strong></p>
-
+<p><strong>{{title}}</strong></p>
+<p><strong>{{inputUser}}</strong></p>
 <app-post></app-post>
 <app-post></app-post>
