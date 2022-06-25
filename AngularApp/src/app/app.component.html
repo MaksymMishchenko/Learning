@@ -16,8 +16,19 @@
         width: '200px',
         borderRadius: '5px',
         border: '1px solid #ccc',
-        background: backgroungToggle ? 'red' : 'blue'
+        background: backgroundToggle ? 'red' : 'blue'
     }">
-    <button type="button" (click)="backgroungToggle = !backgroungToggle">Backgroung Toggle</button>
+    <button type="button" (click)="backgroundToggle = !backgroundToggle">Backgroung Toggle</button>
+
+    <p [ngClass]="{
+        red: !backgroundToggle,
+        blue: backgroundToggle
+    }">
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+    <p
+    [class.red] = "!backgroundToggle"
+    [class.blue] = "backgroundToggle"
+    >
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
     </div>
 </div>
