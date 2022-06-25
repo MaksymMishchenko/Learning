@@ -7,7 +7,7 @@ import { PostComponent } from './post/post.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PostComponent
+    PostComponent,
   ],
   imports: [
     BrowserModule
@@ -15,4 +15,5 @@ import { PostComponent } from './post/post.component';
   providers: [],
   bootstrap: [AppComponent, PostComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
