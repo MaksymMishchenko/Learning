@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'Main page'
   inputValue = ''
   inputUser = 'Some text'
+  backgroungToggle = false
 
   onInput(event: any) {
     this.inputValue = (<HTMLInputElement>event.target).value
