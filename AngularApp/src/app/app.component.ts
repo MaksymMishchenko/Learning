@@ -10,6 +10,7 @@ export class AppComponent {
   inputValue = ''
   inputUser = 'Some text'
   backgroundToggle = false
+  toggle = false;
 
   onInput(event: any) {
     this.inputValue = (<HTMLInputElement>event.target).value
