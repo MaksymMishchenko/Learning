@@ -1,4 +1,10 @@
 <div>
+    <button type="button" (click)="toggle = !toggle">Toogle Switch</button>
+    <div [ngSwitch]="toggle">
+        <p *ngSwitchCase="true" class="red">Lorem Ipsum is simply dummy text. </p>
+        <p *ngSwitchCase="false" class="blue">Lorem Ipsum is simply dummy text . </p>
+    </div>
+
     <div>
         <button type="button" (click)="toggle = !toggle">Click me</button>
         <p *ngIf="toggle; else blueP" class="red">Lorem Ipsum is simply dummy text. </p>
