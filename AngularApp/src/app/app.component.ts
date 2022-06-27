@@ -6,24 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Main page'
-  inputValue = ''
-  inputUser = 'Some text'
-  backgroundToggle = false
-  toggle = false;
 
-  onInput(event: any) {
-    this.inputValue = (<HTMLInputElement>event.target).value
-  }
-
-  onBlur(str: string) {
-    this.inputValue = str
-  }
-
-  onClick() {
-    console.log('Click!')
-  }
-  onTitleInput(event: any) {
-    this.title = event.target.value
-  }
+  objs = [
+    { title: 'Post 1', author: 'Max 1', comments: [
+        { name: 'Artur', text: 'lorem 1' },
+        { name: 'Artur', text: 'lorem 2' },
+        { name: 'Artur', text: 'lorem 3' },
+      ]},
+    { title: 'Post 2', author: 'Max 2', comments: [
+        { name: 'Artur 1', text: 'lorem 1' },
+        { name: 'Artur 1', text: 'lorem 2' },
+        { name: 'Artur 1', text: 'lorem 3' },
+      ]}
+  ]
 }
