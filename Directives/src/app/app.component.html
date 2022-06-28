@@ -4,4 +4,23 @@
     ipsum dolor sit amet consectetur, adipisicing elit. Rerum accusantium quo iusto sed veritatis eveniet molestiae
     animi hic incidunt esse. Harum ex ipsum debitis deserunt dolor repudiandae cumque quos quidem!
   </p>
+
+  <p [appStyleDirective]="'blue'" [dStyles]="{border: '1px solid red', borderRadius: '5px'}">Lorem
+    ipsum dolor sit amet consectetur, adipisicing elit. Rerum accusantium quo iusto sed veritatis eveniet molestiae
+    animi hic incidunt esse. Harum ex ipsum debitis deserunt dolor repudiandae cumque quos quidem!
+  </p>
+
+  <button class="btn" (click)="isVisible=!isVisible">IsVisible</button>
+<!--   <div class="wrap" *ngIf="isVisible">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam dolores, illo adipisci labore architecto et
+      iure, quae omnis incidunt nam sequi. Repudiandae minus quis excepturi impedit neque eveniet voluptas molestias.
+    </p>
+  </div> -->
+
+  <div class="wrap" *appIfnot="!isVisible">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam dolores, illo adipisci labore architecto et
+      iure, quae omnis incidunt nam sequi. Repudiandae minus quis excepturi impedit neque eveniet voluptas molestias.
+    </p>
+  </div>
+
 </div>
