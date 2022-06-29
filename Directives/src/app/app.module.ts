@@ -7,6 +7,7 @@ import { StyleDirectiveDirective } from './directives/style-directive.directive'
 import { IfnotDirective } from './directives/ifnot.directive';
 import { MultByPipe } from './pipes/mult-by.pipe';
 import { ExMarksPipe } from './pipes/ex-marks.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ExMarksPipe } from './pipes/ex-marks.pipe';
     StyleDirectiveDirective,
     IfnotDirective,
     MultByPipe,
-    ExMarksPipe
+    ExMarksPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
