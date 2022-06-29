@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { interval } from 'rxjs';
 
 export interface Post {
+
   title: string
-  text: string
+  text: string 
 }
 
 @Component({
@@ -14,6 +16,7 @@ export interface Post {
 export class AppComponent {
   search = ''
   searchField = 'title'
+  sub: Subscription
 
   author: Promise<string> = new Promise<string>(author => {
     setTimeout(() => {
@@ -39,5 +42,13 @@ export class AppComponent {
         title: 'Hello',
         text: 'World'
       })
+  }
+  stop(){
+this.sub.unsubscribe()
+  }
+
+  constructor(){
+    const intervalStream$ = interval(1000)
+    this.sub = intervalStream$.subscribe((value)=> console.log(value))
   }
 }
