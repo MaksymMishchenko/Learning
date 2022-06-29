@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 export interface Post {
   title: string
@@ -13,6 +14,18 @@ export interface Post {
 export class AppComponent {
   search = ''
   searchField = 'title'
+
+  author: Promise<string> = new Promise<string>(author => {
+    setTimeout(() => {
+      author('Max')
+    }, 2000)
+  })
+
+  date: Observable<Date> = new Observable<Date>(obs => {
+    setInterval(() => {
+      obs.next(new Date())
+    }, 1000)
+  })
 
   posts: Post[] = [
     { title: 'CSharp', text: 'As for me C# the best language in the world' },
