@@ -6,6 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ExMarksPipe implements PipeTransform {
 
   transform(str: string): string {
-    return str.trim() + '!!!!!';
+    return `${str.trim()} + !!!!!`;
   }
 }

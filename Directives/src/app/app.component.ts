@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { interval } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
 export interface Post {
 
   title: string
-  text: string 
+  text: string
 }
 
 @Component({
@@ -43,12 +44,17 @@ export class AppComponent {
         text: 'World'
       })
   }
-  stop(){
-this.sub.unsubscribe()
+  stop() {
+    this.sub.unsubscribe()
   }
 
-  constructor(){
+  constructor() {
     const intervalStream$ = interval(1000)
-    this.sub = intervalStream$.subscribe((value)=> console.log(value))
+    this.sub = intervalStream$
+      .pipe(
+        filter((value) => value % 2 === 0),
+        map((value) => `Map value: ${value}`),
+      )
+      .subscribe((value) => console.log(value))
   }
 }
