@@ -5,12 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { StyleDirectiveDirective } from './directives/style-directive.directive';
 import { IfnotDirective } from './directives/ifnot.directive';
+import { MultByPipe } from './pipes/mult-by.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     StyleDirectiveDirective,
-    IfnotDirective
+    IfnotDirective,
+    MultByPipe
   ],
   imports: [
     BrowserModule,
