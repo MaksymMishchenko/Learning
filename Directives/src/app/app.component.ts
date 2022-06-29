@@ -19,4 +19,12 @@ export class AppComponent {
     { title: 'Javascript', text: 'Javascript the best language in the world!!!' },
     { title: 'Sql', text: 'Sql the best language in the world. Do you agree with me?' }
   ]
+
+  addPost() {
+    this.posts.unshift(
+      {
+        title: 'Hello',
+        text: 'World'
+      })
+  }
 }
