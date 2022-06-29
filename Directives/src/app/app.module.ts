@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { StyleDirectiveDirective } from './directives/style-directive.directive';
 import { IfnotDirective } from './directives/ifnot.directive';
 import { MultByPipe } from './pipes/mult-by.pipe';
+import { ExMarksPipe } from './pipes/ex-marks.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     StyleDirectiveDirective,
     IfnotDirective,
-    MultByPipe
+    MultByPipe,
+    ExMarksPipe
   ],
   imports: [
     BrowserModule,
