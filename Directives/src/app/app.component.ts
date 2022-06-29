@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { interval } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
+import { AppCounterService } from './services/app-counter.service';
 
 export interface Post {
 
@@ -47,8 +48,15 @@ export class AppComponent {
   stop() {
     this.sub.unsubscribe()
   }
+  increase(){
+    this.appCounterService.increase();
+  }
 
-  constructor() {
+  decrease(){
+    this.appCounterService.decrease();
+  }
+
+  constructor(public appCounterService: AppCounterService) {
     const intervalStream$ = interval(1000)
     this.sub = intervalStream$
       .pipe(

@@ -6,6 +6,11 @@
   <hr />
   <button class="btn" (click)="addPost()">Add post</button>
   <button class="btn" (click)="stop()">Stop Interval</button>
+  <hr />
+  <h2>{{appCounterService.counter}}</h2>
+  <button class="btn" (click)="increase()">+</button>
+  <button class="btn" (click)="decrease()">-</button>
+
   <input type="text" [(ngModel)]="search">
   <div class="card" *ngFor="let post of posts | filter:search:searchField">
     <h3>Title: {{post.title}}</h3>
