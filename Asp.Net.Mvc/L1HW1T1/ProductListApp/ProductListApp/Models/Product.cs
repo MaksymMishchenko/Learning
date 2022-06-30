@@ -1,6 +1,4 @@
 ﻿namespace ProductListApp.Models
 {
-    public class Product
-    {
-    }
+    public record class Product(int Id, string Name, decimal Price, string Description);
 }

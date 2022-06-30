@@ -16,3 +16,19 @@ html {
 body {
   margin-bottom: 60px;
 }
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 1rem;
+}
+td {
+    color: lightslategrey;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+tr {
+    border: 1px solid #ccc;
+}
+.title {
+font-weight:bold;
+}
