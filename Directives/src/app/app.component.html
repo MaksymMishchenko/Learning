@@ -7,13 +7,17 @@
   <button class="btn" (click)="addPost()">Add post</button>
   <button class="btn" (click)="stop()">Stop Interval</button>
   <hr />
-  <h2>{{appCounterService.counter}}</h2>
+  <h2>AppCounterService: {{appCounterService.counter}}</h2>
   <button class="btn" (click)="appCounterService.increase()">+</button>
   <button class="btn" (click)="appCounterService.decrease()">-</button>
 
-  <h2>{{localCounterService.counter}}</h2>
+  <h2>LocalCounterService: {{localCounterService.counter}}</h2>
   <button class="btn" (click)="localCounterService.increase()">+</button>
   <button class="btn" (click)="localCounterService.decrease()">-</button>
+  
+  <hr />
+  <app-counter></app-counter>
+
 
   <input type="text" [(ngModel)]="search">
   <div class="card" *ngFor="let post of posts | filter:search:searchField">

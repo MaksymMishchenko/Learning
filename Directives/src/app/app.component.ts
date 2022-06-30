@@ -50,13 +50,6 @@ export class AppComponent {
   stop() {
     this.sub.unsubscribe()
   }
-  //increase(){
-  //this.appCounterService.increase();
-  //}
-
-  //decrease(){
-  //this.appCounterService.decrease();
-  //}
 
   constructor(public appCounterService: AppCounterService, public localCounterService: LocalCounterService) {
     const intervalStream$ = interval(1000)
