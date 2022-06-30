@@ -8,8 +8,12 @@
   <button class="btn" (click)="stop()">Stop Interval</button>
   <hr />
   <h2>{{appCounterService.counter}}</h2>
-  <button class="btn" (click)="increase()">+</button>
-  <button class="btn" (click)="decrease()">-</button>
+  <button class="btn" (click)="appCounterService.increase()">+</button>
+  <button class="btn" (click)="appCounterService.decrease()">-</button>
+
+  <h2>{{localCounterService.counter}}</h2>
+  <button class="btn" (click)="localCounterService.increase()">+</button>
+  <button class="btn" (click)="localCounterService.decrease()">-</button>
 
   <input type="text" [(ngModel)]="search">
   <div class="card" *ngFor="let post of posts | filter:search:searchField">
@@ -17,6 +21,6 @@
     <p>Text: {{post.text}}</p>
     <p>Category: {{post.text}}</p>
     <p>Author: {{ author | async}}</p>
-    <p>Publish date: {{ date | async | date:'HH:mm:ss'}}</p>
+    <p>Publish date: {{ date | async | date:'MM:dd:YYYY'}}</p>
   </div>
 </div>

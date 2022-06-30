@@ -3,6 +3,7 @@ import { Observable, Subscription } from 'rxjs';
 import { interval } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 import { AppCounterService } from './services/app-counter.service';
+import { LocalCounterService } from './services/local-counter.service';
 
 export interface Post {
 
@@ -13,7 +14,8 @@ export interface Post {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [LocalCounterService]
 })
 export class AppComponent {
   search = ''
@@ -48,15 +50,15 @@ export class AppComponent {
   stop() {
     this.sub.unsubscribe()
   }
-  increase(){
-    this.appCounterService.increase();
-  }
+  //increase(){
+  //this.appCounterService.increase();
+  //}
 
-  decrease(){
-    this.appCounterService.decrease();
-  }
+  //decrease(){
+  //this.appCounterService.decrease();
+  //}
 
-  constructor(public appCounterService: AppCounterService) {
+  constructor(public appCounterService: AppCounterService, public localCounterService: LocalCounterService) {
     const intervalStream$ = interval(1000)
     this.sub = intervalStream$
       .pipe(
