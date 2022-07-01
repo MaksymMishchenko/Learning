@@ -16,3 +16,13 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+td {
+    color: lightslategrey;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+tr {
+    border: 1px solid #ccc;
+}
