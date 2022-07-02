@@ -17,6 +17,16 @@ namespace ProductApp.Controllers
         {
             return View();
         }
+        public IActionResult ProductList()
+        {
+            var products = new ProductItems().GetAllProducts();
+            return PartialView("_ProductList", products);
+        }
+        public IActionResult ProductTable()
+        {
+            var products = new ProductItems().GetAllProducts();
+            return PartialView("_ProductTable", products);
+        }
 
         public IActionResult Privacy()
         {
