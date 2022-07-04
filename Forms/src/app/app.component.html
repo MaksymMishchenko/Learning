@@ -42,8 +42,8 @@
 
         <select formControlName="country">
           <option value="ua">Ukraine</option>
-          <option value="by">Poland</option>
-          <option value="ru">Usa</option>
+          <option value="pl">Poland</option>
+          <option value="us">Usa</option>
         </select>
       </div>
 
@@ -51,7 +51,7 @@
         <input type="text" formControlName="city" placeholder="City">
       </div>
 
-      <button class="btn" type="button">Выбрать столицу</button>
+      <button class="btn" type="button" (click)="SetCapital()">Choose capital</button>
     </div>
 
     <div class="card">
