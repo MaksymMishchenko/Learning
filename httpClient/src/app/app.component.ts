@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 export interface Todo {
-completed: boolean,
-title: string,
-id?: number
+  completed: boolean,
+  title: string,
+  id?: number
 }
 
 @Component({
@@ -15,12 +15,30 @@ id?: number
 export class AppComponent implements OnInit {
 
   todos: Todo[] = []
- 
-  constructor(private http: HttpClient) {}
+  todoTitle = ""
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos?_limit=2').subscribe(todos => {
       this.todos = todos
     })
+  }
+
+  addTodo() {
+    if (!this.todoTitle.trim()) {
+      return
+    }
+
+    const newTodo: Todo = {
+      completed: false,
+      title: this.todoTitle
+    }
+
+    this.http.post<Todo>('https://jsonplaceholder.typicode.com/todos', newTodo)
+      .subscribe(todo=>{
+        this.todos.push(todo)
+        this.todoTitle = ''
+      })
   }
 }
