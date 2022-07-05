@@ -6,22 +6,27 @@
     <div class="form-control">
       <input type="text" placeholder="Название" [(ngModel)]="todoTitle">
     </div>
-    <button class="btn" (click)="addTodo()">Добавить</button>
-    <button class="btn" (click)="fetchTodos()">Загрузить</button>
+    <button class="btn" (click)="addTodo()">Add</button>
+    <button class="btn" (click)="fetchTodos()">Download</button>
   </div>
 
 
   <hr>
   <div *ngIf="!loading; else loadingBlock">
-    <div class="card" *ngFor="let todo of todos">
-      <p>
-        <span [class.completed]="todo.completed">{{todo.title}} | titlecase</span>
-        <span>
-          <button class="btn btn-danger">Удалить</button>
-          <button class="btn" [disabled]="todo.completed">Завершить</button>
-        </span>
-      </p>
+    <div *ngIf="todos.length; else noTodos">
+      <div class="card" *ngFor="let todo of todos">
+        <p>
+          <span [class.completed]="todo.completed">{{todo.title}} | titlecase</span>
+          <span>
+            <button class="btn btn-danger" (click)="removeTodo(todo.id)">Delete</button>
+            <button class="btn" [disabled]="todo.completed">Finish</button>
+          </span>
+        </p>
+      </div>
     </div>
+    <ng-template #noTodos>
+      List is empty
+    </ng-template>
   </div>
 </div>
 
