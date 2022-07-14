@@ -5,6 +5,9 @@
         <div class="alert alert-danger" *ngIf="auth.error$ | async as error">
             {{error}}
         </div>
+        <div class="alert alert-info" *ngIf="message">
+            {{message}}
+        </div>
         <label for="email">Email:</label>
         <input id="email" type="email" formControlName="email">
         <div *ngIf="form.get('email').touched && form.get('email').invalid" class="validation">

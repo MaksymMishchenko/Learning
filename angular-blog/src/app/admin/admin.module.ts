@@ -10,6 +10,7 @@ import { DashboardPageComponent } from "./dashboard-page/dashboard-page.componen
 import { EditPageComponent } from "./edit-page/edit-page.component";
 import { LoginPageComponent } from "./login-page/login-page.component";
 import { AdminLayoutComponent } from "./shared/components/admin-layout/admin-layout.component";
+import { AuthGuard } from "./shared/services/auth.guard";
 import { AuthService } from "./shared/services/auth.services";
 
 @NgModule({
@@ -29,15 +30,15 @@ import { AuthService } from "./shared/services/auth.services";
                 path: '', component: AdminLayoutComponent, children: [
                     { path: '', redirectTo: '/admin/login', pathMatch: 'full'},
                     { path: 'login', component: LoginPageComponent },
-                    { path: 'dashboard', component: DashboardPageComponent },
-                    { path: 'create', component: CreatePageComponent },
-                    { path: 'post/:id/edit', component: EditPageComponent },
+                    { path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard] },
+                    { path: 'create', component: CreatePageComponent, canActivate: [AuthGuard] },
+                    { path: 'post/:id/edit', component: EditPageComponent, canActivate: [AuthGuard] },
                 ]
             }
         ])
     ],
     exports: [RouterModule],
-    providers: [AuthService]
+    providers: [AuthService, AuthGuard]
 })
 
 export class AdminModule {
