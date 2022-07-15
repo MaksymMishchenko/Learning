@@ -15,3 +15,7 @@ text: string
 author: string
 date: Date
 }
+
+export interface FbCreateResponse{
+  name: string
+}
