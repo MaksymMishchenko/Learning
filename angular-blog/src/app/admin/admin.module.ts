@@ -3,22 +3,22 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 
-
 import { SharedModule } from "../shared/shared.module";
 import { CreatePageComponent } from "./create-page/create-page.component";
 import { DashboardPageComponent } from "./dashboard-page/dashboard-page.component";
 import { EditPageComponent } from "./edit-page/edit-page.component";
 import { LoginPageComponent } from "./login-page/login-page.component";
 import { AdminLayoutComponent } from "./shared/components/admin-layout/admin-layout.component";
+import { SearchPipe } from "./shared/search.pipe";
 import { AuthGuard } from "./shared/services/auth.guard";
-import { AuthService } from "./shared/services/auth.services";
 
 @NgModule({
     declarations: [AdminLayoutComponent,
     LoginPageComponent,
     DashboardPageComponent,
     CreatePageComponent,
-    EditPageComponent
+    EditPageComponent,
+    SearchPipe
     ],
     imports: [
         CommonModule,
