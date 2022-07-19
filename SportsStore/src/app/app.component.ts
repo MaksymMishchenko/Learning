@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app',
+  template: `<div class="bg-success p-a-1 text-center">
+  This is SportsStore
+  </div>`
 })
 export class AppComponent {
   title = 'SportsStore';
