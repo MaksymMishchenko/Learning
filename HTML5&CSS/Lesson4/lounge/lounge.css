@@ -1,0 +1,47 @@
+/*Lounge cascading stylesheet*/
+
+body {
+    background-color: bisque;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 2px dotted black;
+    padding: 10px 10px 10px 10px;
+    font-family: sans-serif;
+}
+
+div {
+    text-align: center;
+}
+
+h1,
+h2 {
+    color: gray;
+}
+
+h1 {
+    border-bottom: 1px solid black;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+div {
+    text-align: center;
+}
+
+p {
+    color: maroon
+}
+
+.greentea{
+    color: green;
+}
+
+.blue{
+    color: blue;
+}
+
+.purple{
+    color: purple;
+}
