@@ -45,7 +45,26 @@ p {
     margin-right: 250px;
     padding: 25px;
     padding-left: 80px;
-    border: 3px dotted red;
+
+    border-top-width: 3px;
+    border-top-style: dashed;
+    border-top-color: red;
+
+    border-bottom-width: 3px;
+    border-bottom-style: dotted;
+    border-bottom-color: green;
+
+    border-left-width: 3px;
+    border-left-style: outset;
+    border-left-color: blue;
+
+    border-right-width: 3px;
+    border-right-style: outset;
+    border-right-color: yellow;
+
+
+    
+    
     line-height: 1.9em;
     color: #444;
     font-family: Georgia, "Times New Roman", Times, serif;
