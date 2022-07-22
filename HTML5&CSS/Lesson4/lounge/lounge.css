@@ -1,12 +1,14 @@
 /*Lounge cascading stylesheet*/
 
 body {
-    background-color: bisque;
+    background-color: aliceblue;
     margin-left: 20%;
     margin-right: 20%;
     border: 2px dotted black;
     padding: 10px 10px 10px 10px;
-    font-family: sans-serif;
+    font-family: Verdana, Arial, Helvetica, Tahoma, sans-serif;
+    font-size: small;
+    line-height: 1.6em;
 }
 
 div {
@@ -15,15 +17,17 @@ div {
 
 h1,
 h2 {
-    color: gray;
+    color: aqua;
 }
 
 h1 {
-    border-bottom: 1px solid black;
+    font-size: 150%;
+    border-bottom: thin dashed aquamarine;
 }
 
 h2 {
-    text-decoration: underline;
+    font-size: 130%;
+    border-bottom: thin dashed aquamarine;
 }
 
 div {
@@ -34,14 +38,30 @@ p {
     color: maroon
 }
 
-.greentea{
+.guarantee {
+    background-color: aquamarine;
+    font-style: italic;
+    margin: 30px;
+    margin-right: 250px;
+    padding: 25px;
+    padding-left: 80px;
+    border: 3px dotted red;
+    line-height: 1.9em;
+    color: #444;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    background-image: url(../lounge/img/background.gif);
+    background-repeat: no-repeat;
+    background-position: top left;
+}
+
+.greentea {
     color: green;
 }
 
-.blue{
+.blue {
     color: blue;
 }
 
-.purple{
+.purple {
     color: purple;
 }
