@@ -74,7 +74,7 @@ p {
 }
 
 #elixirs {
-    border: solid thick #007e7e;
+    border: solid thin #007e7e;
     padding: 0px 20px 20px 20px;
     width: 200px;
     text-align: center;
