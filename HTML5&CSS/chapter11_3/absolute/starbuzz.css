@@ -93,9 +93,9 @@ div#tableRow {
 }
 
 #coupon{
-  position: fixed;
-  top: 350px;
-  left: -90px;
+  position: relative;
+  top: 20px;
+  left: 0px;
 }
 
 #coupon a, img {
