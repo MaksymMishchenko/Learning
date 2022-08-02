@@ -76,7 +76,7 @@ th {
 }
 
 
-th:nth-child(odd) {
+.cellcolor {
     background-color: #fcba7a;
 }
 
@@ -91,4 +91,10 @@ caption {
 
 .right {
     text-align: right;
+}
+
+li {
+    list-style-image: url("img/backpack.gif");
+    padding-top: 5px;
+    margin-left: 20px;
 }
