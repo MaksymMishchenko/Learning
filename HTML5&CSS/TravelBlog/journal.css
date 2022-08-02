@@ -60,6 +60,11 @@ table {
     border-collapse: collapse;
 }
 
+table table th {
+    font-weight: bold;
+    background-color: azure;
+}
+
 th,
 td {
     padding: 5px;
@@ -70,7 +75,8 @@ th {
     background-color: #cc6600;
 }
 
-tr:nth-child(odd) {
+
+th:nth-child(odd) {
     background-color: #fcba7a;
 }
 
