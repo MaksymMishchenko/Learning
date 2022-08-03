@@ -13,7 +13,36 @@
 
   <form action="http://starbuzzcoffee.com/processorder.php">
 
-    <p>Ship to:<br>
+    <p><strong>Choose coffee:</strong>
+
+      <select name="beans" id="">
+        <option value="homemixture">Homemade mixture</option>
+        <option value="bolivia">Bolivia</option>
+        <option value="guatemala">Guatemala</option>
+        <option value="kenya">Kenya</option>
+      </select>
+    </p>
+
+    <p><strong>Type:</strong> <br>
+
+      <input type="radio" name="beantype" value="In grains" checked="checked">In grains <br>
+      <input type="radio" name="beantype" value="Powdered">Powdered
+    </p>
+
+    <p> <strong>Bags count:</strong>
+      <input type="number" name="bags" id="" min="1" max="10">
+    </p>
+
+    <p><strong>By date:</strong>
+      <input type="date" name="date" id="">
+    </p>
+
+    <p><strong>Addition service:</strong> <br>
+      <input type="checkbox" name="extras[]" id="" value="Gift packaging">Gift packaging <br>
+      <input type="checkbox" name="extras[]" id="" value="Catalog" checked="checked">Catalog
+    </p>
+
+    <p><strong>Ship to:</strong> <br>
 
       Name: <input type="text" name="name" maxlength="25"><br>
       Address: <input type="text" name="address"><br>
@@ -24,8 +53,12 @@
 
     </p>
 
+    <p><strong>Client comments:</strong> <br>
+      <textarea name="comments" id="" cols="30" rows="10">Your comment here...</textarea>
+    </p>
+
     <p> <input type="submit" value="Order now"></p>
-    
+
   </form>
 
 </body>
