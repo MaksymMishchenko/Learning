@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>The Starbuzz Bean Machine</title>
-  </head>
-  <body>
 
-    <h1>The Starbuzz Bean Machine</h1>
-    <h2>Fill out the form below and click submit to order</h2>
+<head>
+  <meta charset="utf-8">
+  <title>The Starbuzz Bean Machine</title>
+</head>
 
-  </body>
+<body>
+
+  <h1>The Starbuzz Bean Machine</h1>
+  <h2>Fill out the form below and click submit to order</h2>
+
+  <form action="http://starbuzzcoffee.com/processorder.php">
+
+    <p>Ship to:<br>
+
+      Name: <input type="text" name="name" maxlength="25"><br>
+      Address: <input type="text" name="address"><br>
+      City: <input type="text" name="city" maxlength="25"><br>
+      Country: <input type="text" name="state" maxlength="25"><br>
+      Post index: <input type="text" name="zip"><br>
+      Telephone: <input type="tel" name="phone" maxlength="20"><br>
+
+    </p>
+
+    <p> <input type="submit" value="Order now"></p>
+    
+  </form>
+
+</body>
+
 </html>
-
