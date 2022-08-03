@@ -1,6 +1,11 @@
 body {
     background: #efe5d0 url("./images/background.gif") top left;
     margin: 20px;
+    
+}
+
+body h1, h2 {
+    text-align: center;
 }
 
 form {
@@ -8,6 +13,8 @@ form {
     padding: 10px;
     border: thin dotted #7e7e7e;
     background-color: #e1ceb8;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 form textarea {

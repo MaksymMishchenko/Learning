@@ -13,12 +13,12 @@
   <h1>The Starbuzz Bean Machine</h1>
   <h2>Fill out the form below and click submit to order</h2>
 
-  <form action="http://starbuzzcoffee.com/processorder.php" method="post">
+  <form action="http://starbuzzcoffee.com/processorder.php" method="POST">
 
     <div class="tableRow">
       <p>Choose coffee:</p>
       <p>
-        <select name="beans" id="">
+        <select name="beans" id="beans">
           <option value="homemixture">Homemade mixture</option>
           <option value="bolivia">Bolivia</option>
           <option value="guatemala">Guatemala</option>
@@ -60,32 +60,32 @@
 
     <div class="tableRow">
       <p>Name:</p>
-      <p><input type="text" name="name" maxlength="25"></p>
+      <p><input type="text" name="name" maxlength="25" placeholder="Maks" required></p>
     </div>
 
     <div class="tableRow">
       <p>Address:</p>
-      <p><input type="text" name="address"></p>
+      <p><input type="text" name="address" placeholder="Vinnicka, 99 flat: 35" required></p>
     </div>
 
     <div class="tableRow">
       <p>City:</p>
-      <p><input type="text" name="city" maxlength="25"></p>
+      <p><input type="text" name="city" maxlength="25" placeholder="Berdichev" required></p>
     </div>
 
     <div class="tableRow">
       <p> Country:</p>
-      <p><input type="text" name="state" maxlength="25"></p>
+      <p><input type="text" name="state" maxlength="25" placeholder="Ukraine" required></p>
     </div>
 
     <div class="tableRow">
       <p>Post index:</p>
-      <p><input type="text" name="zip"></p>
+      <p><input type="text" name="zip" placeholder="13300"></p>
     </div>
 
     <div class="tableRow">
       <p>Telephone:</p>
-      <p><input type="tel" name="phone" maxlength="20"></p>
+      <p><input type="tel" name="phone" maxlength="20" placeholder="+38 067 000 00 00" required></p>
     </div>
 
     <div class="tableRow">
@@ -97,6 +97,7 @@
       <p></p>
       <p><input type="submit" value="Order now"></p>
     </div>
+
   </form>
 
 </body>
