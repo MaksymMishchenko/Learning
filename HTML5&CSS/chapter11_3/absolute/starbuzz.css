@@ -25,6 +25,10 @@ div#tableRow {
 	display: table-row;
 }
 
+div#tableColumn {
+	display: table-column;
+}
+
 section#drinks {
     display: table-cell;
     background-color: #efe5d0;
