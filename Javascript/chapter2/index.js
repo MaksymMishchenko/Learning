@@ -23,9 +23,20 @@ for (var i = 0; i < 5; i++) {
         phrase = phrase + word1 + word2 + word1;
     }
 
-    else{
+    /*
+    else {
         alert("Undefined")
     }
+    */
 }
 
-alert(phrase);
+// alert(phrase);
+
+function init() {
+    var beer = document.getElementById("beer");
+    beer.innerHTML = "I like drinking coke!";
+}
+
+window.onload = init;
+
+
