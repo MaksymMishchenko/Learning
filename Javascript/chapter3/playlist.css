@@ -1,0 +1,19 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+    border: thin dashed black;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 10px;
+    background-color: azure;
+}
+
+form {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+li {}
