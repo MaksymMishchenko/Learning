@@ -1,10 +1,12 @@
+window.onload = init;
 
 function init() {
     var button = document.getElementById("addButton");
-    button.onclick = heandleButtonClick;
+    button.onclick = handleButtonClick;
+    loadPlaylist();  
 }
 
-function heandleButtonClick() {
+function handleButtonClick(e) {
 
     var textInput = document.getElementById("songTextInput");
     var getSong = textInput.value;
@@ -15,12 +17,10 @@ function heandleButtonClick() {
         li.innerHTML = getSong;
         var ul = document.getElementById("playlist");
         ul.appendChild(li);
-
+        save(getSong);
     }
     else {
         alert("Please, enter a song!");
     }
 }
-
-window.onload = init;
 
