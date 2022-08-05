@@ -10,3 +10,9 @@ function addSongs() {
 }
 
 window.onload = addSongs;
+
+var tempByFahrenheit = [59.2, 60.0, 61.3, 61.8, 59.6];
+
+alert("The temperature at 5 was " + tempByFahrenheit[2] + "F");
+alert("Array length is " + tempByFahrenheit.length + "elements");
+
