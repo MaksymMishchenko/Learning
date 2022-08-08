@@ -1,17 +1,19 @@
-window.onload = init;
-
-function init() {
+window.onload = function () {
     var button = document.getElementById("button");
     button.onclick = handleButtonClick;
 }
 
 function handleButtonClick() {
-    var getWeight = document.getElementById("inputWeight");
-    var value = getWeight.value;
-    alert(bark("bark", value));
+    var inputWeight = document.getElementById("inputWeight");
+    var weight = inputWeight.value;
+
+    var inputName = document.getElementById("inputName");
+    var name = inputName.value;
+
+    alert(bark(name, weight));
 }
 
-function bark(dogName, dogWeight) {
+var bark = function (dogName, dogWeight) {
 
     if (dogWeight <= 10) {
         return dogName + " says Yip";
