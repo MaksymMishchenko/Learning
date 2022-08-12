@@ -1,5 +1,6 @@
 var map = null;
 var watchId = null;
+var prevCoords = null;
 
 var ourCoords = {
     latitude: 47.624851,
@@ -49,6 +50,14 @@ function showMyLocation(position) {
 
     if (map == null) {
         showMap(pos);
+        prevCoords = pos;
+    } else {
+        var meters = computeDistance(pos, prevCoords) * 1000;
+        if (meters > 20) {
+            scrollMapToPosition(pos);
+            prevCoords = pos;
+        }
+
     }
 
     div.innerHTML += "(found in " + options.timeout + " milliseconds)";
@@ -132,6 +141,17 @@ function addMarker(map, latlong, title, content) {
     google.maps.event.addListener(mapMarker, "click", function () {
         infoWindow.open(map);
     });
+}
+
+function scrollMapToPosition(coords) {
+    var latitude = coords.latitude;
+    var longitude = coords.longitude;
+
+    var latAndLong = new google.maps.LatLng(latitude, longitude);
+
+    map.panTo(latAndLong);
+
+    addMarker(map, latAndLong, "Your new location", "You moved to: " + latitude + ", " + longitude);
 }
 
 
