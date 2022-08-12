@@ -1,17 +1,34 @@
+var map = null;
+var watchId = null;
+
 var ourCoords = {
     latitude: 47.624851,
     longitude: -122.52099
 };
 
-var map = null;
-
 window.onload = getMyLocation;
 
 function getMyLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showMyLocation, displayError);
+        //navigator.geolocation.getCurrentPosition(showMyLocation, displayError);
+        watchButton = document.getElementById("watch");
+        watchButton.onclick = watchLocation;
+
+        clearWatchButton = document.getElementById("clearWatch");
+        clearWatchButton.onclick = clearWatch;
     } else {
         alert("Something went wrong");
+    }
+}
+
+function watchLocation() {
+    watchId = navigator.geolocation.watchPosition(showMyLocation, displayError);
+}
+
+function clearWatch() {
+    if (watchId) {
+        navigator.geolocation.clearWatch(watchId);
+        watchId = null;
     }
 }
 
@@ -28,7 +45,9 @@ function showMyLocation(position) {
     var distance = document.getElementById("distance");
     distance.innerHTML = "You are " + km + " km from the WickedlySmart HQ";
 
-    showMap(pos);
+    if (map == null) {
+        showMap(pos);
+    }
 }
 
 function displayError(error) {
