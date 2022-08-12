@@ -22,12 +22,13 @@ function showMyLocation(position) {
 
     var div = document.getElementById("location");
     div.innerHTML = "Latitude: " + latitude + ", Longitude: " + longitude;
+    div.innerHTML += " with " + pos.accuracy + " meters accuracy";
 
     var km = computeDistance(position.coords, ourCoords);
     var distance = document.getElementById("distance");
-    distance.innerHTML = "You are " + km + " km grom the WickedlySmart HQ";
+    distance.innerHTML = "You are " + km + " km from the WickedlySmart HQ";
 
-    showMap(position.coords);
+    showMap(pos);
 }
 
 function displayError(error) {
@@ -97,11 +98,11 @@ function addMarker(map, latlong, title, content) {
         position: latlong
     };
 
-    var mapMarker = google.maps.Marker(markerOptions);
+    var mapMarker = new google.maps.Marker(markerOptions);
 
     var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
 
-    google.maps.event.addListener(marker, "click", function() {
+    google.maps.event.addListener(mapMarker, "click", function () {
         infoWindow.open(map);
     });
 }
