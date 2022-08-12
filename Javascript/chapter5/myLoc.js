@@ -6,6 +6,8 @@ var ourCoords = {
     longitude: -122.52099
 };
 
+var options = { enableHighAccuracy: true, timeout: 5000, maximumAge: 90000 };
+
 window.onload = getMyLocation;
 
 function getMyLocation() {
@@ -22,7 +24,7 @@ function getMyLocation() {
 }
 
 function watchLocation() {
-    watchId = navigator.geolocation.watchPosition(showMyLocation, displayError);
+    watchId = navigator.geolocation.watchPosition(showMyLocation, displayError, options);
 }
 
 function clearWatch() {
@@ -48,6 +50,8 @@ function showMyLocation(position) {
     if (map == null) {
         showMap(pos);
     }
+
+    div.innerHTML += "(found in " + options.timeout + " milliseconds)";
 }
 
 function displayError(error) {
@@ -62,6 +66,10 @@ function displayError(error) {
 
     var div = document.getElementById("location");
     div.innerHTML = errorMessage;
+
+    options.timeout += 100;
+    navigator.geolocation.getCurrentPosition(showMyLocation, displayError, options);
+    div.innerHTML += "... cheking again with timeout=" + options.timeout;
 }
 
 function computeDistance(startCoords, destCoords) {
