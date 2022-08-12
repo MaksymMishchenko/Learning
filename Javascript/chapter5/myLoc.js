@@ -65,7 +65,7 @@ function degreesToRadians(degrees) {
 }
 
 function showMap(coords) {
-    
+
     var googleLatAndLong = new google.maps.LatLng(coords.latitude, coords.longitude);
 
     var mapOptions = {
@@ -76,9 +76,35 @@ function showMap(coords) {
 
     var mapDiv = document.getElementById("map");
     map = new google.maps.Map(mapDiv, mapOptions);
+
+    var title = "Your Location";
+    var content = "You are here: " + coords.latitude + ", " + coords.longitude;
+
+    addMarker(map, googleLatAndLong, title, content);
 }
 
+function addMarker(map, latlong, title, content) {
 
+    markerOptions = {
+        position: latlong,
+        map: map,
+        title: title,
+        clickable: true
+    };
+
+    infoWindowOptions = {
+        content: content,
+        position: latlong
+    };
+
+    var mapMarker = google.maps.Marker(markerOptions);
+
+    var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+
+    google.maps.event.addListener(marker, "click", function() {
+        infoWindow.open(map);
+    });
+}
 
 
 
