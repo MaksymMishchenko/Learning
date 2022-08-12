@@ -3,6 +3,8 @@ var ourCoords = {
     longitude: -122.52099
 };
 
+var map = null;
+
 window.onload = getMyLocation;
 
 function getMyLocation() {
@@ -24,12 +26,13 @@ function showMyLocation(position) {
     var km = computeDistance(position.coords, ourCoords);
     var distance = document.getElementById("distance");
     distance.innerHTML = "You are " + km + " km grom the WickedlySmart HQ";
+
+    showMap(position.coords);
 }
 
 function displayError(error) {
 
     errorsType = ["Unknown error", "Permission denied by user", "Position is not available", "Request timed out"];
-
 
     var errorMessage = errorsType[error.code];
 
@@ -60,3 +63,24 @@ function degreesToRadians(degrees) {
     var radians = (degrees * Math.PI) / 180;
     return radians;
 }
+
+function showMap(coords) {
+    
+    var googleLatAndLong = new google.maps.LatLng(coords.latitude, coords.longitude);
+
+    var mapOptions = {
+        zoom: 10,
+        center: googleLatAndLong,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    var mapDiv = document.getElementById("map");
+    map = new google.maps.Map(mapDiv, mapOptions);
+}
+
+
+
+
+
+
+
