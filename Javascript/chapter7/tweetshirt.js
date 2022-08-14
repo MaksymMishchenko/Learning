@@ -14,13 +14,11 @@ function previewHandler() {
     fillBackgroundColor(canvas, context);
 
     if (shape == "square") {
-        for (square = 0; square < 20; square++) {
+        for (var square = 0; square < 20; square++) {
             drawSquares(canvas, context);
         }
-    }
-
-    if (shape == "circle") {
-        for (circle = 0; circle < 20; circle++) {
+    } else if (shape == "circle") {
+        for (var circle = 0; circle < 20; circle++) {
             drawCircle(canvas, context);
         }
     }
@@ -34,6 +32,18 @@ function drawSquares(canvas, context) {
 
     context.fillStyle = "lightblue";
     context.fillRect(x, y, w, w);
+}
+
+function drawCircle(canvas, context) {
+
+    var radius = Math.floor(Math.random() * 40);
+    var x = Math.floor(Math.random() * canvas.width);
+    var y = Math.floor(Math.random() * canvas.height);
+
+    context.beginPath();
+    context.arc(x, y, radius, 0, 2 * Math.PI);
+    context.fillStyle = "lightblue";
+    context.fill();
 }
 
 function fillBackgroundColor(canvas, context) {
