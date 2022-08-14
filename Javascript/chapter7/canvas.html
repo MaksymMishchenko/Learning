@@ -1,12 +1,71 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="canvas.js"></script>
-    <title>Canvas Document</title>
+    <script src="tweetshirt.js"></script>
+    <title>TweetShirt</title>
+    <style>
+        canvas {
+            border: thin solid black;
+        }
+
+        div {
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <div>
+        <canvas id="tShirtCanvas" width="600" height="200">
+            <p>Please upgrade your browser to use TweetShirt</p>
+        </canvas>
+       
+
+        <form>
+            <p>
+                <label for="backgroundColor">Select background color:</label>
+                <select id="backgroundColor">
+                    <option value="white" selected="selected">White</option>
+                    <option value="black">Black</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="shape">Circles or squares?</label>
+                <select id="shape">
+                    <option value="none" selected="selected">Neither</option>
+                    <option value="circle">Circle</option>
+                    <option value="square">Square</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="foregroundColor">Select text color:</label>
+                <select id="foregroundColor">
+                    <option value="black" selected="selected">Black</option>
+                    <option value="white">White</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="tweets">Pick a tweet:</label>
+                <select id="tweets">
+
+                </select>
+            </p>
+            <input type="button" id="previewButton" value="Preview">
+            <p>
+
+            </p>
+        </form>
+    </div>
+
+
+
 </body>
+
 </html>
