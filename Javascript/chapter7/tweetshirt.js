@@ -1,7 +1,10 @@
+var tweets = ["Amazing world is here", "I go to sleep", "I want to breal free", "Nothing... "];
+
 window.onload = function () {
 
     var button = document.getElementById("previewButton");
     button.onclick = previewHandler;
+    updateTweets();
 }
 
 function previewHandler() {
@@ -22,6 +25,7 @@ function previewHandler() {
             drawCircle(canvas, context);
         }
     }
+    updateTweets();
 }
 
 function drawSquares(canvas, context) {
@@ -56,4 +60,19 @@ function fillBackgroundColor(canvas, context) {
 
 function degreesToRadian(degrees) {
     return (degrees * Math.PI) / 180;
+}
+
+function updateTweets() {
+
+    var tweetSelection = document.getElementById("tweets");
+
+    for (var i = 0; i < tweets.length; i++) {
+        var tweet = tweets[i];
+        var option = document.createElement("option");
+        option.text = tweet;
+        tweetSelection.appendChild(option);
+    }
+
+    var index = tweetSelection.selectedIndex;
+    var selectedText = tweetSelection[index].value;
 }
