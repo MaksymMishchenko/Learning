@@ -27,6 +27,8 @@ function previewHandler() {
     }
 
     drawText(canvas, context);
+    drawBird(canvas, context);
+
 }
 
 function drawSquares(canvas, context) {
@@ -88,4 +90,13 @@ function drawText(canvas, context) {
     var chosenTweet = tweets[index].value;
 
     context.fillText(chosenTweet, 20, 40);
+}
+
+function drawBird(canvas, context) {
+    var twitterBird = new Image();
+    twitterBird.src = "tweeter.png";
+
+    twitterBird.onload = function () {
+        context.drawImage(twitterBird, 520, 120, 70, 70);
+    }
 }
