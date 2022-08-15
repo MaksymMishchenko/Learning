@@ -25,7 +25,8 @@ function previewHandler() {
             drawCircle(canvas, context);
         }
     }
-    updateTweets();
+
+    drawText(canvas, context);
 }
 
 function drawSquares(canvas, context) {
@@ -72,15 +73,19 @@ function updateTweets() {
         option.text = tweet;
         tweetSelection.appendChild(option);
     }
-
-    var index = tweetSelection.selectedIndex;
-    var selectedText = tweetSelection[index].value;
 }
 
 function drawText(canvas, context) {
     var selectedObject = document.getElementById("foregroundColor");
     var index = selectedObject.selectedIndex;
     var fgColor = selectedObject[index].value;
-    context.fgColor = fgColor;
+    context.fillStyle = fgColor;
+    context.font = "bold 1em sans-serif";
+    context.textAlign = "left";
 
+    var tweets = document.getElementById("tweets");
+    var index = tweets.selectedIndex;
+    var chosenTweet = tweets[index].value;
+
+    context.fillText(chosenTweet, 20, 40);
 }
