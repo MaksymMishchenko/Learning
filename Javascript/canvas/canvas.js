@@ -7,11 +7,20 @@ function handleCircle() {
     var canvas = document.getElementById("canvas");
     var context = canvas.getContext("2d");
 
-    context.arc(100, 100, 75, degreesToRadians(270), 0, true);
+    context.beginPath();
+    context.moveTo(50, 75);
+    context.lineTo(125, 33);
+    context.lineTo(170, 80);
+    context.lineTo(140, 120);
+    context.lineTo(110, 120);
+    context.closePath();
+   
 
-    context.lineWidth = 10;
+    context.lineWidth = 3;
     context.stroke();
     context.fillStyle = "red";
     context.fill();
+
+    
 
 }
