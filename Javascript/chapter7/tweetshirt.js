@@ -76,3 +76,11 @@ function updateTweets() {
     var index = tweetSelection.selectedIndex;
     var selectedText = tweetSelection[index].value;
 }
+
+function drawText(canvas, context) {
+    var selectedObject = document.getElementById("foregroundColor");
+    var index = selectedObject.selectedIndex;
+    var fgColor = selectedObject[index].value;
+    context.fgColor = fgColor;
+
+}
