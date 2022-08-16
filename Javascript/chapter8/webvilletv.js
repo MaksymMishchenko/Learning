@@ -9,6 +9,7 @@ window.onload = function () {
 	video.src = playlist[position] + getFormatExtensions();
 	video.load();
 	video.play();
+	alert(video.currentSrc);
 }
 
 function nextVideo() {
@@ -19,6 +20,7 @@ function nextVideo() {
 	video.src = playlist[position] + getFormatExtensions();
 	video.load();
 	video.play();
+	alert(video.currentSrc);
 }
 
 function getFormatExtensions() {
