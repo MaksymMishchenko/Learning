@@ -5,6 +5,7 @@ window.onload = function () {
     var button = document.getElementById("previewButton");
     button.onclick = previewHandler;
     updateTweets();
+    makeImage();
 }
 
 function previewHandler() {
@@ -99,4 +100,11 @@ function drawBird(canvas, context) {
     twitterBird.onload = function () {
         context.drawImage(twitterBird, 520, 120, 70, 70);
     }
+}
+
+function makeImage() {
+    var canvas = document.getElementById("tShirtCanvas");
+    canvas.onload = function () {
+        window.location = canvas.toDataUrl("img.png");
+    };
 }
