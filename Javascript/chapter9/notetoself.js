@@ -2,6 +2,9 @@ window.onload = init;
 
 function init() {
 
+    var button = document.getElementById("add_button");
+    button.onclick = createSticky;
+
     for (var i = 0; i < localStorage.length; i++) {
         var key = localStorage.key(i);
 
@@ -20,4 +23,12 @@ function addStickyToDOM(value) {
     span.innerHTML = value;
     sticky.appendChild(span);
     stickies.appendChild(sticky);
+}
+
+function createSticky() {
+    var key = "sticky" + localStorage.length;
+    var value = document.getElementById("note_text").value;
+    localStorage.setItem(key, value);
+
+    addStickyToDOM(value);
 }
