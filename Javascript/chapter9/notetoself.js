@@ -27,15 +27,18 @@ function createSticky() {
     var stickiesArray = getStickiesArray();
     currentDate = new Date();
     var key = "sticky_" + currentDate.getTime();
-    var value = document.getElementById("note_text").value;
-    localStorage.setItem(key, value);
-    stickiesArray.push(key);
-    localStorage.setItem("stickiesArray", JSON.stringify(stickiesArray));
-
-    addStickyToDOM(key, value);
-
-    var input = document.getElementById("note_text");
-    input.value = "";
+    var value = document.getElementById("note_text").value.trim();
+    if (!value) {
+        alert("Input your sticky below!");
+    }
+    else {
+        localStorage.setItem(key, value);
+        stickiesArray.push(key);
+        localStorage.setItem("stickiesArray", JSON.stringify(stickiesArray));
+        addStickyToDOM(key, value);
+        var clearInput = document.getElementById("note_text");
+        clearInput.value = "";
+    }
 }
 
 function getStickiesArray() {
