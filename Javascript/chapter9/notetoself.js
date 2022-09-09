@@ -6,18 +6,19 @@ function init() {
     var stickiesArray = getStickiesArray();
     for (var i = 0; i < stickiesArray.length; i++) {
         var key = stickiesArray[i];
-        var value = localStorage[key];
+        var value = JSON.parse(localStorage[key]);
         addStickyToDOM(key, value);
     }
 }
 
-function addStickyToDOM(key, value) {
+function addStickyToDOM(key, stickyObj) {
     var stickies = document.getElementById("stickies");
     var sticky = document.createElement("li");
+    sticky.style.backgroundColor = stickyObj.color;
     sticky.setAttribute("id", key);
     var span = document.createElement("span");
     span.setAttribute("class", "sticky");
-    span.innerHTML = value;
+    span.innerHTML = stickyObj.value;
     sticky.appendChild(span);
     stickies.appendChild(sticky);
     sticky.onclick = deleteSticky;
@@ -27,15 +28,22 @@ function createSticky() {
     var stickiesArray = getStickiesArray();
     currentDate = new Date();
     var key = "sticky_" + currentDate.getTime();
+    var selectedColor = document.getElementById("note_color");
+    var index = selectedColor.selectedIndex;
+    var color = selectedColor[index].value;
     var value = document.getElementById("note_text").value.trim();
     if (!value) {
         alert("Input your sticky below!");
     }
     else {
-        localStorage.setItem(key, value);
+        stickyObj = {
+            "value": value,
+            "color": color
+        };
+        localStorage.setItem(key, JSON.stringify(stickyObj));
         stickiesArray.push(key);
         localStorage.setItem("stickiesArray", JSON.stringify(stickiesArray));
-        addStickyToDOM(key, value);
+        addStickyToDOM(key, stickyObj);
         var clearInput = document.getElementById("note_text");
         clearInput.value = "";
     }
