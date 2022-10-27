@@ -28,10 +28,7 @@ describe('PostsComponent', () => {
 
         const posts = [1, 2, 3]
 
-        spyOn(service, 'fetch').and.callFake(() => {
-
-            return of(posts)
-        })
+        spyOn(service, 'fetch').and.returnValue(of(posts))
 
         component.ngOnInit()
 
