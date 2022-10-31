@@ -24,19 +24,31 @@ describe('CounterComponent', () => {
 
   it('should render counter property', () => {
     let num = 42
-    //меняем значение counter  
     component.counter = num
 
-    // говорим ангуляру что мы присваиваем counter значение и применяем его
     fixture.detectChanges()
 
-    //делаем запрос по шаблону
     let de = fixture.debugElement.query(By.css('.counter'))
 
-    // в свойстве находится обычная джаваскрипт нода, которую мы можем проверять.
     let el: HTMLElement = de.nativeElement
 
-    // передаем значение в строковом формате, потому что textContent свойство которое содержит строку
     expect(el.textContent).toContain(num.toString())
+  })
+
+  it('should add green class if counter is even', () => {
+    component.counter = 6
+    fixture.detectChanges()
+
+    let de = fixture.debugElement.query(By.css('.counter'))
+    let el: HTMLElement = de.nativeElement
+
+    expect(el.classList.contains('green')).toBeTruthy()
+  })
+
+  it('should increment counter if increment button was clicked', () => {
+    let btn = fixture.debugElement.query(By.css('#increment'))
+    btn.triggerEventHandler('click', null)
+
+    expect(component.counter).toBe(1)
   })
 })
