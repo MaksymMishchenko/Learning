@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { By } from '@angular/platform-browser';
+import { ActivatedRoute, Params, Router, RouterOutlet } from '@angular/router';
 import { Subject } from 'rxjs';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { RoutingComponent } from './routing.component';
 
@@ -10,15 +12,13 @@ class RouterStub {
 }
 
 class ActivatedRouteStub {
-  // специальный класс в rxjs который работает как Observable, но при этом позволяет емитить и новые события
+
   private subject = new Subject<Params>()
   push(params: Params) {
-    // тут мы емитим эти события
     this.subject.next(params)
   }
 
-  // обращаемся к парамс и получаем Observable на который ссможем подписаться ниже.
-  get params(){
+  get params() {
     return this.subject.asObservable()
   }
 }
@@ -30,6 +30,7 @@ describe('RoutingComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [RoutingComponent],
+      imports: [RouterTestingModule],
       providers: [
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useClass: ActivatedRouteStub }
@@ -58,8 +59,14 @@ describe('RoutingComponent', () => {
     let router = TestBed.inject(Router)
     let route: any = TestBed.inject(ActivatedRoute)
     let spy = spyOn(router, 'navigate')
-    route.push({id: '0'})
+    route.push({ id: '0' })
 
     expect(spy).toHaveBeenCalledWith(['/404'])
+  })
+
+  it('should have router-outlet directive', () => {
+    let de = fixture.debugElement.query(By.directive(RouterOutlet))
+
+    expect(de).not.toBeNull()
   })
 });
