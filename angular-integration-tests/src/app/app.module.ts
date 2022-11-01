@@ -7,6 +7,7 @@ import { CounterComponent } from './counter/counter.component';
 import { PostsComponent } from './posts/posts.component';
 import { RoutingComponent } from './routing/routing.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ColorDirective } from './directives/color.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     CounterComponent,
     PostsComponent,
     RoutingComponent,
-    NavbarComponent
+    NavbarComponent,
+    ColorDirective
   ],
   imports: [
     BrowserModule,
