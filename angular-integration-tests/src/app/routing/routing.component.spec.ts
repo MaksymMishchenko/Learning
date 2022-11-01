@@ -1,17 +1,26 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 
 import { RoutingComponent } from './routing.component';
 
 class RouterStub {
   navigate(path: string[]) {
-
   }
 }
 
 class ActivatedRouteStub {
-  params!: Observable<Params>
+  // специальный класс в rxjs который работает как Observable, но при этом позволяет емитить и новые события
+  private subject = new Subject<Params>()
+  push(params: Params) {
+    // тут мы емитим эти события
+    this.subject.next(params)
+  }
+
+  // обращаемся к парамс и получаем Observable на который ссможем подписаться ниже.
+  get params(){
+    return this.subject.asObservable()
+  }
 }
 
 describe('RoutingComponent', () => {
@@ -29,6 +38,7 @@ describe('RoutingComponent', () => {
 
     fixture = TestBed.createComponent(RoutingComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges()
   });
 
   it('should be defined', () => {
@@ -42,5 +52,14 @@ describe('RoutingComponent', () => {
     component.goBack()
 
     expect(spy).toHaveBeenCalledWith(['/posts'])
+  })
+
+  it('should navigate to 404 if id = 0', () => {
+    let router = TestBed.inject(Router)
+    let route: any = TestBed.inject(ActivatedRoute)
+    let spy = spyOn(router, 'navigate')
+    route.push({id: '0'})
+
+    expect(spy).toHaveBeenCalledWith(['/404'])
   })
 });
