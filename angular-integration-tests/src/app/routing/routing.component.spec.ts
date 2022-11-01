@@ -5,6 +5,8 @@ import { Subject } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { RoutingComponent } from './routing.component';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 class RouterStub {
   navigate(path: string[]) {
@@ -34,7 +36,8 @@ describe('RoutingComponent', () => {
       providers: [
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useClass: ActivatedRouteStub }
-      ]
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
 
     fixture = TestBed.createComponent(RoutingComponent);
