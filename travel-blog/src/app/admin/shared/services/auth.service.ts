@@ -5,7 +5,9 @@ import { Observable, Subject, throwError } from "rxjs";
 import { environment } from "src/environments/environment";
 import { catchError, tap } from "rxjs/operators";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 
 export class AuthService {
     public error$: Subject<string> = new Subject<string>()
@@ -15,7 +17,7 @@ export class AuthService {
     get token(): string | null {
         const expDate = new Date(localStorage.getItem('fb-token-exp')!)
         if (new Date() > expDate) {
-            this.logout(null!)
+            this.logout()
             return null
         }
 
@@ -31,7 +33,7 @@ export class AuthService {
             )
     }
 
-    logout(user: User) {
+    logout() {
         this.setToken(null!)
     }
 
