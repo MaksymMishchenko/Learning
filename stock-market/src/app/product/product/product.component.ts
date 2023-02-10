@@ -1,18 +1,20 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { isFavoriteProduct } from 'src/app/model/is-favorite';
 import { Product } from 'src/app/model/product';
+import { ProductQuantityChange } from 'src/app/model/product-quantity-change';
 
 @Component({
   selector: 'app-product',
   template: `
-  <div class="container" *ngFor="let product of productList; index as i" [class]="product.onSale() ? 'onSale' : 'notOnSale'">
-    <img [src]="product.imageUrl" width="200px" height="200px">
-    <div class="name">{{product.name}}</div>
-    <div class="price">{{product.price}}</div>
+  <div class="container" [class]="productList.isOnSale ? 'onSale' : 'notOnSale'">
+    <img [src]="productList.imageUrl" width="200px" height="200px">
+    <div class="name">{{productList.name}}</div>
+    <div class="price">{{productList.price}}</div>
 
-    <button (click)="product.decrease()" [disabled]="product.count === 0">-</button>
-    <small>{{product.count}}</small>
-    <button (click)="product.increase()">+</button>
-    <button (click)="product.favorite()" [disabled]="product.isFavorite">Favorite</button>
+    <button (click)="decrease()" [disabled]="productList.productQuantity === 0">-</button>
+    <small>{{productList.productQuantity}}</small>
+    <button (click)="increase()">+</button>
+    <button (click)="isFavorite()" [disabled]="productList.isFavorite">Favorite</button>
 </div>
   `,
   styles: [`
@@ -42,6 +44,19 @@ import { Product } from 'src/app/model/product';
 })
 export class ProductComponent {
 
-  @Input() public productList!: Array<Product>;
+  @Input() public productList!: Product;
+  @Output() private onchangesQuantityInCart = new EventEmitter<ProductQuantityChange>();
+  @Output() private onFavorite = new EventEmitter<isFavoriteProduct>();
 
+  increase() {
+    this.onchangesQuantityInCart.emit({ product: this.productList, changeInQuantity: 1 });
+  }
+
+  decrease() {
+    this.onchangesQuantityInCart.emit({ product: this.productList, changeInQuantity: -1 });
+  }
+
+  isFavorite() {
+    this.onFavorite.emit({ product: this.productList, isFavorite: true })
+  }
 }
