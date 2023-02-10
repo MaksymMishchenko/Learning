@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Product } from './model/product';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `
+  <div style="text-align:center;">
+  <h1>Welcome to {{title}}</h1>
+  <app-product-list></app-product-list>
+  </div>
+  `,
+  styleUrls: []
 })
 export class AppComponent {
-  title = 'stock-market';
+  title = 'Stock Market';
 }
