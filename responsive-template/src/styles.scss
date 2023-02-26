@@ -178,6 +178,7 @@ main {
   }
 
   .nav-menu>li+li {
+    border: 0;
     flex: 1;
   }
 
@@ -196,6 +197,28 @@ main {
     flex: 1;
     margin-right: 0.75em;
     margin-left: 0.75em;
+  }
+}
+
+@media (min-width: 50em) {
+  :root {
+    font-size: 1.125em;
+  }
+  .page-header {
+    padding: 1em 4em;
+  }
+
+  .hero {
+    padding: 7em 6em;
+    background-image: url(./assets/car-hero-big.jpg);
+  }
+
+  main {
+    padding: 2em 4em;
+  }
+
+  .nav-menu {
+    padding: 0 4em;
   }
 }
 
