@@ -49,7 +49,7 @@ a:active {
 .title>h1 {
   color: var(--dark-color);
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin: .2em 0;
 }
 
@@ -64,6 +64,7 @@ a:active {
   text-align: center;
   background-image: url(./assets/car-hero-small.jpg);
   background-size: 100%;
+  background-repeat: no-repeat;
   color: #fff;
   text-shadow: 0.1em 0.1em 0.3em #000;
 }
@@ -131,15 +132,71 @@ main {
   color: #fff;
 }
 
-.nav-menu > li + li {
+.nav-menu>li+li {
   border-top: 1px solid #ccc;
 }
 
-.nav-menu > li > a {
+.nav-menu>li>a {
   display: block;
   padding: 0.8em 1em;
   color: #fff;
   font-weight: normal;
+}
+
+@media (min-width: 35em) {
+  .page-header {
+    padding: 1em;
+  }
+
+  .hero {
+    padding: 5em 3em;
+    background-image: url(./assets/car-hero-medium.jpg);
+    font-size: 1.2rem;
+  }
+
+  .main {
+    padding: 2em 1em;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .menu-dropdown {
+    display: block;
+    position: static;
+  }
+
+  .nav-menu {
+    display: flex;
+    border: 0;
+    padding: 0 1em;
+  }
+
+  .nav-menu>li {
+    border: 0;
+  }
+
+  .nav-menu>li+li {
+    flex: 1;
+  }
+
+  .nav-menu>li>a {
+    padding: 0.3em;
+    text-align: center;
+  }
+
+  .row {
+    display: flex;
+    margin-left: -.75em;
+    margin-right: -.75em;
+  }
+
+  .column {
+    flex: 1;
+    margin-right: 0.75em;
+    margin-left: 0.75em;
+  }
 }
 
 
