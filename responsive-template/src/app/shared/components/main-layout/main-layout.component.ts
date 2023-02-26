@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class MainLayoutComponent {
 
+  toggleMenu(event: Event) {
+    event.preventDefault();
+    var menu = document.getElementById('main-menu');
+    menu!.classList.toggle('is-open');
+
+  }
 }
