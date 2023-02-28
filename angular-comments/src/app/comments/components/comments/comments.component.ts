@@ -23,7 +23,16 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   addComment({ text, parentId }: { text: string, parentId: null | string }): void {
-    console.log('AddComment', text, parentId);
+    this.commentsService.createComment(text, parentId).subscribe((createdComment) => {
+      this.comments = [...this.comments, createdComment];
+    })
+  }
+
+  getReplies(commentId: string): CommentInterface[] {
+    return this.comments.filter(comment => comment.parentId === commentId)
+      .sort((a, b) =>
+        new Date(a.createdAt).getTime() -
+        new Date(b.createdAt).getTime());
   }
 
   ngOnDestroy(): void {

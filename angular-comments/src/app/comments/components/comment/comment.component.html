@@ -7,5 +7,12 @@
             <div class="comment-author">{{comment.username}}</div>
         </div>
         <div class="comment-text">{{comment.body}}</div>
+        COMMENT FORM EDITING
+        <div class="comment-actions">
+            <div *ngIf="canReply" class="comment-action">Reply</div>
+            <div *ngIf="canEdit" class="comment-action">Edit</div>
+            <div *ngIf="canDelete" class="comment-action">Delete</div>
+        </div>
+        COMMENT FORM REPLYING REPLIES
     </div>
 </div>
