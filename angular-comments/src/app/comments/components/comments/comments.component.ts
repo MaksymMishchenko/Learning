@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CommentsService } from '../../services/comments.services';
+import { ActiveCommentInterface } from '../../types/activeComment.interface';
 import { CommentInterface } from '../../types/comment.interface';
 
 @Component({
@@ -9,9 +10,11 @@ import { CommentInterface } from '../../types/comment.interface';
 })
 
 export class CommentsComponent implements OnInit, OnDestroy {
+  @Input() currentUserId!: string;
+
   comments: CommentInterface[] = [];
   commentsSubscription!: Subscription;
-  @Input() currentUserId!: string;
+  activeComment: ActiveCommentInterface | null = null;
 
   constructor(private commentsService: CommentsService) { }
 
@@ -33,6 +36,10 @@ export class CommentsComponent implements OnInit, OnDestroy {
       .sort((a, b) =>
         new Date(a.createdAt).getTime() -
         new Date(b.createdAt).getTime());
+  }
+
+  setActiveComment(activeComment: ActiveCommentInterface | null): void {
+    this.activeComment = activeComment;
   }
 
   ngOnDestroy(): void {
