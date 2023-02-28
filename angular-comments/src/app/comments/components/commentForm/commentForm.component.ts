@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
@@ -9,6 +9,8 @@ export class CommentFormComponent implements OnInit {
     @Input() submitLabel!: string;
     @Input() hasCancelButton: boolean = false;
     @Input() initialText: string = '';
+
+    @Output() handleSubmit = new EventEmitter<string>();
 
     form!: FormGroup
 
@@ -21,6 +23,6 @@ export class CommentFormComponent implements OnInit {
     }
 
     onSubmit(): void {
-        console.log('submit', this.form.value);
+        this.handleSubmit.emit(this.form.value.title);
     }
 }

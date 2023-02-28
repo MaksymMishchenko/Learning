@@ -22,6 +22,10 @@ export class CommentsComponent implements OnInit, OnDestroy {
       });
   }
 
+  addComment({ text, parentId }: { text: string, parentId: null | string }): void {
+    console.log('AddComment', text, parentId);
+  }
+
   ngOnDestroy(): void {
     if (this.commentsSubscription) {
       this.commentsSubscription.unsubscribe();
