@@ -1,4 +1,4 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed, inject, ComponentFixture, waitForAsync } from '@angular/core/testing';
 import { StockService } from './stockService.service';
 
 describe('Stock Service Testing', () => {

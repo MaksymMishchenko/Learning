@@ -51,4 +51,9 @@ export class StockService {
         this.stocks.push(stock);
         return true;
     }
+
+    toggleFavorite(stock: Stock) {
+        let foundStock = this.stocks.find(each => each.code === stock.code);
+        foundStock!.favorite = !foundStock!.favorite;
+    }
 }
