@@ -1,46 +1,41 @@
-import { ComponentFixture, waitForAsync, TestBed } from "@angular/core/testing";
-import { ReactiveFormsModule } from "@angular/forms";
-import { By } from "@angular/platform-browser";
-import { StockService } from "src/app/services/stockService.service";
-import { CreateStockComponent } from "./create-stock.component";
+import { ComponentFixture, TestBed, waitForAsync, fakeAsync, tick } from "@angular/core/testing"
+import { ReactiveFormsModule } from "@angular/forms"
+import { By } from "@angular/platform-browser"
+import { StockService } from "src/app/services/stockService.service"
+import { CreateStockComponent } from "./create-stock.component"
 
 describe('CreateStockComponent', () => {
     let component: CreateStockComponent;
-    let fixture: ComponentFixture<CreateStockComponent>
-
+    let fixture: ComponentFixture<CreateStockComponent>;
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [CreateStockComponent],
             providers: [StockService],
             imports: [ReactiveFormsModule]
-        }).compileComponents();
+        });
     }));
 
     beforeEach(() => {
         fixture = TestBed.createComponent(CreateStockComponent);
         component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+        fixture.autoDetectChanges();
+    })
 
-    it('should create stock through service', waitForAsync(() => {
+    it('should add stock through the service', fakeAsync(() => {
         expect(component).toBeTruthy();
-
         component.form.setValue({
             name: 'Test',
-            code: 'GFD',
-            price: 45,
-            previousPrice: 85,
-            exchange: 'GFDSDD'
+            code: 'TRE',
+            price: 54,
+            previousPrice: 25,
+            exchange: 'UYTTYU'
         });
-
         component.createStock();
         expect(component.form.valid).toBeTruthy();
-
-        fixture.whenStable().then(() => {
-            fixture.detectChanges();
-            expect(component.message).toEqual('Stock with added successfully!');
-            const messageEl = fixture.debugElement.query(By.css('.message')).nativeElement;
-            expect(messageEl.textContent).toBe('Stock with added successfully!');
-        });
+        tick();
+        fixture.detectChanges()
+        expect(component.message).toEqual('Stock with added successfully!');
+        const messageEl = fixture.debugElement.query(By.css('.message')).nativeElement;
+        expect(messageEl.textContent).toBe('Stock with added successfully!');
     }));
 });
