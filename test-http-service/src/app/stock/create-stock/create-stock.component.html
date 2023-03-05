@@ -1,0 +1,22 @@
+<h2>Create new stock</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+        <label for="name">Name: </label>
+        <input type="text" id="name" placeholder="Name" formControlName="name">
+    </div>
+    <div class="form-control">
+        <label for="code">Code: </label>
+        <input type="text" id="code" placeholder="Code" formControlName="code">
+    </div>
+    <div class="form-control">
+        <label for="price">Price: </label>
+        <input type="text" id="price" placeholder="Price" formControlName="price">
+    </div>
+    <div class="form-control">
+        <label for="exchange">Exchange: </label>
+        <input type="text" id="name" placeholder="Exchange" formControlName="exchange">
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
