@@ -1,18 +1,15 @@
-import { ComponentFixture, waitForAsync, TestBed, inject } from "@angular/core/testing";
-import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { TestBed, waitForAsync, inject, ComponentFixture } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { StockService } from 'src/app/services/stock.service';
+import { StockItemComponent } from '../stock-item/stock-item.component';
+import { StockListComponent } from './stock-list.component';
 
-
-import { HttpClientModule } from "@angular/common/http";
-import { By } from "@angular/platform-browser";
-import { StockListComponent } from "./stock-list.component";
-import { StockItemComponent } from "../stock-item/stock-item.component";
-import { StockService } from "src/app/services/stock.service";
-
-describe('Fetching data to StockListComponent from Real Service', () => {
+describe('StockListComponent with real server', () => {
     let component: StockListComponent;
     let fixture: ComponentFixture<StockListComponent>;
     let httpBackend: HttpTestingController;
-
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [StockListComponent, StockItemComponent],
@@ -29,32 +26,35 @@ describe('Fetching data to StockListComponent from Real Service', () => {
         httpBackend.expectOne({
             url: 'http://localhost:3000/stocks',
             method: 'GET'
-        }, 'Get list of stocks').flush([{
-            id: 4,
-            name: 'Test Stock 1',
-            code: 'FDS',
-            price: 50,
-            previousPrice: 45,
-            exchange: 'GFDSWA'
+        }, 'Get stock from server').flush([{
+            id: 1,
+            name: 'Test Stock - 1',
+            code: 'HGFDG',
+            price: 52,
+            previousPrice: 20,
+            exchange: "YTRFDS"
         },
         {
-            id: 5,
-            name: 'Test Stock 2',
-            code: 'LIG',
-            price: 85,
-            previousPrice: 70,
-            exchange: 'HTEWQ'
+            id: 2,
+            name: 'Test Stock - 2',
+            code: 'HGFTF',
+            price: 20,
+            previousPrice: 10,
+            exchange: "WQRFDS"
         }]);
     }));
 
-    it('should load stocks from real service on init', waitForAsync(() => {
+    it('should load stocks of from servece', waitForAsync(() => {
         expect(component).toBeTruthy();
         expect(component.stocks$).toBeTruthy();
-
-        fixture.whenStable().then(()=> {
+        fixture.whenStable().then(() => {
             fixture.detectChanges();
-            const stockItems = fixture.debugElement.queryAll(By.css('app-stock-item'));
-            expect(stockItems.length).toEqual(2);
+            const stocksEl = fixture.debugElement.queryAll(By.css('app-stock-item'));
+            expect(stocksEl.length).toEqual(2);
         });
     }));
+
+    afterEach(() => {
+        httpBackend.verify();
+    })
 });

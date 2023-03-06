@@ -1,5 +1,7 @@
 <h2>Create new stock</h2>
 
+<div class="message">{{message}}</div>
+
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-control">
         <label for="name">Name: </label>
@@ -17,6 +19,6 @@
         <label for="exchange">Exchange: </label>
         <input type="text" id="name" placeholder="Exchange" formControlName="exchange">
     </div>
-
     <button type="submit" [disabled]="form.invalid">Submit</button>
 </form>
+

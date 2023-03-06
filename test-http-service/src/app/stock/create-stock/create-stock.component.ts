@@ -10,7 +10,8 @@ import { StockService } from 'src/app/services/stock.service';
 
 export class CreateStockComponent implements OnInit {
     form!: FormGroup;
-    stock!: Stock
+    stock!: Stock;
+    message = '';
     constructor(private fb: FormBuilder, private stockService: StockService) { }
 
     ngOnInit(): void {
@@ -48,7 +49,10 @@ export class CreateStockComponent implements OnInit {
                 favorite: false
             };
             this.stockService.createStock(this.stock).subscribe((result: any) => {
+                this.message = 'was added';
                 this.initializeStock();
+            }, (err) => {
+                this.message = 'Stock already exist';
             })
         } else {
             console.error('Form is in invalid form')

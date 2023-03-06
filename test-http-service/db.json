@@ -26,6 +26,15 @@
       "previousPrice": 35,
       "exchange": "GREWA",
       "favorite": false
+    },
+    {
+      "id": 6,
+      "name": "dcd",
+      "code": "cdcdc",
+      "price": "42",
+      "previousPrice": 0,
+      "exchange": "fvfvfvfv",
+      "favorite": false
     }
   ]
 }
