@@ -1,0 +1,46 @@
+body {
+    font-family: Verdana, sans-serif;
+    margin: 0;
+}
+
+.img {
+    cursor: pointer;
+}
+
+button {
+    padding: .5em .7em;
+    border: 1px solid #8d8d8d;
+    background-color: white;
+    font-size: 1em;
+}
+
+.modal {
+    display: none;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-body {
+    position: fixed;
+    top: 3em;
+    bottom: 3em;
+    right: 20%;
+    left: 20%;
+    padding: 2em 3em;
+    background-color: white;
+}
+
+.modal-body > img {
+    max-width: 100%;
+}
+
+.modal-close {
+    cursor: pointer;
+}
