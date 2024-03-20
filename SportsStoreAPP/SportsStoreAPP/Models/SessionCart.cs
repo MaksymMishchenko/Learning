@@ -1,5 +1,6 @@
-﻿using SportsStoreAPP.TagHelpers;
-using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
+using SportsStoreAPP.TagHelpers;
+
 
 namespace SportsStoreAPP.Models
 {
