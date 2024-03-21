@@ -14,6 +14,8 @@ namespace SportsStoreAPP.Controllers
             _repository = repo;
             _cart = cartService;
         }
+
+        [HttpGet]
         public ViewResult Checkout() => View(new Order());
 
         [HttpPost]
