@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SportsStoreAPP.Interfaces;
 using SportsStoreAPP.Models;
 
@@ -13,6 +12,24 @@ namespace SportsStoreAPP.Controllers
         {
             _repository = repo;
             _cart = cartService;
+        }
+
+        public ViewResult List()
+        {
+            return View(_repository.Orders.Where(o => !o.Shipped));
+        }
+
+        [HttpPost]
+        public IActionResult MarkShipped(int orderId)
+        {
+            var order = _repository.Orders.FirstOrDefault(o => o.OrderId == orderId);
+
+            if (order != null)
+            {
+                order.Shipped = true;
+                _repository.SaveOrder(order);
+            }
+            return RedirectToAction(nameof(List));
         }
 
         [HttpGet]
