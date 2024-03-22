@@ -1,7 +1,6 @@
-﻿using Castle.Components.DictionaryAdapter.Xml;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Moq;
-using NuGet.Frameworks;
 using SportsStoreAPP.Controllers;
 using SportsStoreAPP.Interfaces;
 using SportsStoreAPP.Models;
@@ -82,9 +81,50 @@ namespace SportsStoreAPP.Tests
             Assert.Null(product);
         }
 
-        private T GetViewModel<T>(IActionResult result) where T : class
+
+        [Test]
+        public void Can_Save_Valid_Changed()
         {
-            return (result as ViewResult)?.ViewData.Model as T;
+            // Arrange
+            var mock = new Mock<IProductRepository>();
+            var tempData = new Mock<ITempDataDictionary>();
+            var target = new AdminController(mock.Object)
+            {
+                TempData = tempData.Object
+            };
+
+            var product = new Product { Name = "Test" };
+
+            // Act
+            var result = target.Edit(product);
+
+            // Assert
+            mock.Verify(m => m.SaveProduct(product));
+            Assert.True(typeof(RedirectToActionResult).IsAssignableFrom(result.GetType()));
+            Assert.That((result as RedirectToActionResult)?.ActionName, Is.EqualTo("Index"));
+        }
+
+        [Test]
+        public void Cannot_Save_Invalid_Changes()
+        {
+            // Arrange
+            var mock = new Mock<IProductRepository>();
+            var target = new AdminController(mock.Object);
+            var product = new Product { Name = "Test" };
+
+            target.ModelState.AddModelError("error", "error");
+
+            // Act
+            var result = target.Edit(product);
+
+            // Assert
+            mock.Verify(m => m.SaveProduct(It.IsAny<Product>()), Times.Never());
+            Assert.True(typeof(ViewResult).IsAssignableFrom(result.GetType()));
+        }
+
+        private T? GetViewModel<T>(IActionResult result) where T : class
+        {
+            return (result as ViewResult)?.ViewData?.Model as T;
         }
     }
 }
