@@ -14,7 +14,7 @@ namespace SportsStoreAPP.Controllers
         public IActionResult Index() => View(_productRepository.Products);
 
         [HttpGet]
-        public ViewResult Edit(int productId) => View(_productRepository.Products
+        public ViewResult Edit(int productId) => View(_productRepository?.Products
                 .FirstOrDefault(p => p.ProductId == productId));
 
         [HttpPost]
@@ -29,7 +29,7 @@ namespace SportsStoreAPP.Controllers
             }
             else
             {
-                return View(nameof(Index));
+                return View(product);
             }
         }
     }
