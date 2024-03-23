@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SportsStoreAPP.Interfaces;
 using SportsStoreAPP.Models;
 
 namespace SportsStoreAPP.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private IProductRepository _productRepository;
@@ -11,6 +13,7 @@ namespace SportsStoreAPP.Controllers
         {
             _productRepository = repo;
         }
+
         public IActionResult Index() => View(_productRepository.Products);
 
         [HttpGet]
@@ -37,13 +40,13 @@ namespace SportsStoreAPP.Controllers
         [HttpPost]
         public IActionResult DeleteProduct(Product product)
         {
-           var deletedProduct = _productRepository.DeleteProduct(product.ProductId);
-           if (deletedProduct != null)
-           {
-               TempData["message"] = $"{deletedProduct.Name} was deleted";
-           }
-           
-           return RedirectToAction("Index");
+            var deletedProduct = _productRepository.DeleteProduct(product.ProductId);
+            if (deletedProduct != null)
+            {
+                TempData["message"] = $"{deletedProduct.Name} was deleted";
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

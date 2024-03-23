@@ -9,7 +9,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-var connectionStringIdentity = builder.Configuration["SportsStoreIdentity:ConnectionString"];
+var connectionStringIdentity = builder.Configuration["SportsStoreIdentity:ConnectionString"] ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");;
 builder.Services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(connectionStringIdentity));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppIdentityDbContext>()
@@ -35,77 +35,36 @@ app.UseStatusCodePages();
 app.UseStaticFiles();
 app.UseSession();
 app.UseAuthentication();
+app.UseMvc(routes => {
+    routes.MapRoute(name: "Error", template: "Error",
+        defaults: new { controller = "Error", action = "Error" });
 
-//// /Page2 - виводить вказану сторінку (2 в даному випадку)
-//app.MapControllerRoute(
-//    name: null!,
-//    pattern: "Page{productPage:int}",
-//    defaults: new { Controller = "Product", action = "List", productPage = 1 });
-//
-//// /Soccer - виводить першу сторінку товарів вказаної категорії (Soccer)
-//app.MapControllerRoute(
-//    name: null!,
-//    pattern: "{category}",
-//    defaults: new { Controller = "Product", action = "List", productPage = 1 });
-//
-//// /Soccer/Page2 - виводить вказану сторінку (сторінку 2) товарів заданої категорії (Soccer)
-//app.MapControllerRoute(
-//    name: null!,
-//    pattern: "",
-//    defaults: new { Controller = "Product", action = "List", productPage = 1 });
-//
-//app.MapControllerRoute(
-//    name: "pagination",
-//    pattern: "Products/Page{productPage}",
-//    defaults: new { Controller = "Product", action = "List" });
-//
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Product}/{action=List}/{id?}");
+    routes.MapRoute(
+        name: null,
+        template: "{category}/Page{productPage:int}",
+        defaults: new { controller = "Product", action = "List" }
+    );
 
-app.MapControllerRoute(
-             name: null!,
-             pattern: "",
-             new
-             {
-                 controller = "Product",
-                 action = "List",
-                 category = (string?)null,
-                 page = 1
-             });
+    routes.MapRoute(
+        name: null,
+        template: "Page{productPage:int}",
+        defaults: new { controller = "Product", action = "List", productPage = 1 }
+    );
 
-// / - Виводить першу сторінку списку товарів всіх категорій
-app.MapControllerRoute(
-    name: null!,
-    pattern: "{category}/Page{productPage:int}",
-    defaults: new { Controller = "Product", action = "List" });
+    routes.MapRoute(
+        name: null,
+        template: "{category}",
+        defaults: new { controller = "Product", action = "List", productPage = 1 }
+    );
 
-app.MapControllerRoute(
-   name: null!,
-   pattern: "Page{productPage}",
-   new
-   {
-       controller = "Product",
-       action = "List",
-       category = (string?)null,
-   },
-   new { page = @"\d+" });
+    routes.MapRoute(
+        name: null,
+        template: "",
+        defaults: new { controller = "Product", action = "List", productPage = 1 });
 
-app.MapControllerRoute(
-    name: null!,
-    pattern: "{category}",
-    new { controller = "Product", action = "List", productPage = 1 });
+    routes.MapRoute(name: null, template: "{controller}/{action}/{id?}");
+});
 
-app.MapControllerRoute(
-    name: null!,
-    pattern: "{category}/Page{productPage}",
-    new
-    {
-        controller = "Product",
-        action = "List"
-    },
-    new { page = @"\d+" });
-
-app.MapControllerRoute(null!, "{controller}/{action}");
+IdentitySeedData.EnsurePopulated(app);
 
 app.Run();
