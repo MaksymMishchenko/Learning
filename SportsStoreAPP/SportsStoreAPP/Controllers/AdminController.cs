@@ -18,7 +18,6 @@ namespace SportsStoreAPP.Controllers
                 .FirstOrDefault(p => p.ProductId == productId));
 
         [HttpPost]
-
         public IActionResult Edit(Product product)
         {
             if (ModelState.IsValid)
@@ -31,6 +30,20 @@ namespace SportsStoreAPP.Controllers
             {
                 return View(product);
             }
+        }
+
+        public IActionResult Create() => View("Edit", new Product());
+
+        [HttpPost]
+        public IActionResult DeleteProduct(Product product)
+        {
+           var deletedProduct = _productRepository.DeleteProduct(product.ProductId);
+           if (deletedProduct != null)
+           {
+               TempData["message"] = $"{deletedProduct.Name} was deleted";
+           }
+           
+           return RedirectToAction("Index");
         }
     }
 }

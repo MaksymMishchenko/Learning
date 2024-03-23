@@ -122,6 +122,29 @@ namespace SportsStoreAPP.Tests
             Assert.True(typeof(ViewResult).IsAssignableFrom(result.GetType()));
         }
 
+        [Test]
+        public void Can_Delete_Valid_Product()
+        {
+            // Arrange
+            var product = new Product { ProductId = 2, Name = "P2" };
+
+            var mock = new Mock<IProductRepository>();
+            mock.Setup(m => m.Products).Returns((new Product[] {
+            new Product{ ProductId = 1, Name = "P1"},
+            product,
+            new Product{ ProductId = 3, Name = "P3"},
+            }).AsQueryable());
+
+            var target = new AdminController(mock.Object);
+
+            // Act
+            target.DeleteProduct(product);
+
+            // Assert
+
+            mock.Verify(m => m.DeleteProduct(product.ProductId));
+        }
+
         private T? GetViewModel<T>(IActionResult result) where T : class
         {
             return (result as ViewResult)?.ViewData?.Model as T;

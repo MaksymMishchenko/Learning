@@ -1,4 +1,5 @@
 ﻿using SportsStoreAPP.Interfaces;
+using System.Linq;
 
 namespace SportsStoreAPP.Models
 {
@@ -107,6 +108,20 @@ namespace SportsStoreAPP.Models
             }
 
             _context.SaveChanges();
+        }
+
+        public Product DeleteProduct(int prodId)
+        {
+            var dbEntry = _context.Products
+                 .FirstOrDefault(p => p.ProductId == prodId);
+
+            if (dbEntry != null)
+            {
+                _context.Products.Remove(dbEntry);
+                _context.SaveChanges();
+            }
+
+            return dbEntry!;
         }
     }
 }

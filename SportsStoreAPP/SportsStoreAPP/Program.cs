@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SportsStoreAPP.Interfaces;
 using SportsStoreAPP.Models;
@@ -7,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+var connectionStringIdentity = builder.Configuration["SportsStoreIdentity:ConnectionString"];
+builder.Services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(connectionStringIdentity));
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppIdentityDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.AddTransient<IProductRepository, EFProductRepository>();
 builder.Services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
@@ -27,6 +34,7 @@ app.UseDeveloperExceptionPage();
 app.UseStatusCodePages();
 app.UseStaticFiles();
 app.UseSession();
+app.UseAuthentication();
 
 //// /Page2 - виводить вказану сторінку (2 в даному випадку)
 //app.MapControllerRoute(
