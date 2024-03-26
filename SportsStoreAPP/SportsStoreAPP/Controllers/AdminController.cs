@@ -9,9 +9,11 @@ namespace SportsStoreAPP.Controllers
     public class AdminController : Controller
     {
         private IProductRepository _productRepository;
-        public AdminController(IProductRepository repo)
+        private IApplicationBuilder _app;
+        public AdminController(IProductRepository repo, IApplicationBuilder app)
         {
             _productRepository = repo;
+            _app = app;
         }
 
         public IActionResult Index() => View(_productRepository.Products);
@@ -47,6 +49,13 @@ namespace SportsStoreAPP.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult SeedDataBase()
+        {
+            SeedData.EnsurePopulated(_app);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

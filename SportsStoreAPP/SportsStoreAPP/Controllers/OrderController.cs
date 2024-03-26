@@ -15,14 +15,14 @@ namespace SportsStoreAPP.Controllers
             _cart = cartService;
         }
 
-        [Authorize]
+        //[Authorize]
         public ViewResult List()
         {
             return View(_repository.Orders.Where(o => !o.Shipped));
         }
         
         [HttpPost]
-        [Authorize]
+       // [Authorize]
         public IActionResult MarkShipped(int orderId)
         {
             var order = _repository.Orders.FirstOrDefault(o => o.OrderId == orderId);

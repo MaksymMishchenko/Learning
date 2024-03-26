@@ -1,20 +1,24 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using SportsStoreAPP.Models;
 using SportsStoreAPP.Models.ViewModels;
 
 namespace SportsStoreAPP.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AccountController : Controller
     {
         private UserManager<IdentityUser> _userManager;
         private SignInManager<IdentityUser> _signInManager;
+        private IApplicationBuilder _app;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IApplicationBuilder app)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            app = _app;
+            IdentitySeedData.EnsurePopulated(_app).Wait();
         }
 
         [AllowAnonymous]
