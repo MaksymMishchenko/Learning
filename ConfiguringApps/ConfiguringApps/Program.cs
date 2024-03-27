@@ -15,11 +15,7 @@ if (app.Environment.IsDevelopment())
 else {
     app.UseExceptionHandler("/Home/Error");
 }
-
-//app.UseMiddleware<ErrorMiddleware>();
-//app.UseMiddleware<BrowserTypeMiddleware>();
-//app.UseMiddleware<ShortCircuitMIddleware>();
-//app.UseMiddleware<ContentMiddleware>();
+app.UseStaticFiles();
 
 app.UseMvc(routes =>
 {
