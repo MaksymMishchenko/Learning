@@ -1,4 +1,5 @@
 using ConfiguringApps.Infrastructures;
+using Microsoft.AspNetCore.Routing.Template;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseKestrel().UseContentRoot(Directory.GetCurrentDirectory())
@@ -11,5 +12,17 @@ app.UseMiddleware<ErrorMiddleware>();
 app.UseMiddleware<BrowserTypeMiddleware>();
 app.UseMiddleware<ShortCircuitMIddleware>();
 app.UseMiddleware<ContentMiddleware>();
-app.UseMvcWithDefaultRoute();
+app.UseMvc(routes =>
+{
+    routes.MapRoute(
+        name: "deafult",
+        template: "{controller=Home}/{actin=Index}/{id?}"
+        );
+});
+
+app.MapControllerRoute(
+    name: "Default",
+    pattern: "{controller=Home}/{actin=Index}/{id?}",
+    defaults: null
+    );
 app.Run();
