@@ -10,15 +10,15 @@ namespace UrlsAndRoutes.Controllers
             return View("Result", new Result { Controller = nameof(HomeController), Action = nameof(Index) });
         }
 
-        public ViewResult CustomVariable()
+        public ViewResult CustomVariable(string id)
         {
             Result r = new Result
             {
                 Controller = nameof(HomeController),
-                Action = nameof(CustomVariable),                
+                Action = nameof(CustomVariable),
             };
 
-            r.Data["id"] = RouteData.Values["id"]!;
+            r.Data["id"] = id;//RouteData.Values["id"]!;
             return View("Result", r);
         }
     }
