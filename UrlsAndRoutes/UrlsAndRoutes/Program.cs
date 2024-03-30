@@ -9,7 +9,20 @@ app.UseStatusCodePages();
 app.UseStaticFiles();
 app.UseMvc(routes =>
 {
-    routes.MapRoute(name:"Default", template: "{controller}/{action}");
+    routes.MapRoute(
+        name: "",
+        template: "X{controller}/{action}"
+        );
+
+    routes.MapRoute(
+        name: "",
+        template: "{controller}/{action=Index}"
+        );
+
+    routes.MapRoute(
+        name: "",
+        template: "Public/{controller=Home}/{action=Index}"
+        );
 });
 
 app.Run();
