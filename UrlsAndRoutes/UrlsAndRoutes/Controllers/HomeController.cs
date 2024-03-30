@@ -9,5 +9,17 @@ namespace UrlsAndRoutes.Controllers
         {
             return View("Result", new Result { Controller = nameof(HomeController), Action = nameof(Index) });
         }
+
+        public ViewResult CustomVariable()
+        {
+            Result r = new Result
+            {
+                Controller = nameof(HomeController),
+                Action = nameof(CustomVariable),                
+            };
+
+            r.Data["id"] = RouteData.Values["id"]!;
+            return View("Result", r);
+        }
     }
 }
