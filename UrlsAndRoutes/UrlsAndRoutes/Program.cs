@@ -10,8 +10,8 @@ app.UseStaticFiles();
 app.UseMvc(routes =>
 {
     routes.MapRoute(
-        name: "MyRoute",
-        template: "{controller=Home}/{action=Index}/{id=DefaultId}"
+        name: "Default",
+        template: "{controller=Home}/{action=Index}/{id?}/{*catchall}"
         );
 });
 
