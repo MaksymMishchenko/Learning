@@ -1,5 +1,4 @@
-﻿using ControllersAndActionsApp.Infrastructure;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace ControllersAndActionsApp.Controllers
 {
@@ -7,7 +6,7 @@ namespace ControllersAndActionsApp.Controllers
     {
         public ViewResult SimpleForm() => View("SimpleForm");
 
-        public void ReceiveForm(string name, string city)
-            => new CustomHtmlResult { Content = $"{name} is live in {city}" };
+        public ViewResult ReceiveForm(string name, string city)
+            => View("Result", $"{name} is live in {city}");
     }
 }
