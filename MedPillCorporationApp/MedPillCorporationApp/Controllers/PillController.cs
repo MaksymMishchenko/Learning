@@ -11,11 +11,13 @@ namespace MedPillCorporationApp.Controllers
         public PillController(IPillRepository repo)
         {
             _repository = repo;
-
         }
 
         [HttpGet]
         public IQueryable<Pill> GetPills() => _repository.Pills;
+
+        [HttpGet("{id}")]
+        public Pill GetPill(int id) => _repository[id];
 
     }
 }

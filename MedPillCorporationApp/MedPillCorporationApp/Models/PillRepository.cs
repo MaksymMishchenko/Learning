@@ -8,7 +8,7 @@ namespace MedPillCorporationApp.Models
 
         public PillRepository(ApplicationDbContext context)
         {
-            _context = context;          
+            _context = context;
         }
 
         public void EnsurePopulated()
@@ -18,12 +18,12 @@ namespace MedPillCorporationApp.Models
                 _context.Pills.AddRange(
                     new Pill
                     {
-                       Name = "Септефрил",
-                       Category = "Антисептики",
-                       Instruction = "Препарати, що застосовуються при захворюваннях горла. Різні антисептики. Код АТХ R02А А20.",
-                       Manufacturer = "Дарниця",
-                       Country = "Україна",
-                       Total = 10                       
+                        Name = "Септефрил",
+                        Category = "Антисептики",
+                        Instruction = "Препарати, що застосовуються при захворюваннях горла. Різні антисептики. Код АТХ R02А А20.",
+                        Manufacturer = "Дарниця",
+                        Country = "Україна",
+                        Total = 10
                     },
                     new Pill
                     {
@@ -94,5 +94,7 @@ namespace MedPillCorporationApp.Models
             }
         }
         public IQueryable<Pill> Pills => _context.Pills;
+
+        public Pill this[int id] => _context.Pills.FirstOrDefault(p => p.PillId == id);
     }
 }
