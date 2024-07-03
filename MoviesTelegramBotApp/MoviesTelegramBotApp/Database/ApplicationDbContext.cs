@@ -7,9 +7,6 @@ namespace MoviesTelegramBotApp.Database
     {
         public DbSet<Movie> Movies { get; set; }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
-
-        }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
     }
 }
