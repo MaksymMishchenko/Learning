@@ -1,2 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using MoviesTelegramBotApp.Database;
+
+namespace MoviesTekegramBotApp
+{
+    internal class Program {
+        public static void Main()
+        {
+            new DatabaseProvider();
+        }
+    }
+}
