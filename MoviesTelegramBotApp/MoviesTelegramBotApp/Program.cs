@@ -1,5 +1,6 @@
 ﻿using MoviesTelegramBotApp.Database;
 using MoviesTelegramBotApp.Models;
+using System.Text;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Polling;
@@ -7,7 +8,7 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 
-namespace MoviesTekegramBotApp
+namespace MoviesTelegramBotApp
 {
     internal class Program
     {
@@ -81,8 +82,8 @@ namespace MoviesTekegramBotApp
             await _botClient.SendTextMessageAsync(
                 message.Chat.Id,
                 responseText,
+                parseMode: ParseMode.Html,
                 cancellationToken: cts);
-
         }
 
         private static Task HandleErrorAsync(ITelegramBotClient bot, Exception ex, CancellationToken cts)
@@ -101,17 +102,24 @@ namespace MoviesTekegramBotApp
         {
             List<Movie> movies = new DatabaseService().GetApplicationDbContext().Movies.ToList();
 
-            string response = string.Empty;
+            var response = new StringBuilder();
 
-            if (!movies.Any()) 
+            if (!movies.Any())
                 return "No movies found";
 
             foreach (var movie in movies)
             {
-                response += $"Id: {movie.MovieId}\n Name: {movie.Name}\n Genre: {movie.Category}\n {movie.Country}\n Budget {movie.Budget}\n";
+                response.AppendLine($"Name: { movie.Name}");
+                response.AppendLine($"Genre: { movie.Category} ");
+                response.AppendLine($"Description: {movie.Description}");
+                response.AppendLine($"Country: { movie.Country} ");
+                response.AppendLine($"Budget: {movie.Budget}");
+                response.AppendLine($"ImageUrl: {movie.ImageUrl}");                
+                response.AppendLine($"MovieUrl: {movie.MovieUrl}");
+                response.AppendLine(new string('-', 60));
             }
 
-            return response;
+            return response.ToString();
         }
     }
 }
