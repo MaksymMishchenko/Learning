@@ -42,13 +42,13 @@ namespace MoviesTelegramBotApp
 
                 if (messageText?.Text?.ToLower() == "/start")
                 {
-                    var response = $"Lights, Camera, Action! Welcome to {me.FirstName}, the hottest Telegram hangout for movie lovers! Whether you're a die-hard cinephile or just enjoy a good popcorn flick, this is your spot to discuss all things film.  Get ready for spoiler alerts, passionate debates, and maybe even some trivia showdowns!";
-                    await _botClient.SendTextMessageAsync(chatId, response);
+                    var response = $"<strong>Lights, Camera, Action!</strong>\nWelcome to <em><strong>{me.FirstName}</strong></em>, the hottest Telegram hangout for movie lovers! Whether you're a die-hard cinephile or just enjoy a good popcorn flick, this is your spot to discuss all things film.";
+                    await _botClient.SendTextMessageAsync(chatId, response, parseMode: ParseMode.Html);
                     await SendMenuAsync(chatId, cts);
                 }
                 else
                 {
-                    await HandleMenuResposeAsync(messageText!, cts);
+                    await HandleMenuResposeAsync(bot, messageText!, cts);
                 }
             }
         }
@@ -70,20 +70,23 @@ namespace MoviesTelegramBotApp
                 cancellationToken: cts);
         }
 
-        private static async Task HandleMenuResposeAsync(Message message, CancellationToken cts)
+        private static async Task HandleMenuResposeAsync(ITelegramBotClient bot, Message message, CancellationToken cts)
         {
-            var responseText = message.Text switch
+            switch (message.Text)
             {
-                "Movies" => DisplayMovies(),
-                "Cartoons" => "Your selected option 2",
-                _ => "Sorry, command is not reconized! Try anothet one!"
-            };
+                case "Movies":
 
-            await _botClient.SendTextMessageAsync(
-                message.Chat.Id,
-                responseText,
-                parseMode: ParseMode.Html,
-                cancellationToken: cts);
+                    await SendMoviesAsync(bot, message.Chat.Id, cts);
+                    break;
+
+                case "Cartoons":
+                    //todo: functionality in progress
+                    break;
+
+                default:
+                    await _botClient.SendTextMessageAsync(message.Chat.Id, "The command is not recognized");
+                    break;
+            }
         }
 
         private static Task HandleErrorAsync(ITelegramBotClient bot, Exception ex, CancellationToken cts)
@@ -98,10 +101,14 @@ namespace MoviesTelegramBotApp
             return Task.CompletedTask;
         }
 
-        private static string DisplayMovies()
+        private static List<Movie> GetMovies()
         {
-            List<Movie> movies = new DatabaseService().GetApplicationDbContext().Movies.ToList();
+            return new DatabaseService().GetApplicationDbContext().Movies.ToList();
+        }
 
+        private static string BuildMoviesResponse()
+        {
+            List<Movie> movies = GetMovies();
             var response = new StringBuilder();
 
             if (!movies.Any())
@@ -109,17 +116,47 @@ namespace MoviesTelegramBotApp
 
             foreach (var movie in movies)
             {
-                response.AppendLine($"Name: { movie.Name}");
-                response.AppendLine($"Genre: { movie.Category} ");
+                response.AppendLine($"Name: {movie.Name}");
+                response.AppendLine($"Genre: {movie.Category} ");
                 response.AppendLine($"Description: {movie.Description}");
-                response.AppendLine($"Country: { movie.Country} ");
+                response.AppendLine($"Country: {movie.Country} ");
                 response.AppendLine($"Budget: {movie.Budget}");
-                response.AppendLine($"ImageUrl: {movie.ImageUrl}");                
-                response.AppendLine($"MovieUrl: {movie.MovieUrl}");
+                response.AppendLine($"ImageUrl: {movie.ImageUrl}");
+                response.AppendLine($"Trailer: {movie.MovieUrl}");
                 response.AppendLine(new string('-', 60));
+                response.AppendLine();
             }
 
             return response.ToString();
+        }
+
+        private static async Task SendMoviesAsync(ITelegramBotClient bot, long chatId, CancellationToken cts)
+        {
+            List<Movie> movies = GetMovies();
+            string response = BuildMoviesResponse();
+
+            foreach (var movie in movies)
+            {
+                if (!string.IsNullOrEmpty(movie.ImageUrl))
+                {
+                    await _botClient.SendPhotoAsync(
+                    chatId: chatId,
+                        photo: new Telegram.Bot.Types.InputFiles.InputOnlineFile(movie.ImageUrl),
+                        parseMode: ParseMode.Html,
+                        caption: $"<strong>Name:</strong> {movie.Name}\n<strong>Genre:</strong> {movie.Category}\n<strong>Description:</strong> {movie.Description}\n<strong>Country:</strong> {movie.Country}\n<strong>Budget:</strong> {movie.Budget}\n<strong>Trailer:</strong> {movie.MovieUrl}",
+                        cancellationToken: cts
+                        );
+                }
+
+                else
+                {
+                    await _botClient.SendTextMessageAsync(
+                        chatId,
+                        text: response,
+                        cancellationToken: cts
+                    );
+                }
+            }
         }
     }
 }
