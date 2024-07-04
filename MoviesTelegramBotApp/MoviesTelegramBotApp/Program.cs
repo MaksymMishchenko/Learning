@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using MoviesTelegramBotApp.Database;
+﻿using MoviesTelegramBotApp.Database;
 using MoviesTelegramBotApp.Models;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
@@ -18,18 +15,8 @@ namespace MoviesTekegramBotApp
         private static CancellationTokenSource _cts;
         public static void Main()
         {
-            var serviceProvider = new ServiceCollection()
-                .AddDbContext<ApplicationDbContext>(options => options.UseMySQL(GetConnectionString()))
-                .BuildServiceProvider();
-
-            using (var context = serviceProvider.GetRequiredService<ApplicationDbContext>())
-            {
-                DisplayMovies(context);
-            }
-
             _botClient = new TelegramBotClient("7075613694:AAE14JDh8bVT6AaOJkFT9_dc8qiowSlEGmw");
             _cts = new CancellationTokenSource();
-
 
             var receiverOptions = new ReceiverOptions
             {
@@ -58,7 +45,6 @@ namespace MoviesTekegramBotApp
                     await _botClient.SendTextMessageAsync(chatId, response);
                     await SendMenuAsync(chatId, cts);
                 }
-
                 else
                 {
                     await HandleMenuResposeAsync(messageText!, cts);
@@ -87,7 +73,7 @@ namespace MoviesTekegramBotApp
         {
             var responseText = message.Text switch
             {
-                "Movies" => "Your selected option 1",
+                "Movies" => DisplayMovies(),
                 "Cartoons" => "Your selected option 2",
                 _ => "Sorry, command is not reconized! Try anothet one!"
             };
@@ -111,30 +97,21 @@ namespace MoviesTekegramBotApp
             return Task.CompletedTask;
         }
 
-        private static void DisplayMovies(ApplicationDbContext context)
+        private static string DisplayMovies()
         {
-            List<Movie> movies = context.Movies.ToList();
+            List<Movie> movies = new DatabaseService().GetApplicationDbContext().Movies.ToList();
 
-            if (movies.Any())
+            string response = string.Empty;
+
+            if (!movies.Any()) 
+                return "No movies found";
+
+            foreach (var movie in movies)
             {
-                foreach (var movie in movies)
-                {
-                    Console.WriteLine(movie.Name);
-                    Console.WriteLine(movie.Category);
-                    Console.WriteLine(movie.Country);
-                    Console.WriteLine(movie.Budget);
-                }
+                response += $"Id: {movie.MovieId}\n Name: {movie.Name}\n Genre: {movie.Category}\n {movie.Country}\n Budget {movie.Budget}\n";
             }
-        }
 
-        private static string GetConnectionString()
-        {
-            var configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
-
-            return configuration.GetConnectionString("DefaultConnection");
+            return response;
         }
     }
 }
