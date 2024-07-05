@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MoviesTelegramBotApp.Database;
+using MoviesTelegramBotApp.Interfaces;
 using MoviesTelegramBotApp.Services;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
@@ -12,29 +13,44 @@ namespace MoviesTelegramBotApp
 {
     internal class Program
     {
-        private static TelegramBotClient _botClient;
+        private static IServiceProvider _serviceProvider;
         private static CancellationTokenSource _cts;
 
         public static void Main()
-        {
-            _botClient = new TelegramBotClient("7075613694:AAE14JDh8bVT6AaOJkFT9_dc8qiowSlEGmw");
+        {           
             _cts = new CancellationTokenSource();
 
-            var movieService = new MovieService(new ServiceCollection().AddDbContext<ApplicationDbContext>(options =>
-            options.UseMySQL(GetConnectionString())).BuildServiceProvider().GetRequiredService<ApplicationDbContext>());
+            var services = new ServiceCollection();
+            ConfigureServices(services);
 
-            var botService = new BotService(_botClient);
-            var updateHandler = new UpdateHandler(botService, movieService);
+            _serviceProvider = services.BuildServiceProvider();
+
+            var botService = _serviceProvider.GetRequiredService<IBotService>();
+            var updateHandler = _serviceProvider.GetRequiredService<UpdateHandler>();           
 
             var recieverOptions = new ReceiverOptions
             {
                 AllowedUpdates = Array.Empty<UpdateType>()
             };
 
-            _botClient.StartReceiving(updateHandler.HandleUpdateAsync, HandleErrorAsync, recieverOptions, _cts.Token);
+            var botClient = _serviceProvider.GetRequiredService<TelegramBotClient>();
+
+            botClient.StartReceiving(updateHandler.HandleUpdateAsync, HandleErrorAsync, recieverOptions, _cts.Token);
 
             Console.WriteLine("Bot is up and running");
             Console.ReadLine();
+        }
+
+        private static void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseMySQL(GetConnectionString()));
+
+            services.AddSingleton<TelegramBotClient>(sp => new TelegramBotClient("7075613694:AAE14JDh8bVT6AaOJkFT9_dc8qiowSlEGmw"));
+
+            services.AddTransient<IBotService, BotService>();
+            services.AddTransient<IMovieService, MovieService>();
+            services.AddTransient<UpdateHandler>();
         }
 
         private static string GetConnectionString()
@@ -44,7 +60,7 @@ namespace MoviesTelegramBotApp
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            return configuration.GetConnectionString("DefaultConnection");
+            return configuration.GetConnectionString("DefaultConnection")!;
         }
 
         private static Task HandleErrorAsync(ITelegramBotClient bot, Exception ex, CancellationToken cts)
