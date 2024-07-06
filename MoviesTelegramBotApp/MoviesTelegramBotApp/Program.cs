@@ -35,32 +35,34 @@ namespace MoviesTelegramBotApp
 
             var botClient = _serviceProvider.GetRequiredService<TelegramBotClient>();
 
-            botClient.StartReceiving(updateHandler.HandleUpdateAsync, HandleErrorAsync, recieverOptions, _cts.Token);
+            botClient.StartReceiving(updateHandler.HandleUpdateAsync, HandleErrorAsync, recieverOptions, _cts.Token);           
 
             Console.WriteLine("Bot is up and running");
             Console.ReadLine();
+            _cts.Cancel();
         }
 
         private static void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseMySQL(GetConnectionString()));
+            options.UseMySQL(GetConnectionString("DefaultConnection")));
 
-            services.AddSingleton<TelegramBotClient>(sp => new TelegramBotClient("7075613694:AAE14JDh8bVT6AaOJkFT9_dc8qiowSlEGmw"));
+
+            services.AddSingleton<TelegramBotClient>(sp => new TelegramBotClient(GetConnectionString("ApiKey")));
 
             services.AddTransient<IBotService, BotService>();
             services.AddTransient<IMovieService, MovieService>();
             services.AddTransient<UpdateHandler>();
         }
 
-        private static string GetConnectionString()
+        private static string GetConnectionString(string connectionString)
         {
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            return configuration.GetConnectionString("DefaultConnection")!;
+            return configuration.GetConnectionString(connectionString)!;
         }
 
         private static Task HandleErrorAsync(ITelegramBotClient bot, Exception ex, CancellationToken cts)
