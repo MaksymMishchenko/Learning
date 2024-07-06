@@ -1,10 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using MoviesTelegramBotApp.Database;
 using MoviesTelegramBotApp.Interfaces;
-using MoviesTelegramBotApp.Services;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Polling;
@@ -22,7 +18,8 @@ namespace MoviesTelegramBotApp
             _cts = new CancellationTokenSource();
 
             var services = new ServiceCollection();
-            ConfigureServices(services);
+            var configuration = Startup.GetConfiguration();
+            Startup.ConfigureServices(services, configuration);
 
             _serviceProvider = services.BuildServiceProvider();
 
@@ -44,35 +41,6 @@ namespace MoviesTelegramBotApp
             _cts.Cancel();
 
             await Task.Delay(1000);
-        }
-
-        private static void ConfigureServices(IServiceCollection services)
-        {
-            var configuration = GetConfiguration();
-
-            services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseMySQL(GetConnectionString(configuration)));
-
-            var apiKey = configuration["TelegramBot:ApiKey"];
-            services.AddSingleton(new TelegramBotClient(apiKey));
-
-            services.AddTransient<IBotService, BotService>();
-            services.AddTransient<IMovieService, MovieService>();
-            services.AddTransient<UpdateHandler>();
-            services.AddLogging(configure => configure.AddConsole());
-        }
-
-        private static IConfiguration GetConfiguration()
-        {
-            return new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
-        }
-
-        private static string GetConnectionString(IConfiguration configuration)
-        {
-            return configuration.GetConnectionString("DefaultConnection");
         }
 
         private static Task HandleErrorAsync(ITelegramBotClient bot, Exception ex, CancellationToken cts)
