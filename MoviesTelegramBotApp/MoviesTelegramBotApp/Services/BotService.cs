@@ -18,12 +18,7 @@ namespace MoviesTelegramBotApp.Services
         public async Task<User> GetBotDetailsAsync()
         {
             return await _botClient.GetMeAsync();
-        }
-
-        public async Task SendPhotoAsync(long chatId, InputOnlineFile photoUrl, string caption, ParseMode parseMode, CancellationToken cancellationToken)
-        {
-            await _botClient.SendPhotoAsync(chatId: chatId, photo: photoUrl, caption: caption, parseMode: parseMode, cancellationToken: cancellationToken);
-        }
+        }       
 
         public async Task SendTextMessageAsync(long chatId, string message, ParseMode parseMode, ReplyKeyboardMarkup replyMarkup, CancellationToken cancellationToken)
         {
@@ -43,6 +38,11 @@ namespace MoviesTelegramBotApp.Services
         public async Task SendTextMessageAsync(long chatId, string response, CancellationToken cancellationToken)
         {
             await _botClient.SendTextMessageAsync(chatId, response, cancellationToken: cancellationToken);
+        }
+
+        public async Task SendPhotoWithInlineButtonUrlAsync(long chatId, InputOnlineFile photoUrl, string caption, ParseMode parseMode, InlineKeyboardMarkup replyMarkup)
+        {
+            await _botClient.SendPhotoAsync(chatId: chatId, photo: photoUrl, caption: caption, parseMode: parseMode, replyMarkup: replyMarkup);
         }
     }
 }

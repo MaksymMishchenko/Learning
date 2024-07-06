@@ -11,7 +11,7 @@ namespace MoviesTelegramBotApp.Interfaces
         Task SendTextMessageAsync(long chatId, string response, CancellationToken cancellationToken);
         Task SendTextMessageAsync(long chatId, string response, ParseMode parseMode);
         Task SendTextMessageAsync(long chatId, string message, ParseMode parseMode, ReplyKeyboardMarkup markup, CancellationToken cancellationToken);
-        Task SendPhotoAsync(long chatId, InputOnlineFile photoUrl, string caption, ParseMode parseMode, CancellationToken cancellationToken);
+        Task SendPhotoWithInlineButtonUrlAsync(long chatId, InputOnlineFile photoUrl, string caption, ParseMode parseMode, InlineKeyboardMarkup replyMarkup);        
         Task<User> GetBotDetailsAsync();
     }
 }

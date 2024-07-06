@@ -86,13 +86,13 @@ namespace MoviesTelegramBotApp
             {
                 if (!string.IsNullOrEmpty(movie.ImageUrl))
                 {
-                    await _botService.SendPhotoAsync(
-                     chatId: chatId,
-                         photoUrl: new Telegram.Bot.Types.InputFiles.InputOnlineFile(movie.ImageUrl),
-                         parseMode: ParseMode.Html,
-                         caption: $"<strong>Name:</strong> {movie.Name}\n<strong>Genre:</strong> {movie.Category}\n<strong>Description:</strong> {movie.Description}\n<strong>Country:</strong> {movie.Country}\n<strong>Budget:</strong> {movie.Budget}\n<strong>Trailer:</strong> {movie.MovieUrl}",
-                         cancellationToken: cancellationToken
-                         );
+                    await _botService.SendPhotoWithInlineButtonUrlAsync(
+                        chatId,
+                        photoUrl: new Telegram.Bot.Types.InputFiles.InputOnlineFile(movie.ImageUrl),
+                        caption: $"<strong>Name:</strong> {movie.Name}\n<strong>Genre:</strong> {movie.Category}\n<strong>Description:</strong> {movie.Description}\n<strong>Country:</strong> {movie.Country}\n<strong>Budget:</strong> {movie.Budget}\n<strong>Trailer:</strong>",
+                        parseMode: ParseMode.Html,
+                        replyMarkup: new InlineKeyboardMarkup(
+                InlineKeyboardButton.WithUrl("Check out the trailer", movie.MovieUrl)));
                 }
                 else
                 {
