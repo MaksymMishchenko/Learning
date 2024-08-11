@@ -1,4 +1,5 @@
 ﻿using GlobalExceptionHandling.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Telegram.Bot;
 using Telegram.Bot.Polling;
@@ -11,6 +12,7 @@ namespace GlobalExceptionHandling.Middlewares
         private readonly IUpdateHandler _next;
         private readonly ILogger<GlobalExceptionMiddleware> _logger;
         private readonly ITelegramBotClient _botClient;
+        private readonly IConfiguration _configuration;
         private readonly long _adminChatId;
 
         public GlobalExceptionMiddleware(
@@ -22,7 +24,7 @@ namespace GlobalExceptionHandling.Middlewares
             _next = next;
             _logger = logger;
             _botClient = botService.Client;
-            _adminChatId = long.Parse(configuration["TelegramBotNotify:AdminChatId"]);
+            //_adminChatId = long.Parse(_configuration["TelegramBotNotify:AdminChatId"]);
         }
         public Task HandlePollingErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
         {
@@ -40,14 +42,14 @@ namespace GlobalExceptionHandling.Middlewares
             {
 
                 _logger.LogError(ex, "An unhandled exception occurred while processing an update.");
-                await NotifyAdminAsync(ex);
+                //await NotifyAdminAsync(ex);
             }
         }
 
-        private async Task NotifyAdminAsync(Exception ex)
-        {
-            string errorMessage = $"Exception occurred: {ex.Message}\n\n{ex.StackTrace}";
-            await _botClient.SendTextMessageAsync(_adminChatId, errorMessage);
-        }
+        //private async Task NotifyAdminAsync(Exception ex)
+        //{
+        //    string errorMessage = $"Exception occurred: {ex.Message}\n\n{ex.StackTrace}";
+        //    await _botClient.SendTextMessageAsync(_adminChatId, errorMessage);
+        //}
     }
 }

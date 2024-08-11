@@ -15,10 +15,16 @@ namespace GlobalExceptionHandling
             {
                 if (update.Message.Text == "/throw")
                 {
-                    throw new Exception("Test exception: This is a simulated exception");
-                }
+                    await botClient.SendTextMessageAsync(chatId, "Test exception", cancellationToken: cancellationToken);
+                }                
+            }
 
-                await botClient.SendTextMessageAsync(chatId, "Test exception", cancellationToken: cancellationToken);
+            if (text != null)
+            {
+                if (update.Message.Text == "start")
+                {
+                    await botClient.SendTextMessageAsync(chatId, "Hello Maks", cancellationToken: cancellationToken);
+                }                
             }
         }
 
