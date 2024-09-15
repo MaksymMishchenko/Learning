@@ -2,7 +2,7 @@
 {
     internal class PhoneNumber
     {
-        public PhoneNumber(string number, string name)
+        public PhoneNumber(string name, string number)
         {
             Name = name;
             Number = number;
