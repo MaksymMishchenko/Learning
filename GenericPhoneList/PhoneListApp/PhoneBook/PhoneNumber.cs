@@ -1,6 +1,6 @@
 ﻿namespace PhoneListApp.PhoneBook
 {
-    internal interface PhoneNumber
+    internal interface IPhoneNumber
     {        
         public string Name { get; set; }
         public string Number { get; set; }

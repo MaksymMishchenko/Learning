@@ -2,7 +2,7 @@
 
 namespace PhoneListApp
 {
-    internal class PhoneList<T> where T : PhoneNumber
+    internal class PhoneList<T> where T : IPhoneNumber
     {
         T[] _phList;
         int _end;

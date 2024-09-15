@@ -1,6 +1,6 @@
 ﻿namespace PhoneListApp.PhoneBook
 {
-    internal class Friend : PhoneNumber
+    internal class Friend : IPhoneNumber
     {
         public Friend(string name, string number, bool isWn)
         {

@@ -1,6 +1,6 @@
 ﻿namespace PhoneListApp.PhoneBook
 {
-    internal class Supplier : PhoneNumber
+    internal class Supplier : IPhoneNumber
     {
         public Supplier(string name, string number)
         {
