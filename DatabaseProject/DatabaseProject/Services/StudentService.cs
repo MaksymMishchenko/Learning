@@ -11,6 +11,7 @@ namespace DatabaseProject.Services
         {
             _context = context;
         }
+
         public async Task<bool> AddStudentAsync(Student newStudent)
         {
             _context.Students.Add(newStudent);
