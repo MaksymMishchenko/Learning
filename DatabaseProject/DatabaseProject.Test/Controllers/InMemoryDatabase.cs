@@ -48,7 +48,7 @@ namespace DatabaseProject.Test.Controllers
             var client = factory.CreateClient();
 
             // Act
-            var response = await client.GetAsync("/api/Student/GetAllAsync");
+            var response = await client.GetAsync(HttpHelper.Urls.GetAllStudents);
             var result = await response.Content.ReadFromJsonAsync<List<Student>>();
 
             // Assert
