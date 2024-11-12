@@ -14,11 +14,10 @@ namespace DatabaseProject.Test.Controllers
 {
     public class InMemoryDatabase
     {
-        [Fact]
-        public async Task OnGetStudents_WhenExecuteApi_ShouldReturnExpectedStudents()
+        private WebApplicationFactory<Program> _factory;
+        public InMemoryDatabase()
         {
-            // Arrange
-            var factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
+            _factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
             {
                 builder.ConfigureTestServices(services =>
                 {
@@ -29,13 +28,20 @@ namespace DatabaseProject.Test.Controllers
                     });
                 });
             });
+        }
 
-            using (var scope = factory.Services.CreateScope())
+        [Fact]
+        public async Task OnGetStudents_WhenExecuteApi_ShouldReturnExpectedStudents()
+        {
+            // Arrange            
+
+            using (var scope = _factory.Services.CreateScope())
             {
                 var scopeService = scope.ServiceProvider;
                 var dbContext = scopeService.GetRequiredService<SchoolDbContext>();
 
-                // потрібно переконатися що база існує
+                // потрібно переконатися що база видалена та створена
+                dbContext.Database.EnsureDeleted();
                 dbContext.Database.EnsureCreated();
                 dbContext.Students.Add(new Student
                 {
@@ -47,7 +53,7 @@ namespace DatabaseProject.Test.Controllers
                 dbContext.SaveChanges();
             }
 
-            var client = factory.CreateClient();
+            var client = _factory.CreateClient();
 
             // Act
             var response = await client.GetAsync(HttpHelper.Urls.GetAllStudents);
@@ -65,28 +71,16 @@ namespace DatabaseProject.Test.Controllers
         [Fact]
         public async Task OnAddStudent_WhenExecuteController_ShouldStoreInDb()
         {
-            // Arrange
-            var factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
-            {
-                builder.ConfigureTestServices(services =>
-                {
-                    services.RemoveAll(typeof(DbContextOptions<SchoolDbContext>));
-                    services.AddDbContext<SchoolDbContext>(options =>
-                    {
-                        options.UseInMemoryDatabase("test1");
-                    });
-                });
-            });
-
-            using (var scope = factory.Services.CreateScope())
+            // Arrange            
+            using (var scope = _factory.Services.CreateScope())
             {
                 var scopeService = scope.ServiceProvider;
                 var dbContext = scopeService.GetRequiredService<SchoolDbContext>();
 
+                dbContext.Database.EnsureDeleted();
                 dbContext.Database.EnsureCreated();
-                dbContext.SaveChanges();
             }
-            var client = factory.CreateClient();
+            var client = _factory.CreateClient();
 
             var newStudent = new Student
             {
