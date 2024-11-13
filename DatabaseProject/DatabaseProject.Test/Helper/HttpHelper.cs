@@ -1,7 +1,15 @@
-﻿namespace DatabaseProject.Test.Helper
+﻿using Newtonsoft.Json;
+using System.Text;
+
+namespace DatabaseProject.Test.Helper
 {
     internal class HttpHelper
     {
+        public static StringContent GetJsonHttpContent(object items)
+        {
+            return new StringContent(JsonConvert.SerializeObject(items), Encoding.UTF8, "application/json");
+        }
+
         internal static class Urls
         {
             public readonly static string GetAllStudents = "/api/Student/GetAllAsync";
