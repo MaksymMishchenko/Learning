@@ -5,6 +5,7 @@ Dependencies:
  - Microsoft.EntityFrameworkCore.Design
  - Microsoft.EntityFrameworkCore.SqlServer
  - Microsoft.AspNetCore.Identity.EntityFrameworkCore
+ - Microsoft.AspNetCore.Authentication.JwtBearer
 
 Cmd commands to set EF Core globally
  - dotnet tool list -g

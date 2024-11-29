@@ -20,7 +20,7 @@ namespace AuthDemo.Api.Controllers
         {
             if (await _authService.RegisterUser(user))
             {
-                return Ok("Successfuly done");
+                return Ok("Successfully done");
             }
             return BadRequest("Wrong login credentials");
         }
@@ -34,7 +34,8 @@ namespace AuthDemo.Api.Controllers
             }
             if (await _authService.Login(user))
             {
-                return Ok("Done");
+                var tokenString = _authService.GenerateTokenString(user);
+                return Ok(tokenString);
             }
             return BadRequest();
         }
