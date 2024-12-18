@@ -1,19 +1,20 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using Application.Services.Identity;
+using Application.Services.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Security.Claims;
 
 namespace Application.Ui.Pages.Account
 {
     public class LoginModel : PageModel
     {
+        private readonly IAuthService _authService;
+
         [BindProperty]
         public LoginUser UserCredential { get; set; }
 
-        public LoginModel()
+        public LoginModel(IAuthService authService)
         {
-
+            _authService = authService;
         }
 
         public void OnGet()
@@ -22,32 +23,12 @@ namespace Application.Ui.Pages.Account
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (UserCredential.Username == "admin" && UserCredential.Password == "123")
+            if (await _authService.Login(UserCredential))
             {
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, "Ned Stark"),
-                    new Claim(ClaimTypes.Role, "Admin"),
-                    new Claim("MyClaim 1", "Claim value 1"),
-                    new Claim("MyClaim 2", "Claim value 2"),
-                };
-
-                ClaimsIdentity identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
-                ClaimsPrincipal principal = new ClaimsPrincipal(identity);
-
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
+                await _authService.GenerateCookieAuthentication(UserCredential.UserName);
                 return RedirectToPage("/Index");
             }
             return Page();
         }
-    }
-
-    public class LoginUser
-    {
-        public string Username { get; set; }
-        public string Password { get; set; }
-
     }
 }

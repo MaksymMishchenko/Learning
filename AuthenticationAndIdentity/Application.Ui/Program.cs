@@ -1,20 +1,12 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
+using Application.Services.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//builder.Services
-//    .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-//    .AddCookie();
+builder.Services.AddApplicationServices(
+    builder.Configuration.GetConnectionString("DefaultConnection"));
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
-{
-    options.Cookie.Name = CookieAuthenticationDefaults.AuthenticationScheme;
-    options.Cookie.HttpOnly = false;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
-    options.LoginPath = "/Account/Login";
-    options.AccessDeniedPath = "/Account/AccessDenied";
-    options.SlidingExpiration = true;
-});
+builder.Services.AddApplicationIdentity();
+builder.Services.AddApplicationCookieAuth();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -38,5 +30,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+await app.SeedDataAsync();
 
 app.Run();

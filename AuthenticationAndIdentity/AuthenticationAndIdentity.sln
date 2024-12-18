@@ -8,6 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5C4CFA7A-4D57-4C4D-9E11-434BBEC38858}"
 	ProjectSection(SolutionItems) = preProject
 		ReadMe.md = ReadMe.md
+		..\..\..\ASPNetCode\ASP.NET\002-IdentityAndAuthorization\Role Claim.sql = ..\..\..\ASPNetCode\ASP.NET\002-IdentityAndAuthorization\Role Claim.sql
+		..\..\..\ASPNetCode\ASP.NET\002-IdentityAndAuthorization\Role user.sql = ..\..\..\ASPNetCode\ASP.NET\002-IdentityAndAuthorization\Role user.sql
+		..\..\..\ASPNetCode\ASP.NET\002-IdentityAndAuthorization\User Claim.sql = ..\..\..\ASPNetCode\ASP.NET\002-IdentityAndAuthorization\User Claim.sql
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Services", "Application.Services\Application.Services.csproj", "{535672D9-2803-45ED-B7C3-5F19C37DE343}"

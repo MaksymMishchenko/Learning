@@ -1,5 +1,4 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using Application.Services.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -7,13 +6,16 @@ namespace Application.Ui.Pages.Account
 {
     public class LogoutModel : PageModel
     {
-        public LogoutModel()
+        private readonly IAuthService _authService;
+
+        public LogoutModel(IAuthService authService)
         {
+            _authService = authService;
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            await _authService.Logout();
             return RedirectToPage("/Index");
         }
     }

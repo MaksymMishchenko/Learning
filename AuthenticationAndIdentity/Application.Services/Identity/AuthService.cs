@@ -1,0 +1,99 @@
+﻿using Application.Services.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+
+namespace Application.Services.Identity
+{
+    public class AuthService : IAuthService
+    {
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IHttpContextAccessor _httpContext;
+
+        public AuthService(
+            UserManager<IdentityUser> userManager,
+            RoleManager<IdentityRole> roleManager,
+            IHttpContextAccessor httpContext
+            )
+        {
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _httpContext = httpContext;
+        }
+
+        public async Task GenerateCookieAuthentication(string username)
+        {
+            var claims = await GetClaims(username);
+
+            ClaimsIdentity identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            ClaimsPrincipal principal = new ClaimsPrincipal(identity);
+
+            await _httpContext.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+        }
+
+        private async Task<List<Claim>> GetClaims(string username)
+        {
+            var user = await _userManager.FindByNameAsync(username);
+
+            var claims = new List<Claim>()
+            {
+                new Claim(ClaimTypes.Name, username),
+            };
+
+            claims.AddRange(await _userManager.GetClaimsAsync(user));
+            var roles = await _userManager.GetRolesAsync(user);
+
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+
+                var identityRole = await _roleManager.FindByNameAsync(role);
+                claims.AddRange(await _roleManager.GetClaimsAsync(identityRole));
+            }
+            return claims;
+        }
+
+        public async Task<bool> Login(LoginUser credentials)
+        {
+            var identityUser = await _userManager.FindByNameAsync(credentials.UserName);
+            if (identityUser != null)
+            {
+                return await _userManager.CheckPasswordAsync(identityUser, credentials.Password);
+            }
+            return false;
+        }
+
+        public async Task Logout()
+        {
+            await _httpContext.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        }
+
+        public async Task<bool> RegisterUser(LoginUser user)
+        {
+            var identityUser = new IdentityUser
+            {
+                UserName = user.UserName,
+                Email = user.UserName
+            };
+
+            var result = await _userManager.CreateAsync(identityUser, user.Password);
+            return result.Succeeded;
+        }
+
+        public async Task<bool> AddUserClaims(string user, Claim claim)
+        {
+            var identityUser = await _userManager.FindByNameAsync(user);
+            if (identityUser is null)
+            {
+                return false;
+            }
+
+            var result = await _userManager.AddClaimAsync(identityUser, claim);
+            return result.Succeeded;
+        }
+    }
+}
