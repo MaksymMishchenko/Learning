@@ -10,5 +10,6 @@ namespace Application.Services.Identity
         Task<bool> RegisterUser(LoginUser user);
         Task<bool> AddUserClaims(string user, Claim claim);
         Task GenerateCookieAuthentication(string username);
+        Task<string> GenerateTokenString(string user, JwtConfiguration jwtConfig);
     }
 }

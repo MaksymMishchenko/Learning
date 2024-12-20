@@ -17,6 +17,7 @@ After configuring shared services in the Application.Services project, use the f
 - AddApplicationServices: Registers application-specific services like business logic and repository patterns.
 - AddApplicationIdentity: Configures Identity services, such as user and role management.
 - AddApplicationCookieAuth: Sets up cookie-based authentication for secure user sessions.
+- AddApplicationJwtAuth: Configures JWT-based authentication to enable secure, stateless user authentication, using tokens for API access and ensuring robust validation and claims management. 
 
 In appsettings.json:
  - Add a connection string for ASP.NET Core Identity

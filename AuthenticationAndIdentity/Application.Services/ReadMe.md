@@ -9,6 +9,7 @@ Ensure you install the following NuGet packages:
 - Microsoft.AspNetCore.Identity.EntityFrameworkCore
 - Microsoft.AspNetCore.Identity.UI
 - Microsoft.EntityFrameworkCore.SqlServer
+- Microsoft.AspNetCore.Authentication.JwtBearer
 - Newtonsoft.Json
 
 Setup Instructions
@@ -31,3 +32,4 @@ Implement the following functionality in the AuthService to manage the Identity 
 - GenerateCookieAuthentication: Create cookie-based authentication for user sessions.
 - RegisterUser: Allow users to register new accounts.
 - AddUserClaims: Assign and manage claims for users.
+- GenerateTokenString

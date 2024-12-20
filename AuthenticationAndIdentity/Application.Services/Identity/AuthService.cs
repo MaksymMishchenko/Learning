@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Text;
 
 namespace Application.Services.Identity
 {
@@ -82,6 +85,24 @@ namespace Application.Services.Identity
 
             var result = await _userManager.CreateAsync(identityUser, user.Password);
             return result.Succeeded;
+        }
+
+        public async Task<string> GenerateTokenString(string user, JwtConfiguration jwtConfig)
+        {
+            var claims = await GetClaims(user);
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig.Key));
+
+            var signingCred = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
+
+            var securityToken = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(60),
+                issuer: jwtConfig.Issuer,
+                audience: jwtConfig.Audience,
+                signingCredentials: signingCred);
+
+            string tokenString = new JwtSecurityTokenHandler().WriteToken(securityToken);
+            return tokenString;
         }
 
         public async Task<bool> AddUserClaims(string user, Claim claim)
