@@ -12,7 +12,8 @@ namespace Application.Api.Controllers
         [HttpGet("GetClassRoom")]
         //[Authorize(Roles = "Admin")]
         //[Authorize(Roles = "Admin, Contributor")]
-        [Authorize(Roles = $"{TS.Roles.Admin}, {TS.Roles.Contributor}, {TS.Roles.User}")]
+        //[Authorize(Roles = $"{TS.Roles.Admin}, {TS.Roles.Contributor}, {TS.Roles.User}")]
+        [Authorize(Policy = TS.Policies.ReadPolicy)]
         public string Get()
         {
             return "Get a Class Room";
@@ -20,21 +21,24 @@ namespace Application.Api.Controllers
         
         [HttpPost("AddClassRoom")]
         //[Authorize(Roles = "Admin")]
-        [Authorize(Roles = $"{TS.Roles.Admin}, {TS.Roles.Contributor}")]
+        //[Authorize(Roles = $"{TS.Roles.Admin}, {TS.Roles.Contributor}")]
+        [Authorize(Policy = TS.Policies.ReadAndWritePolicy)]        
         public string Add()
         {
             return "Add a Class Room";
         }
 
         [HttpPut("UpdateClassRoom")]
-        [Authorize(Roles = $"{TS.Roles.Admin}")]
+        //[Authorize(Roles = $"{TS.Roles.Admin}")]
+        [Authorize(Policy = TS.Policies.FullControlPolicy)]
         public string Update()
         {
             return "Update a Class Room";
         }
 
         [HttpDelete("DeleteClassRoom")]
-        [Authorize(Roles = $"{TS.Roles.Admin}")]
+        //[Authorize(Roles = $"{TS.Roles.Admin}")]
+        [Authorize(Policy = TS.Policies.FullControlPolicy)]
         public string Delete()
         {
             return "Delete a Class Room";

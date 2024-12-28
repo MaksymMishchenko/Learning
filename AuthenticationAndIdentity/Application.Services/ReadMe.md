@@ -1,4 +1,5 @@
-﻿Project Overview
+﻿
+Project Overview
 
 The project includes a layer called Application.Services that contains shared services used across the UI, API, and Auth projects. This layer encompasses essential functionalities like business logic and repository patterns.
 
@@ -33,3 +34,19 @@ Implement the following functionality in the AuthService to manage the Identity 
 - RegisterUser: Allow users to register new accounts.
 - AddUserClaims: Assign and manage claims for users.
 - GenerateTokenString
+
+4. Add Helper folder and implement ClaimHelper class witch responsible for serialization and deserialization claims
+
+5. Change GetClaims method - GetClaims separated from the database and deserialize the result of the claims 
+
+6. Policy-Based Authorization Example
+ - This project demonstrates the use of policy-based authorization with requirements, which is a recommended approach by Microsoft for flexible and scalable access control.
+
+7. Custom Authorization Attribute Example
+ - The project includes an example of using a custom authorization attribute to handle specific authorization logic directly within action filters.
+
+8. Convention-Based Requirements Handler Example
+ - The project showcases a ConventionBasedRequirementsHandler, combining generic requirements and custom requirements. This implementation follows code conventions recommended by Microsoft for building reusable and testable authorization logic.
+
+
+

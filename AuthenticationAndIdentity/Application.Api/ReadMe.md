@@ -19,5 +19,6 @@ Steps:
 4. In Program.cs:
  - Add Jwt Authentication to the container and setup custom options
  - Add Authentication middleware
+ - AddApplicationAuthorizations responsible for some policies dependency
 
 5. Using role base authorization to ClassRoomController (TypeSafe)

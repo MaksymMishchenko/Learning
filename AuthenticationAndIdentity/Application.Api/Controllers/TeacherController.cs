@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.Services.Models.TypeSafe;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[CustomAuthorize]
+    [Authorize(Policy = TS.Policies.GenericPolicy)]
     public class TeacherController : ControllerBase
     {
         [HttpGet("GetTeacher")]

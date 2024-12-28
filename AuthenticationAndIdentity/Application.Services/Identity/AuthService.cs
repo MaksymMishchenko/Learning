@@ -1,4 +1,5 @@
-﻿using Application.Services.Models;
+﻿using Application.Services.Helper;
+using Application.Services.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
@@ -47,7 +48,11 @@ namespace Application.Services.Identity
                 new Claim(ClaimTypes.Name, username),
             };
 
-            claims.AddRange(await _userManager.GetClaimsAsync(user));
+            var permissionClaims = new List<Claim>();
+            permissionClaims.AddRange(GetClaimsSeparated(await _userManager.GetClaimsAsync(user)));
+
+            //claims.AddRange(await _userManager.GetClaimsAsync(user));
+            //claims.AddRange(GetClaimsSeparated(await _userManager.GetClaimsAsync(user)));
             var roles = await _userManager.GetRolesAsync(user);
 
             foreach (var role in roles)
@@ -55,8 +60,12 @@ namespace Application.Services.Identity
                 claims.Add(new Claim(ClaimTypes.Role, role));
 
                 var identityRole = await _roleManager.FindByNameAsync(role);
-                claims.AddRange(await _roleManager.GetClaimsAsync(identityRole));
+                permissionClaims.AddRange(GetClaimsSeparated(await _roleManager.GetClaimsAsync(identityRole)));
+                //claims.AddRange(await _roleManager.GetClaimsAsync(identityRole));
+                //claims.AddRange(GetClaimsSeparated(await _roleManager.GetClaimsAsync(identityRole)));
             }
+
+            claims.AddRange(permissionClaims.OrderBy(t => t.Type));
             return claims;
         }
 
@@ -115,6 +124,18 @@ namespace Application.Services.Identity
 
             var result = await _userManager.AddClaimAsync(identityUser, claim);
             return result.Succeeded;
+        }
+
+        private List<Claim> GetClaimsSeparated(IList<Claim> claims)
+        {
+            var result = new List<Claim>();
+
+            foreach (var claim in claims)
+            {
+                result.AddRange(claim.DeserializePermissions().Select(t => new Claim(claim.Type, t.ToString())));
+            }
+            return result;
+
         }
     }
 }

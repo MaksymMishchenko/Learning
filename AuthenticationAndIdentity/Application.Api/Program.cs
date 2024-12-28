@@ -4,6 +4,7 @@ using Application.Services.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApplicationJwtAuth(builder.Configuration.GetSection("Jwt").Get<JwtConfiguration>());
+builder.Services.AddApplicationAuthorization();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

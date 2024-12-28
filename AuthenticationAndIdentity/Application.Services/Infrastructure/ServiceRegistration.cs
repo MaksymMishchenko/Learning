@@ -1,9 +1,12 @@
 ﻿using Application.Services.DataContexts;
+using Application.Services.Helper;
 using Application.Services.Identity;
+using Application.Services.Infrastructure.Authorization.Requirements;
 using Application.Services.Models;
 using Application.Services.Models.TypeSafe;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -104,6 +107,101 @@ namespace Application.Services.Infrastructure
             return services;
         }
 
+        public static IServiceCollection AddApplicationAuthorization(this IServiceCollection services)
+        {
+            services.AddAuthorization(options =>
+            {
+                //Policy - based requirement authorization
+                //ModuleController
+                options.AddPolicy(TS.Policies.FullControlPolicy, policy =>
+                {
+                    policy.Requirements.Add(new AdminRequirements());
+                });
+
+                options.AddPolicy(TS.Policies.ReadAndWritePolicy, policy =>
+                {
+                    policy.Requirements.Add(new ContributorRequirements());
+                });
+
+                options.AddPolicy(TS.Policies.ReadPolicy, policy =>
+                {
+                    policy.Requirements.Add(new UserRequirements());
+                });
+
+
+                options.AddPolicy(TS.Policies.GenericPolicy, policy =>
+                {
+                    policy.Requirements.Add(new ConventionBasedRequirements());
+                });
+
+                //options.AddPolicy(TS.Policies.FullControlPolicy, policy =>
+                //{
+                //    policy.RequireRole(TS.Roles.Admin);
+                //});
+
+                //// add policy for contributor and admin role. In this case its OR. 
+                //options.AddPolicy(TS.Policies.ReadAndWritePolicy, policy =>
+                //{
+                //    policy.RequireRole(
+                //        TS.Roles.Contributor,
+                //        TS.Roles.Admin);
+                //});
+
+                ////In this case we use AND
+
+                ////options.AddPolicy(TS.Policies.ReadAndWritePolicy, policy =>
+                ////{
+                ////    policy.RequireRole(
+                ////        TS.Roles.Contributor);
+                ////    policy.RequireRole(
+                ////        TS.Roles.Admin);
+                ////});
+
+                //options.AddPolicy(TS.Policies.ReadPolicy, policy =>
+                //{
+                //    policy.RequireRole(
+                //        TS.Roles.User,
+                //        TS.Roles.Contributor,
+                //        TS.Roles.Admin);
+                //});
+
+                //// claim-based authorization
+                //options.AddPolicy("ClaimBasedPolicy", policy =>
+                //{
+                //    policy.RequireClaim("Student");
+                //});
+
+                //options.AddPolicy(TS.Policies.FullControlPolicy, policy =>
+                //{
+                //    policy.RequireClaim(TS.Contoller.Student,
+                //        TS.Permissions.Delete.ToString(),
+                //        TS.Permissions.Update.ToString());
+                //});
+
+                //options.AddPolicy(TS.Policies.ReadAndWritePolicy, policy =>
+                //{
+                //    policy.RequireClaim(TS.Contoller.Student,
+                //        TS.Permissions.Write.ToString());
+                //});
+
+                //options.AddPolicy(TS.Policies.ReadPolicy, policy =>
+                //{
+                //    policy.RequireClaim(TS.Contoller.Student,
+                //        TS.Permissions.Read.ToString());
+                //});                
+            });
+
+            //services.AddSingleton<IAuthorizationHandler, AdminRequirementHandler>();
+            //services.AddSingleton<IAuthorizationHandler, ContributorRequirementHandler>();
+            //services.AddSingleton<IAuthorizationHandler, UserRequirementHandler>();
+
+            services.AddSingleton<IAuthorizationHandler, GenericRequirementsHadler>();
+
+            services.AddSingleton<IAuthorizationHandler, ConventionBasedRequirementsHandler>();
+
+            return services;
+        }
+
         public static async Task<IApplicationBuilder> SeedDataAsync(this WebApplication app)
         {
             using (var scope = app.Services.CreateScope())
@@ -137,9 +235,14 @@ namespace Application.Services.Infrastructure
                     await userManager.CreateAsync(user, "123");
 
                     // Adding Claims to Users
-                    await userManager.AddClaimAsync(adminUser, new Claim("AdminClaim_User", "value 1"));
-                    await userManager.AddClaimAsync(contributorUser, new Claim("ContributorClaim_User", "value 2"));
-                    await userManager.AddClaimAsync(user, new Claim("UserClaim_User", "value 3"));
+                    //await userManager.AddClaimAsync(adminUser, new Claim("AdminClaim_User", "value 1"));
+                    //await userManager.AddClaimAsync(contributorUser, new Claim("ContributorClaim_User", "value 2"));
+                    //await userManager.AddClaimAsync(user, new Claim("UserClaim_User", "value 3"));
+
+                    // Adding Claims to Users
+                    await userManager.AddClaimAsync(adminUser, GetAdminClaims(TS.Contoller.Student));
+                    await userManager.AddClaimAsync(contributorUser, GetContributorClaims(TS.Contoller.Student));
+                    await userManager.AddClaimAsync(user, GetUserClaims(TS.Contoller.Student));
 
                     // Adding Roles to Users
                     await userManager.AddToRoleAsync(adminUser, TS.Roles.Admin);
@@ -147,12 +250,52 @@ namespace Application.Services.Infrastructure
                     await userManager.AddToRoleAsync(user, TS.Roles.User);
 
                     // Adding Claims to Roles
-                    await roleManager.AddClaimAsync(adminRole, new Claim("AdminClaim_Role", "value 1"));
-                    await roleManager.AddClaimAsync(contributorRole, new Claim("ContributorClaim_Role", "value 2"));
-                    await roleManager.AddClaimAsync(userRole, new Claim("UserClaim_Role", "value 3"));
+                    //await roleManager.AddClaimAsync(adminRole, new Claim("AdminClaim_Role", "value 1"));
+                    //await roleManager.AddClaimAsync(contributorRole, new Claim("ContributorClaim_Role", "value 2"));
+                    //await roleManager.AddClaimAsync(userRole, new Claim("UserClaim_Role", "value 3"));
+
+                    //Adding Claims to Roles
+                    //await roleManager.AddClaimAsync(adminRole, GetAdminClaims(TS.Contoller.Student));
+                    //await roleManager.AddClaimAsync(contributorRole, GetContributorClaims(TS.Contoller.Student));
+                    //await roleManager.AddClaimAsync(userRole, GetUserClaims(TS.Contoller.Student));
+
+                    await roleManager.AddClaimAsync(adminRole, GetAdminClaims(TS.Contoller.Module));
+                    await roleManager.AddClaimAsync(contributorRole, GetContributorClaims(TS.Contoller.Module));
+                    await roleManager.AddClaimAsync(userRole, GetUserClaims(TS.Contoller.Module));
+
+                    await roleManager.AddClaimAsync(adminRole, GetAdminClaims(TS.Contoller.Teacher));
+                    await roleManager.AddClaimAsync(contributorRole, GetContributorClaims(TS.Contoller.Teacher));
+                    await roleManager.AddClaimAsync(userRole, GetUserClaims(TS.Contoller.Teacher));
                 }
             }
             return app;
+        }
+
+        private static Claim GetAdminClaims(string controllerName)
+        {
+            return new Claim(controllerName, ClaimHelper.SerializePermissions(
+                TS.Permissions.Read,
+                TS.Permissions.Write,
+                TS.Permissions.Update,
+                TS.Permissions.Delete
+                ));
+        }
+
+        private static Claim GetContributorClaims(string controllerName)
+        {
+            return new Claim(controllerName,
+                        ClaimHelper.SerializePermissions(
+                            TS.Permissions.Read,
+                            TS.Permissions.Write
+                        ));
+        }
+
+        private static Claim GetUserClaims(string controllerName)
+        {
+            return new Claim(controllerName,
+                        ClaimHelper.SerializePermissions(
+                            TS.Permissions.Read
+                        ));
         }
     }
 }
