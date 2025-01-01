@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Ui", "Application.Ui\Application.Ui.csproj", "{4594F7BA-B420-4F84-AF24-951407A85984}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5C4CFA7A-4D57-4C4D-9E11-434BBEC38858}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\FLEX\Downloads\New folder (86)\Auth request collection.postman_collection.json = C:\Users\FLEX\Downloads\New folder (86)\Auth request collection.postman_collection.json
+		ReadMe.md = ReadMe.md
+		..\..\..\ASPNetCode\ASP.NET\002-IdentityAndAuthorization\Role Claim.sql = ..\..\..\ASPNetCode\ASP.NET\002-IdentityAndAuthorization\Role Claim.sql
+		..\..\..\ASPNetCode\ASP.NET\002-IdentityAndAuthorization\Role user.sql = ..\..\..\ASPNetCode\ASP.NET\002-IdentityAndAuthorization\Role user.sql
+		..\..\..\ASPNetCode\ASP.NET\002-IdentityAndAuthorization\User Claim.sql = ..\..\..\ASPNetCode\ASP.NET\002-IdentityAndAuthorization\User Claim.sql
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Services", "Application.Services\Application.Services.csproj", "{535672D9-2803-45ED-B7C3-5F19C37DE343}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Auth", "Application.Auth\Application.Auth.csproj", "{C52568C5-FF6A-4770-B031-C8B2B3B70607}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Api", "Application.Api\Application.Api.csproj", "{D9610070-F84F-439A-93D1-624D42463A3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4594F7BA-B420-4F84-AF24-951407A85984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4594F7BA-B420-4F84-AF24-951407A85984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4594F7BA-B420-4F84-AF24-951407A85984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4594F7BA-B420-4F84-AF24-951407A85984}.Release|Any CPU.Build.0 = Release|Any CPU
+		{535672D9-2803-45ED-B7C3-5F19C37DE343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{535672D9-2803-45ED-B7C3-5F19C37DE343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{535672D9-2803-45ED-B7C3-5F19C37DE343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{535672D9-2803-45ED-B7C3-5F19C37DE343}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C52568C5-FF6A-4770-B031-C8B2B3B70607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C52568C5-FF6A-4770-B031-C8B2B3B70607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C52568C5-FF6A-4770-B031-C8B2B3B70607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C52568C5-FF6A-4770-B031-C8B2B3B70607}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9610070-F84F-439A-93D1-624D42463A3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9610070-F84F-439A-93D1-624D42463A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9610070-F84F-439A-93D1-624D42463A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9610070-F84F-439A-93D1-624D42463A3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3A7B332-0BA5-4C6F-B80C-8491A476D052}
+	EndGlobalSection
+EndGlobal

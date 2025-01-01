@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "561fc407-b34f-4236-ae85-b20ec5156763",
+		"name": "RefreshToken",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40053538"
+	},
+	"item": [
+		{
+			"name": "AuthController",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\": \"admin\",\r\n  \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5207/api/Auth/Register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5207",
+							"path": [
+								"api",
+								"Auth",
+								"Register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Перевірка, чи є токен у відповіді\r",
+									"if (pm.response.code === 200) {\r",
+									"    var jsonResponse = pm.response.json();\r",
+									"    // Зберігаємо refreshToken в змінну середовища\r",
+									"    pm.environment.set(\"JwtToken\", jsonResponse.jwtToken);  // Замість 'token' вкажіть точну назву поля\r",
+									"    // Зберігаємо refreshToken в змінну середовища\r",
+									"    pm.environment.set(\"RefreshToken\", jsonResponse.refreshToken);  // Замість 'refreshToken' вкажіть точну назву поля\r",
+									"} else {\r",
+									"    console.error(\"Error fetching token: \", pm.response.status);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\": \"admin\",\r\n  \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7294/api/Auth/Login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7294",
+							"path": [
+								"api",
+								"Auth",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RefreshToken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Перевірка, чи є токен у відповіді\r",
+									"if (pm.response.code === 200) {\r",
+									"    var jsonResponse = pm.response.json();\r",
+									"    // Зберігаємо refreshToken в змінну середовища\r",
+									"    pm.environment.set(\"JwtToken\", jsonResponse.jwtToken);  // Замість 'token' вкажіть точну назву поля\r",
+									"    // Зберігаємо refreshToken в змінну середовища\r",
+									"    pm.environment.set(\"RefreshToken\", jsonResponse.refreshToken);  // Замість 'refreshToken' вкажіть точну назву поля\r",
+									"} else {\r",
+									"    console.error(\"Error fetching token: \", pm.response.status);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jwtToken\": \"{{JwtToken}}\",\r\n    \"refreshToken\": \"{{RefreshToken}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7294/api/Auth/RefreshToken",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7294",
+							"path": [
+								"api",
+								"Auth",
+								"RefreshToken"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TestController",
+			"item": [
+				{
+					"name": "Test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7294/api/Test/Test",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7294",
+							"path": [
+								"api",
+								"Test",
+								"Test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AuthorizedTest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7294/api/Test/AuthorizedTest",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7294",
+							"path": [
+								"api",
+								"Test",
+								"AuthorizedTest"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
