@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryCleanerApp", "MemoryCleanerApp\MemoryCleanerApp.csproj", "{E30AE35D-E801-4FD4-B33B-405A778D1958}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E30AE35D-E801-4FD4-B33B-405A778D1958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E30AE35D-E801-4FD4-B33B-405A778D1958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E30AE35D-E801-4FD4-B33B-405A778D1958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E30AE35D-E801-4FD4-B33B-405A778D1958}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D95ABA6-0084-40B8-B58A-1DB979CEC220}
+	EndGlobalSection
+EndGlobal
