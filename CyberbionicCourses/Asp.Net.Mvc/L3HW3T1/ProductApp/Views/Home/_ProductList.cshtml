@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Product>
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "ProductList";
+}
+<h1>Product List</h1>
+<div>
+@foreach (var item in Model)
+{
+    <ul>
+        <li><strong>Product id:</strong> @item.Id</li>
+        <li><strong>Product name:</strong> @item.Name</li>
+        <li><strong>Product price:</strong> @item.Price.ToString("c")</li>
+        <li><strong>Product create date:</strong> @item.CreatedDate</li>
+    </ul>
+}
+</div>
+
+
