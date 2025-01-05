@@ -1,0 +1,21 @@
+<app-alert></app-alert>
+<header class="page-header">
+    <div class="header">
+        <h1>Cycling-blog.com</h1>
+    </div>
+</header>
+<nav *ngIf="auth.isAuthenticated()" class="menu" id="main-menu">
+    <button class="menu-toggle" (click)="dropdownMenu($event)">collapse menu</button>
+    <div class="menu-dropdown">
+        <ul class="nav-menu">
+            <li routerLinkActive="active"><a [routerLink]="['/admin', 'dashboard']">Dashboard</a></li>
+            <li routerLinkActive="active"><a [routerLink]="['/admin', 'create']">Create</a></li>
+            <li><a href="#" (click)="logout($event)">Log out</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="main-content">
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+</div>

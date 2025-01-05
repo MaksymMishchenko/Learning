@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Simple calculator";
+}
+
+<h1>Welcome to simple calculator</h1>
+<h2>Chose your action to get the result!</h2>
+
+<p><strong>Your Result: </strong> @ViewBag.Result</p>
+
+<p>@Html.ActionLink("Addiction", "Add", "Calc", new { x = 10, y = 20 }, null)</p>
+<p>@Html.ActionLink("Subtraction", "Sub", "Calc", new { x = 10, y = 3 }, null)</p>
+<p>@Html.ActionLink("Multiple", "Mul", "Calc", new { x = 5, y = 5 }, null)</p>
+<p>@Html.ActionLink("Division", "Div", "Calc", new { x = 10, y = 2 }, null)</p>
+

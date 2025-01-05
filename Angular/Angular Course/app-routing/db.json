@@ -1,0 +1,31 @@
+{
+  "stocks": [
+    {
+      "id": 1,
+      "name": "Stock - 1",
+      "code": "ABC",
+      "price": 45,
+      "previousPrice": 85,
+      "exchange": "DFDSCX",
+      "favorite": false
+    },
+    {
+      "id": 2,
+      "name": "Stock - 2",
+      "code": "CBA",
+      "price": 25,
+      "previousPrice": 79,
+      "exchange": "DFDGF",
+      "favorite": false
+    },
+    {
+      "id": 3,
+      "name": "Stock - 3",
+      "code": "BAR",
+      "price": 75,
+      "previousPrice": 132,
+      "exchange": "FRYSCX",
+      "favorite": false
+    }
+  ]
+}

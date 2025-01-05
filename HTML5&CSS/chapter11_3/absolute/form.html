@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>The Starbuzz Bean Machine</title>
+  <link rel="stylesheet" href="starbuzz.css">
+  <link rel="stylesheet" href="styledform.css">
+</head>
+
+<body>
+
+  <h1>The Starbuzz Bean Machine</h1>
+  <h2>Fill out the form below and click submit to order</h2>
+
+  <form action="http://starbuzzcoffee.com/processorder.php" method="POST">
+
+    <div class="tableRow">
+      <p>Choose coffee:</p>
+      <p>
+        <select name="beans" id="beans">
+          <option value="homemixture">Homemade mixture</option>
+          <option value="bolivia">Bolivia</option>
+          <option value="guatemala">Guatemala</option>
+          <option value="kenya">Kenya</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="tableRow">
+      <p>Type:</p>
+      <p>
+        <input type="radio" name="beantype" value="In grains" checked="checked">In grains <br>
+        <input type="radio" name="beantype" value="Powdered">Powdered
+      </p>
+    </div>
+
+    <div class="tableRow">
+      <p>Bags count:</p>
+      <p><input type="number" name="bags" id="" min="1" max="10"></p>
+    </div>
+
+    <div class="tableRow label">
+      <p>By date:</p>
+      <p><input type="date" name="date" id=""></p>
+    </div>
+
+    <div class="tableRow">
+      <p>Addition service:</p>
+      <p>
+        <input type="checkbox" name="extras[]" id="" value="Gift packaging">Gift packaging <br>
+        <input type="checkbox" name="extras[]" id="" value="Catalog" checked="checked">Catalog
+      </p>
+    </div>
+
+    <div class="tableRow">
+      <p class="heading">Ship to:</p>
+      <p></p>
+    </div>
+
+    <div class="tableRow">
+      <p>Name:</p>
+      <p><input type="text" name="name" maxlength="25" placeholder="Maks" required></p>
+    </div>
+
+    <div class="tableRow">
+      <p>Address:</p>
+      <p><input type="text" name="address" placeholder="Vinnicka, 99 flat: 35" required></p>
+    </div>
+
+    <div class="tableRow">
+      <p>City:</p>
+      <p><input type="text" name="city" maxlength="25" placeholder="Berdichev" required></p>
+    </div>
+
+    <div class="tableRow">
+      <p> Country:</p>
+      <p><input type="text" name="state" maxlength="25" placeholder="Ukraine" required></p>
+    </div>
+
+    <div class="tableRow">
+      <p>Post index:</p>
+      <p><input type="text" name="zip" placeholder="13300"></p>
+    </div>
+
+    <div class="tableRow">
+      <p>Telephone:</p>
+      <p><input type="tel" name="phone" maxlength="20" placeholder="+38 067 000 00 00" required></p>
+    </div>
+
+    <div class="tableRow">
+      <p>Client comments:</p>
+      <p><textarea name="comments" id="" cols="30" rows="10">Your comment here...</textarea></p>
+    </div>
+
+    <div class="tableRow">
+      <p></p>
+      <p><input type="submit" value="Order now"></p>
+    </div>
+
+  </form>
+
+</body>
+
+</html>

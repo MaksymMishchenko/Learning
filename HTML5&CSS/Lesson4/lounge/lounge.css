@@ -1,0 +1,114 @@
+/* Lounge cascading stylesheet */
+
+body {
+    background-color: aliceblue;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 2px dotted black;
+    padding: 10px 10px 10px 10px;
+    font: small/1.6em Verdana, Arial, Helvetica, Tahoma, sans-serif;
+}
+
+#nav {
+    text-align: center;
+}
+
+h1,
+h2 {
+    color: aqua;
+}
+
+h1 {
+    font-size: 150%;
+    border-bottom: thin dashed aquamarine;
+}
+
+h2 {
+    font-size: 130%;
+    border-bottom: thin dashed aquamarine;
+}
+
+div {
+    text-align: center;
+}
+
+p {
+    color: maroon
+}
+
+#guarantee {
+    background-color: aquamarine;
+    font-style: italic;
+    margin: 30px;
+    margin-right: 250px;
+    padding: 25px;
+    padding-left: 80px;
+    border: 3px dashed white;
+    border-top-right-radius: 2em;
+    border-bottom-left-radius: 2em;
+    line-height: 1.9em;
+    color: #444;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    background-image: url(../lounge/img/background.gif);
+    background-repeat: no-repeat;
+    background-position: top left;
+}
+
+.greentea {
+    color: green;
+}
+
+.blue {
+    color: blue;
+}
+
+.purple {
+    color: purple;
+}
+
+#footer {
+    color: green;
+    font-size: 50%;
+    line-height: normal;
+    margin-top: 30px;
+}
+
+#elixirs {
+    border: solid thin #007e7e;
+    padding: 0px 20px 20px 20px;
+    width: 200px;
+    text-align: center;
+    line-height: 1;
+    margin-left: 20px;
+    background-image: url(../lounge/img/cocktail.gif) white repeat-x;
+    float: right;
+}
+
+#elixirs h2 {
+    color: black;
+}
+
+#elixirs h3 {
+    color: #d12c47;
+}
+
+#elixirs a:link {
+    color: #007e7e;
+}
+
+#elixirs a:visited {
+    color: #333;
+}
+
+#elixirs a:hover {
+    background: #f88396;
+    color: #0d5353;
+}
+
+.cd {
+    font-style: italic;
+}
+
+.artist {
+    font-weight: bold;
+}
