@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Angular Pipes</h1>
+  <h2>Search</h2>
+  <button class="btn" (click)="searchField = 'title'">Title</button>
+  <button class="btn" (click)="searchField = 'text'">Text</button>
+  <hr />
+  <button class="btn" (click)="addPost()">Add post</button>
+  <button class="btn" (click)="stop()">Stop Interval</button>
+  <hr />
+  <h2>AppCounterService: {{appCounterService.counter}}</h2>
+  <button class="btn" (click)="appCounterService.increase()">+</button>
+  <button class="btn" (click)="appCounterService.decrease()">-</button>
+
+  <h2>LocalCounterService: {{localCounterService.counter}}</h2>
+  <button class="btn" (click)="localCounterService.increase()">+</button>
+  <button class="btn" (click)="localCounterService.decrease()">-</button>
+  
+  <hr />
+  <app-counter></app-counter>
+
+
+  <input type="text" [(ngModel)]="search">
+  <div class="card" *ngFor="let post of posts | filter:search:searchField">
+    <h3>Title: {{post.title}}</h3>
+    <p>Text: {{post.text}}</p>
+    <p>Category: {{post.text}}</p>
+    <p>Author: {{ author | async}}</p>
+    <p>Publish date: {{ date | async | date:'MM:dd:YYYY'}}</p>
+  </div>
+</div>

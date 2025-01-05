@@ -1,0 +1,37 @@
+table {
+    width: 100%;
+}
+
+tr:nth-child(odd) {
+    background-color: #f3efef;
+}
+
+@media (max-width: 30em) {
+
+    table,
+    thead,
+    tbody,
+    tr,
+    th,
+    td {
+        display: block;
+    }
+
+    thead th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border-bottom: 3px dashed var(--pink-color);
+        padding-bottom: 1em;
+        margin-bottom: 1em;
+    }
+
+    input {
+        width: 100%;
+        margin-bottom: 0.5em;
+    }  
+}
+

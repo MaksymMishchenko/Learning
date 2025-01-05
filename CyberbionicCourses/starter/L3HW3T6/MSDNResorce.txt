@@ -1,0 +1,18 @@
+Task 6
+Go to the MSDN website.
+Using the MSDN search engines, find your own topic description for each example that was discussed in the lesson, as described below, in the Recommended Resources section, for the description of this lesson. Save the links and give them a short description.
+
+
+Solution:
+Tupe and Variables: https://docs.microsoft.com/ru-ru/dotnet/csharp/tour-of-csharp/types-and-variables
+Constants: https://docs.microsoft.com/ru-ru/dotnet/csharp/programming-guide/classes-and-structs/how-to-define-constants
+Casting: https://docs.microsoft.com/ru-ru/dotnet/csharp/programming-guide/types/casting-and-type-conversions
+Arithmetic Operators: https://docs.microsoft.com/ru-ru/dotnet/csharp/language-reference/operators/arithmetic-operators
+Metod Math.sqrt: https://docs.microsoft.com/ru-ru/dotnet/api/system.math.sqrt?view=netcore-3.1
+Metod Math.Pow: https://docs.microsoft.com/ru-ru/dotnet/api/system.math.pow?view=netcore-3.1
+Сomparison operators:https://docs.microsoft.com/ru-ru/dotnet/csharp/language-reference/operators/comparison-operators
+Cheked & Uncheked: https://docs.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/checked-and-unchecked
+Concatination: https://docs.microsoft.com/ru-ru/dotnet/api/system.string.concat?view=netcore-3.1
+Composite Formating: https://docs.microsoft.com/ru-ru/dotnet/standard/base-types/composite-formatting?view=netcore-3.1
+Operator sizeof: https://docs.microsoft.com/ru-ru/dotnet/csharp/language-reference/operators/sizeof
+Type Var: https://docs.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/var

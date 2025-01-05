@@ -1,0 +1,76 @@
+<div *ngIf="form; else loading">
+    <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+        <h1>Update post</h1>
+        <div class="form-control" [ngClass]="{invalid: title?.invalid && (title?.dirty || title?.touched)}">
+            <label for="title">Title:*</label>
+            <input id="title" type="text" formControlName="title">
+            <div class="validation" *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+                <small *ngIf="title?.errors?.['required']">Field title is required</small>
+            </div>
+        </div>
+        <div class="form-control"
+            [ngClass]="{invalid: selectCategory?.invalid && (selectCategory?.dirty || selectCategory?.touched)}"
+            formGroupName="selectCategory">
+            <label for="category">Category:*</label>
+            <select id="category" formControlName="category">
+                <option value="mtb">MTB</option>
+                <option value="gravel">Gravel</option>
+                <option value="road">Road</option>
+            </select>
+            <div class="validation"
+                *ngIf="selectCategory?.invalid && (selectCategory?.dirty || selectCategory?.touched)">
+                <small *ngIf="selectCategory?.errors?.['required']">Field category is
+                    required</small>
+            </div>
+        </div>
+
+        <div class="form-control" [ngClass]="{invalid: title?.invalid && (title?.dirty || title?.touched)}">
+            <label for="title">Title:*</label>
+            <input id="title" type="text" formControlName="title">
+            <div class="validation" *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+                <small *ngIf="title?.errors?.['required']">Field title is required</small>
+            </div>
+        </div>
+
+        <div class="form-control" [ngClass]="{invalid: text?.invalid && (text?.dirty || text?.touched)}">
+            <label>Post text:*</label>
+            <quill-editor formControlName="text"></quill-editor>
+            <div class="validation" *ngIf="text?.invalid && (text?.dirty || text?.touched)">
+                <small *ngIf="text?.errors?.['required']">Field text is required</small>
+            </div>
+        </div>
+
+        <div class="seo">
+            <h4>SEO</h4>
+            <div class="form-control">
+                <label for="metaTitle">Meta title:</label>
+                <input id="metaTitle" type="text" formControlName="metaTitle">
+            </div>
+
+            <div class="form-control">
+                <label for="metaDescription">Meta description:</label>
+                <textarea id="metaDescription" type="text" formControlName="metaDescription"></textarea>
+            </div>
+        </div>
+
+        <div class="form-control" [ngClass]="{invalid: image?.invalid && (image?.dirty || image?.touched)}">
+            <label for="image">Url image:*</label>
+            <input id="image" type="text" formControlName="image">
+            <div class="validation" *ngIf="image?.invalid && (image?.dirty || image?.touched)">
+                <small *ngIf="image?.errors?.['required']">Field image is required</small>
+                <small *ngIf="image?.errors?.['pattern']">Please provide valid url</small>
+            </div>
+        </div>
+        <div class="form-control" [ngClass]="{invalid: author?.invalid && (author?.dirty || author?.touched)}">
+            <label for="author">Post author:*</label>
+            <input id="author" type="text" formControlName="author">
+            <div class="validation" *ngIf="author?.invalid && (author?.dirty || author?.touched)">
+                <small *ngIf="author?.errors?.['required']">Field author is required</small>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-block btn-dark" [disabled]="form.invalid || submitted">Update post</button>
+    </form>
+</div>
+<ng-template #loading>
+    <p class="centered">Loading...</p>
+</ng-template>

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<div>
+    <h1>Product list</h1>
+    <table align="center">
+        <tr class="title">
+                <td>Id: </td>
+                <td>Product name: </td>
+                <td>Product Price: </td>
+                <td>Product Description: </td>
+            </tr>
+
+        @foreach (Product item in Model)
+        {            
+            <tr>                
+                <td><p>@item.Id</p></td>
+                <td><p>@item.Name</p></td>
+                <td><p>@item.Price.ToString("c")</p></td>
+                <td><p>@item.Description</p></td>
+            </tr>
+        }
+
+    </table>
+</div>

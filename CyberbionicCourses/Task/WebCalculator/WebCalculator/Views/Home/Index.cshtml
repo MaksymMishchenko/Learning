@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Calculate</h1>
+
+    <form method="post" action="~/Home/Function">
+        <label>Первое число: </label><br />
+        <input type="number" name="numberA" /><br />
+        <label>Операция: </label><br />
+        <select name="operations">
+            <option>+</option>
+            <option>-</option>
+        </select>
+        <br />
+        <label>Второе число: </label><br />
+        <input type="number" name="numberB" /><br />
+        <input type="submit" value="Подсчитать">
+    </form>
+
+</div>
+
+

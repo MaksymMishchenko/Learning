@@ -1,0 +1,13 @@
+<nav class="menu" id="main-menu">
+    <button class="menu-toggle" id="toggle-menu" (click)="dropdownMenuOpen($event)">згорнути меню</button>
+    <div class="menu-dropdown">
+        <ul class="nav-menu">
+            <li routerLinkActive="activeLink"><a routerLink="/"
+                    (click)="dropdownMenuClose($event)">Головна</a></li>
+            <li routerLinkActive="activeLink"><a routerLink="/portfolio"
+                    (click)="dropdownMenuClose($event)">Портфоліо</a></li>
+            <li routerLinkActive="activeLink"><a routerLink="/contact-us" (click)="dropdownMenuClose($event)">Залишити
+                    заявку</a></li>
+        </ul>
+    </div>
+</nav>

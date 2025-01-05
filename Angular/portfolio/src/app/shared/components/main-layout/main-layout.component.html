@@ -1,0 +1,21 @@
+<header id="header" class="page-header">
+    <div class="title">
+        <h1 routerLink="/portfolio">Photography</h1>
+    </div>
+    <div class="tel">
+        <a href="tel:0674153598">(067)
+            415-35-98</a>
+    </div>
+
+    <div class="button">
+        <button (click)="gotoToContactForm()">Залишити заявку</button>
+    </div>
+</header>
+<app-nav></app-nav>
+<aside id="hero" class="hero">
+    Предметна зйомка вашого продукту
+</aside>
+<main id="main">
+    <router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>

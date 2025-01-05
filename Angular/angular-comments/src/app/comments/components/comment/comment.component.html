@@ -1,0 +1,20 @@
+<div class="comment">
+    <div class="comment-image-container">
+        <img src="/assets/user-icon.png" alt="user icon" />
+    </div>
+    <div class="comment-right-part">
+        <div class="comment-content">
+            <div class="comment-author">{{comment.username}}</div>
+        </div>
+        <div class="comment-text">{{comment.body}}</div>
+        COMMENT FORM EDITING
+        <div class="comment-actions">
+            <div *ngIf="canReply" class="comment-action"
+                (click)="setActiveComment.emit({id: comment.id, type: activeCommentType.replying})">Reply</div>
+            <div *ngIf="canEdit" class="comment-action"
+                (click)="setActiveComment.emit({id: comment.id, type: activeCommentType.editing})">Edit</div>
+            <div *ngIf="canDelete" class="comment-action">Delete</div>
+        </div>
+        COMMENT FORM REPLYING REPLIES
+    </div>
+</div>
