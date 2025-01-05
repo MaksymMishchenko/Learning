@@ -1,0 +1,40 @@
+{
+  "stocks": [
+    {
+      "id": 1,
+      "name": "Stock - 1",
+      "code": "ABC",
+      "price": 85,
+      "previousPrice": 35,
+      "exchange": "GREWA",
+      "favorite": false
+    },
+    {
+      "id": 2,
+      "name": "Stock - 2",
+      "code": "CBA",
+      "price": 48,
+      "previousPrice": 35,
+      "exchange": "GREWA",
+      "favorite": false
+    },
+    {
+      "id": 3,
+      "name": "Stock - 3",
+      "code": "BAR",
+      "price": 65,
+      "previousPrice": 35,
+      "exchange": "GREWA",
+      "favorite": false
+    },
+    {
+      "id": 6,
+      "name": "dcd",
+      "code": "cdcdc",
+      "price": "42",
+      "previousPrice": 0,
+      "exchange": "fvfvfvfv",
+      "favorite": false
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArithOperProgram", "ArithOperProgram.csproj", "{2C33C2BF-4A17-4A73-877E-014CD8EFDD3A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7C1E0CBF-BA5D-4A74-89AD-4DCFF3947235}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C33C2BF-4A17-4A73-877E-014CD8EFDD3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C33C2BF-4A17-4A73-877E-014CD8EFDD3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C33C2BF-4A17-4A73-877E-014CD8EFDD3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C33C2BF-4A17-4A73-877E-014CD8EFDD3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD779B7E-1018-471E-98D0-A451B9D951F2}
+	EndGlobalSection
+EndGlobal

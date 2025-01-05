@@ -1,0 +1,5 @@
+Using Loop construction: https://docs.microsoft.com/ru-ru/dotnet/csharp/tutorials/intro-to-csharp/branches-and-loops
+
+Operator GoTo: https://docs.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/goto
+Operator Continue: https://docs.microsoft.com/ru-ru/dotnet/csharp/language-reference/keywords/continue
+Factorial: https://docs.microsoft.com/ru-ru/powerquery-m/number-factorial

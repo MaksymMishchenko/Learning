@@ -1,0 +1,18 @@
+﻿@using SportsStore.WebUI.HtmlHelpers
+@model SportsStore.WebUI.Models.ProductsListViewModel
+
+@{
+    ViewData["Title"] = "Product List";
+}
+
+@foreach (var product in Model.Products!)
+{
+   await Html.RenderPartialAsync("_ProductSummary", product);
+}
+
+<div class="pager">
+    @Html.PagingLinks(Model.PagingInfo!, x => Url.Action("List", new { page = x, category = Model.CurrentCategory })!)
+</div>
+
+
+
