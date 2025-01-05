@@ -1,0 +1,43 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+table {
+    width: 500px; /* Ширина таблицы */
+    border-top: 2px solid #000; /* Линия сверху таблицы */
+    border-bottom: 2px solid #000; /* Линия внизу таблицы */
+    margin: auto;
+}
+
+td, th {
+    padding: 3px; /* Поля вокруг содержимого ячеек */
+}
+
+th {
+    text-align: left; /* Выравнивание текста по левому краю */
+    border-bottom: 1px solid #000; /* Линия под верхним заголовком */
+}
+
+h1 {
+    margin: auto;
+}
+
+div {
+    position: relative;
+    margin: 0 auto;
+}

@@ -1,0 +1,11 @@
+﻿@using SportsStoreAPP.TagHelpers
+@model ProductListViewModel
+
+@foreach (var p in Model.Products!)
+{
+    await Html.RenderPartialAsync("_ProductSummary", p);
+}
+
+<div class="pager">
+    @Html.PagingLinks(Model.PagingInfo!, x => Url.Action("List", new { productPage = x, category = Model.CurrentCategory })!)
+</div>

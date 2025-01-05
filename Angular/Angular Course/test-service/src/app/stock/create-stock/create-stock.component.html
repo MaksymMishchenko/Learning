@@ -1,0 +1,30 @@
+<h1>Form</h1>
+<div class="message">{{message}}</div>
+<form [formGroup]="form" (ngSubmit)="createStock()">
+    <div class="form-control">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" formControlName="name">
+    </div>
+
+    <div class="form-control">
+        <label for="code">Code: </label>
+        <input type="text" name="code" id="code" formControlName="code">
+    </div>
+
+    <div class="form-control">
+        <label for="price">Price: </label>
+        <input type="text" name="price" id="price" formControlName="price">
+    </div>
+
+    <div class="form-control">
+        <label for="previousPrice">PreviousPrice: </label>
+        <input type="text" name="previousPrice" id="previousPrice" formControlName="previousPrice">
+    </div>
+
+    <div class="form-control">
+        <label for="exchange">Exchange: </label>
+        <input type="text" name="exchange" id="exchange" formControlName="exchange">
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>

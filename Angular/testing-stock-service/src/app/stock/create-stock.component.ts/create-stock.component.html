@@ -1,0 +1,16 @@
+
+<div class="message" *ngIf="message">{{message}}</div>
+<form [formGroup]="form" (ngSubmit)="createStock()">
+
+    <div class="form-control">
+        <label for="id">Id: </label>
+        <input type="text" name="id" id="id" formControlName="id">
+    </div>
+
+    <div class="form-control">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" formControlName="name">
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Create</button>
+</form>

@@ -1,0 +1,29 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function showArray() {
+            var array = ["Maks", "Artur", "Michael"];
+            var del = array.splice();
+            
+
+            var p = document.getElementById("names");
+            p.innerHTML = array;
+        }
+
+        window.onload = showArray;
+    </script>
+</head>
+
+<body>
+
+    <p id="names"></p>
+
+</body>
+
+</html>
