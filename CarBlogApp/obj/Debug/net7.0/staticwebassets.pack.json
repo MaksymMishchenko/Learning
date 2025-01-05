@@ -1,0 +1,125 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\CarBlogApp.bundle.scp.css",
+      "PackagePath": "staticwebassets\\CarBlogApp.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\files\\sample.pdf",
+      "PackagePath": "staticwebassets\\files\\sample.pdf"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\images\\magazine.jpg",
+      "PackagePath": "staticwebassets\\images\\magazine.jpg"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\images\\media-img.jpg",
+      "PackagePath": "staticwebassets\\images\\media-img.jpg"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\uploads\\2c81cee2-e182-4a92-8945-591a8b4fa629media-img.jpg",
+      "PackagePath": "staticwebassets\\uploads\\2c81cee2-e182-4a92-8945-591a8b4fa629media-img.jpg"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\uploads\\4860e25c-ce89-4973-b414-566bedd70d72media-img.jpg",
+      "PackagePath": "staticwebassets\\uploads\\4860e25c-ce89-4973-b414-566bedd70d72media-img.jpg"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\uploads\\7804e06c-3fd6-45e7-aa7b-ad3c56c77f67media-img.jpg",
+      "PackagePath": "staticwebassets\\uploads\\7804e06c-3fd6-45e7-aa7b-ad3c56c77f67media-img.jpg"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\uploads\\85ffff59-2712-425d-9d1c-97901823212fmedia-img.jpg",
+      "PackagePath": "staticwebassets\\uploads\\85ffff59-2712-425d-9d1c-97901823212fmedia-img.jpg"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\uploads\\c7265b54-1981-462f-9a4c-1e000f327296media-img.jpg",
+      "PackagePath": "staticwebassets\\uploads\\c7265b54-1981-462f-9a4c-1e000f327296media-img.jpg"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\uploads\\default.jpg",
+      "PackagePath": "staticwebassets\\uploads\\default.jpg"
+    },
+    {
+      "Id": "D:\\Education\\Projects\\CarBlogApp\\wwwroot\\uploads\\media-img.jpg",
+      "PackagePath": "staticwebassets\\uploads\\media-img.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.CarBlogApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.CarBlogApp.props",
+      "PackagePath": "build\\CarBlogApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.CarBlogApp.props",
+      "PackagePath": "buildMultiTargeting\\CarBlogApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.CarBlogApp.props",
+      "PackagePath": "buildTransitive\\CarBlogApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
